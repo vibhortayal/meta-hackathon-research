@@ -1,5 +1,7 @@
 # Hackathon idea landscape research
 
+> Note: this is the early prior-art study for the energy retrofit, repair agent and robot planner ideas. The chosen idea is now the live expert guide; see `build-plan.md`. The energy retrofit agent is the fallback.
+
 Oct 26, 2026 · @Vibhor Tayal
 
 ## Verdict

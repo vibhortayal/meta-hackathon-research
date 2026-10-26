@@ -1,5 +1,7 @@
 # Idea shortlist and recommendation
 
+> Update (later on 2026-10-26): the chosen idea has since been reframed as a live expert guide with a fade-out and optional real expert voice. See `build-plan.md` (current plan) and `problem-framing.md`. The scoring below reflects the earlier "skill-transfer coach" framing and is kept for the record.
+
 As of 2026-10-26. Built from past Meta hackathon winners, Meta's Connect 2026 announcements, public GitHub repos of other entrants, and prior-art searches. Scores are my judgement against the published rubric, not data. Most web findings come from search summaries, and vendor claims are unverified.
 
 ## Recommendation
