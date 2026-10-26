@@ -2,6 +2,9 @@
 
 2026-10-26. One test harness and one set of pass marks for the live guide, so the same engine can be judged on a cooking task and on a flat-pack assembly task. Marks come from `build-plan.md` (day-1 test) and are applied equally. Spikes are throwaway; product code starts Oct 27. **Every vision test needs the Meta API key, which waits on credit approval.** Everything before the first API call (buying, filming, labeling, writing the harness) can be done now.
 
+## 0. The product is the live loop (Vibhor, Oct 26)
+Recording is not valuable for this use case. The product is a **live camera feed**: the browser samples a frame every 1 to 2 seconds, sends the latest few frames plus the current step and recent history to Spark, and speaks the reply. There is **no record-and-review mode**, and none is a fallback. Recorded clips below are **repeatable test material for the harness only** (they let us score the same footage across prompts and models). The only permitted fallback is a **degraded live mode**: lower frame rate and speak only at step changes. Isolated API-call tests prove the model can see; only the live-loop test (9) proves the product works.
+
 ## 1. Which flat-pack item to buy
 Pick for testability, not for use. Criteria:
 - **Small and low-risk:** a stool, side table, small shelf or shoe rack. Nothing load-bearing or safety-critical (no bunk beds, wardrobes, or wall-mounted units).
@@ -35,9 +38,11 @@ For the cooking task, use the dish and clips from `build-plan.md` with the same 
 | 5 | **Latency** | 3-frame call with the current step, 20 calls | average under 5 seconds |
 | 6 | **Voice commands** | Voice Transcribe on the 5 command phrases in 3 languages and noise | at least 80% of commands understood per language; report Hindi and mixed separately |
 | 7 | **Abstain behavior** | 10 deliberately ambiguous frames (hand covering part, blur) | asks or waits on at least 7 of 10 instead of guessing |
+| 9 | **End-to-end live loop (gate)** | Run the real browser loop on a phone, live, through a full build and a full dish: camera frame captured, sent, model reply, spoken. Stamp each stage (capture, upload, model, speech start). Run 20 live events: 10 step changes and 10 deliberate mistakes performed live | median camera-to-speech under 5 s and 90th percentile under 8 s; the correct spoken reply on at least 80% of step changes; at least 4 of 5 live mistakes caught within 10 s; no more than 1 spurious interruption per 5 minutes |
 | 8 | **Cost** | sum of cost per call | report cost per 10 minutes of guidance against the $150 credit |
 
 ## 5. Decision rules
+- Test 9 is the gate for the product. If it fails at full rate, switch to the **degraded live mode** (frame every 3 to 4 seconds, speak only at step changes, answer voice questions from the last few frames) and re-run test 9 on it. If the degraded mode also fails, the task is dropped; there is no recorded-playback fallback.
 - Same as `build-plan.md`: if tests 1 and 5 fail for a task, that task falls back. If test 2 fails but 1 and 5 pass, narrow the agent to coarse, visible claims (part present or absent, step done or not) and make it ask when unsure.
 - **Choose the demo task after the spike:** assembly if test 1 and test 2 pass on assembly and cooking is weaker; cooking if the expert footage is strong and cooking passes; if both pass, choose by which has the better demo footage. If both fail, drop the live guide and compare the other finalists.
 - A test counts only if run on frames not used for tuning.
@@ -47,10 +52,10 @@ For the cooking task, use the dish and clips from `build-plan.md` with the same 
 | --- | --- |
 | Oct 26 evening | Pick and buy the kit (or buy in a local store if same-day), download and read the manual, set up the stand, write the labeling sheet, write the harness (frame cutting, call, scoring) with a dry run on stub outputs |
 | Oct 26 to 27 | Film the clean build, stage stills, mistakes, controls and voice commands |
-| Oct 27 morning | When the key arrives, run tests 1 to 8, record results in a table |
+| Oct 27 morning | When the key arrives, run tests 1 to 8 on the recorded material, then build the thinnest live loop (phone browser, frame every 2 s, spoken reply) and run test 9 on both tasks |
 | Oct 27 noon | Decision on demo task; start product code with the winner |
 
 ## 7. Open items
 - **Meta API key and credit approval:** needed for every vision test; nothing here runs without it.
 - Whether the key is a team-level or personal key: not confirmed.
-- The "live" latency in a real loop (frame capture, upload, reply) may be worse than the isolated API call in test 5; measure end to end in the first product prototype.
+- Test 5 times an isolated call and will understate the real loop; test 9 is the real number. Speech output uses the browser's speech synthesis (Meta has no text-to-speech), whose start delay is part of the test 9 budget.

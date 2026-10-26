@@ -115,4 +115,6 @@ Run before writing product code. Needs the API key and 2 to 3 clips we film of t
 4. **Latency:** a 3-frame call with the current step returns in **under 5 seconds** on average.
 5. **Languages:** Hindi, English and mixed clips transcribe well enough to pick the right quote for a step.
 
+**End-to-end live-loop gate (added Oct 26):** recorded clips are only test material. The product is the live loop, so also run `spike-plan.md` test 9 (camera to spoken reply, median under 5 s, p90 under 8 s, at least 80% correct at step changes) before committing. The only fallback is the degraded live mode (slower frames, speak at step changes). There is no record-and-review fallback.
+
 **Decision rule:** if tests 1 and 4 fail, switch to the energy retrofit fallback on Oct 27 morning. If test 2 fails but 1 and 4 pass, narrow the agent to claim only coarse, visible things (stage changes, ingredient present or absent) and have it ask the user when unsure. This keeps the product from pretending to see subtle things such as exact doneness.
