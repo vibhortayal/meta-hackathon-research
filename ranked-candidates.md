@@ -70,3 +70,6 @@ Reading: cooking wins on rubric if its day-1 test passes; household is close beh
 
 ## Household demo: the key moment
 Tuesday, 5:40 PM. His wife's flight lands late and the whiteboard says chicken needs thawing. The agent, which read the board photo and the forwarded flight email, quietly rewrites the evening and sends one nudge. Then he taps "bad day": the plan is dropped, nudges go silent, dinner is re-planned in seconds, and the **board image redraws itself** with tomorrow reshuffled and no guilt. The final shot is the log showing exactly what left his machine (nothing, or one approved crop). If staged with synthetic or consenting data, the peak is the redrawn board plus the silence.
+
+## Prior-art scan (live assistants)
+See `prior-art-live-assistants.md`. Google, OpenAI and Meta already ship live camera chat, so "live camera assistance" is not a differentiator. Open: manual- or expert-grounded step state, shown evidence, ask-when-unsure, fade-out, Hindi-English, open weights. No scores changed; the mistake-catch test is the main risk (research reports persistent VLM weakness on procedural errors).
