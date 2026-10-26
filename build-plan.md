@@ -24,18 +24,26 @@ Decided 2026-10-26: build the skill-transfer coach, demoed on a simple cooking-t
 
 ## Schedule (deadline Nov 4, 9 PM ET)
 
+Vibhor's target: **all building done by Oct 31**, leaving Nov 1 to 3 for video prep and Nov 4 as buffer. Oct 31 is a hard feature freeze. Anything unfinished then is cut, not carried over.
+
 | Date | Goal |
 | --- | --- |
-| Oct 26 (today) | Lock idea. Claim Meta credits and get an API key. Spike only: send one 60-second cooking clip to Spark 1.3 and record latency, cost and step quality. Decide video versus frame-sampling. |
+| Oct 26 (today) | Lock idea. Claim Meta credits (done) and add the API key as an environment secret. Spike only: send one 60-second cooking clip to Spark 1.3 and record latency, cost and step quality. Decide video versus frame-sampling. |
 | Oct 27 | Create the public build repo. Tier 0 backend: expert video to structured steps JSON with checks and timestamps. Attend Agents 101. |
 | Oct 28 | Tier 0: novice video to per-step verdicts with evidence frames and an explicit "not sure" path. Attend Agents 102 (verifiable agents) and apply it. |
-| Oct 29 | Tier 0 web UI, deploy, rough demo recording. |
-| Oct 30 | **Tier 0 submitted** (or fully ready to submit). Attend the Fireworks session. |
-| Oct 31 to Nov 2 | Tier 1: live phone-camera loop, headphone voice in and spoken feedback out, SAM 3.1 overlay, tighter verdict accuracy on test clips. |
-| Nov 3 | Tier 2 if Tier 1 is solid: Glimmer running privacy-sensitive steps locally (open-weights bonus), Muse Image step cards, shareable procedure links. Record the final 3-minute demo. Last day for questions. |
-| Nov 4 | Code freeze at noon. Final submission by 6 PM ET, three hours before the deadline. |
+| Oct 29 | Tier 0 web UI, deploy. **Tier 0 submitted** as the safe fallback entry (if the platform allows later edits). |
+| Oct 30 | Tier 1: live phone-camera loop, headphone voice in with spoken feedback out, SAM 3.1 overlay. Attend the Fireworks session. |
+| Oct 31 | Tier 1 hardening on a test set of clips (verdict accuracy, abstain behavior, error handling, spend cap). Tier 2 items only if they are already working; otherwise cut. **Feature freeze at end of day.** |
+| Nov 1 | Demo script, shot list, and practice clips. Record take 1 of the 3-minute video. README and repo cleanup. |
+| Nov 2 | Re-record and edit the final video. Optional Tier 2 polish only if it cannot break the demo (Glimmer local run, step cards). |
+| Nov 3 | Final submission on the Cerebral Valley platform with repo, video and contributor list. Last day for questions to organizers. |
+| Nov 4 | Buffer only: fix a broken link or upload, resubmit if needed. Hard deadline 9 PM ET. |
 
-## Demo video (3 minutes)
+Tier 2 is now mostly a stretch beyond the freeze. The open-weights bonus (Glimmer) is the one Tier 2 item worth trying to land by Oct 31, since it adds a prize chance and shapes the story.
+
+## Demo video (3 minutes), recorded Nov 1 to 2
+
+Rehearse with a timer, write the script before recording, and open with the user problem. Every second should earn its place.
 
 1. 0:00 to 0:20: the problem (experts hold know-how, novices struggle, nobody to watch them).
 2. 0:20 to 1:00: expert films the technique, steps appear.
