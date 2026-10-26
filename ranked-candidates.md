@@ -39,7 +39,7 @@ What changes:
 - **Kitchen tablet:** optional. The "board that answers back" demo can show the redrawn board on the phone.
 - **Spikes:** run the whiteboard read on Spark 1.3 and on hosted Glimmer (not local). The pass thresholds are unchanged.
 
-Open question for Vibhor: current laptop model and RAM. If it has 32 GB or more of unified memory (Apple Silicon), a local test of Glimmer might be possible before the deadline; otherwise it waits for the new Mac.
+Project memory records his current laptop as a 2015 MacBook Pro with no GPU, so a local Glimmer test waits for the new Mac. No further hardware question is open.
 
 ## What decides it (cheap spikes today and tomorrow, before product code on Oct 27)
 1. **Whiteboard read:** 5 photos of the real board to Spark 1.3 and to Glimmer. Pass at 85% of cells on Spark, 70% on Glimmer. Failing Spark kills option 1.

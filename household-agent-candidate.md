@@ -1,5 +1,7 @@
 # Household "chief of staff" agent: candidate evaluation
 
+> Updated: sections 5 and G assume local Glimmer, which is superseded by section K (no GPU; hosted Glimmer for Oct 31, local as a documented path). The latest scores and ranking are in `ranked-candidates.md`.
+
 2026-10-26. Scores and probabilities are my judgement, not data. Web findings come from search summaries and third-party articles, not Instinct's own documentation (none is public, see below). Anything I could not verify is marked **Unverified**.
 
 ## Bottom line

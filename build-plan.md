@@ -1,5 +1,7 @@
 # Build plan v2: live expert guide (working title, cooking demo)
 
+> Status (2026-10-26 evening): this plan is **one of two finalists**, not locked. The household "home brain" agent is the other (see `ranked-candidates.md`). Hardware: no GPU, so open weights run hosted. Immigration was dropped.
+
 Updated 2026-10-26 after the problem-first review (`problem-framing.md`). Items marked **Pending** need Vibhor's decision. Fallback idea if this fails the day-1 test: energy retrofit agent (`research.md`).
 
 ## One-line pitch
