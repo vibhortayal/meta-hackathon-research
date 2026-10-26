@@ -12,6 +12,7 @@ Private research notes for the Meta AI Developer Hackathon (Indie track, solo). 
 - [build-plan.md](build-plan.md): live expert guide (cooking) plan, tiers, schedule, day-1 test.
 - [paper-games-candidate.md](paper-games-candidate.md): teach-it-any-game-by-talking.
 - [khelo-and-sports-organizer.md](khelo-and-sports-organizer.md): his Khelo app, competitors, existing-code rule caveat, sports-organizer agent.
+- [spike-plan.md](spike-plan.md): shared test plan for the live guide (cooking and assembly), pass marks, kit to buy, what to film.
 - [screen-light-ideas.md](screen-light-ideas.md): screen-away, physical-world and voice ideas, including Manual Whisperer.
 - [faceless-creator-candidate.md](faceless-creator-candidate.md): faceless/avatar content creation, camera-shy creators.
 - [play-to-comic-candidate.md](play-to-comic-candidate.md): game clip to comic or animated short.
