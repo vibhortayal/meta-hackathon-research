@@ -102,3 +102,15 @@ Write the script first, rehearse with a timer, open with the person, not the tec
 - **Submission edits:** confirm on the Cerebral Valley platform whether a submission can be updated after Tier 0.
 - **Spend:** hard spend cap in code. The Discord notes say a spend-limit notification does not stop billing.
 - **Credits:** $150 covers a lot of Spark use, but frequent live calls add up. Cache expert-video results and limit frames per call.
+
+## Day-1 go/no-go test (answers "is it good enough, or gimmicky?")
+
+Run before writing product code. Needs the API key and 2 to 3 clips we film of the chosen dish.
+
+1. **Stage recognition:** cut 30 frames at known stages (for example onions raw, translucent, browned). Ask Spark which stage each shows. **Pass: at least 80% correct.**
+2. **Mistake detection:** film 5 deliberate mistakes (heat too high, wrong order, too much of an ingredient) and 5 correct runs. Ask whether a mistake is visible. **Pass: catches at least 4 of 5 mistakes with at most 1 false alarm in 5 correct runs.**
+3. **Expert video to steps:** the extracted steps and timestamps match a human-written list for the same video. **Pass: no missing or invented steps in 3 of 3 clips.**
+4. **Latency:** a 3-frame call with the current step returns in **under 5 seconds** on average.
+5. **Languages:** Hindi, English and mixed clips transcribe well enough to pick the right quote for a step.
+
+**Decision rule:** if tests 1 and 4 fail, switch to the energy retrofit fallback on Oct 27 morning. If test 2 fails but 1 and 4 pass, narrow the agent to claim only coarse, visible things (stage changes, ingredient present or absent) and have it ask the user when unsure. This keeps the product from pretending to see subtle things such as exact doneness.
