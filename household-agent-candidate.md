@@ -140,3 +140,84 @@ Core is buildable. Integrations decide it:
 - Which Instinct steps were the setup burden, and which nudges were off?
 - Does he have a 24 GB GPU or a Mac with 32 GB or more?
 - Is Telegram acceptable as the capture channel, or does it need to be WhatsApp or iMessage?
+
+---
+
+# Pass 2 (deep dive, 2026-10-26 evening)
+
+What changed after reading primary pages and re-reading the interview in the project chat. Items marked **Unverified** were not confirmed from a primary source.
+
+## A. What the interview adds (design inputs, Vibhor's own words)
+- The failing system is a **weekly whiteboard** that works when the week is calm and dies when travel reshuffles it. The failure is manual upkeep, not the idea of a board.
+- Information is spread across six places: his wife's head, WhatsApp, email, regular chat, Alexa voice list, and the board. A shared calendar was tried and went stale.
+- He wants the board to stay the home base (eyes-on), the phone to nudge gently, and nudging to stay quiet enough not to annoy. He said a photo of the board would not feel like a chore **if the agent nudges him to take it**.
+- He wants an **emergency exit** for a bad day, then a guilt-free return to the plan.
+- He wants a **neutral third party** that talks to each of them and helps them converge, and he said he does not know what coming back on track looks like. That is an open design question, not a requirement.
+- The dinner fight was a coordination miss at a moment of fatigue, not a planning failure: one person was working to a deadline, the other did not register it.
+
+## B. Reachability, from primary or near-primary sources
+| Channel | What is actually reachable | Source and confidence |
+| --- | --- | --- |
+| WhatsApp (personal chats) | Only via unofficial WhatsApp Web libraries (OpenClaw uses Baileys, QR pairing only, a separate number is recommended, self-chat quirks documented). The OpenClaw docs do **not** discuss ban risk. Secondary sources say unofficial libraries risk account bans. | [OpenClaw WhatsApp docs](https://docs.openclaw.ai/channels/whatsapp) (primary for how it works); ban risk is [secondary](https://zylos.ai/research/2026-01-26-whatsapp-api-automation), Unverified against Meta's terms |
+| WhatsApp (official API) | A secondary source says Meta's policy effective Jan 15, 2026 bars general-purpose AI assistants from the Business Platform. | Secondary, Unverified. Check Meta's WhatsApp Business terms before relying on it. |
+| iMessage | Needs a Mac that stays awake; OpenClaw's current docs drive the `imsg` tool directly and say BlueBubbles support was dropped; mirrors of older docs disagree. | [OpenClaw docs](https://docs.openclaw.ai/channels/imessage-from-bluebubbles), moderate confidence |
+| Telegram | Bots receive your messages because cloud chats are not end-to-end encrypted; Telegram holds the content. | Secondary explainers; the official FAQ at core.telegram.org/techfaq was not opened, so Unverified |
+| Alexa shopping list | No third-party API. Amazon cut it in 2024 and AnyList still reports it broken in 2026. | [AnyList](https://help.anylist.com/articles/alexa-issue-early-2026/), good |
+| Email and calendar | Gmail and Google Calendar have official APIs (OAuth); not re-verified today. | General knowledge, Unverified in this pass |
+
+**Implication.** There is no clean, official, private way to listen to his existing WhatsApp and iMessage threads. The honest capture path is **forward, share, or photograph into the agent**, which matches what he described wanting (photo of the board, forwarded messages). Do not promise "listens to how you already talk." Also: ingesting his wife's messages needs her consent. Design for what **he** forwards.
+
+## C. OpenClaw, the closest open-source reference
+From its [GitHub README](https://github.com/openclaw/openclaw) (I read about 94% of the page): MIT licence; a local **Gateway** is the control plane for sessions, tools, events and channels; "state, memory, and credentials live on your hardware"; models and harnesses are swappable plugins including local models; unknown senders are paired by default and inbound messages are treated as untrusted; tools run on the host unless sandboxed; a daily version check is on by default and can be turned off. Setup is `openclaw onboard --install-daemon`, Node 24.16 or newer. The README does not describe the memory format, and the issue tracker has over 5,000 entries. Security reports from third parties are mixed and I did not verify them. Takeaways: (1) a local gateway plus swappable model is the right shape; (2) "policy enforced by code, not by the model" is a design principle worth copying for nudging; (3) OpenClaw is a general platform with significant setup, which is the exact "ramp-up" gap Vibhor named, so a narrow, near-zero-setup household product is differentiated from it.
+
+## D. Instinct privacy, retested
+I could not open Instinct's privacy policy or terms (the page returned only a title), so the training-on-by-default and non-deletion claims in section 1 rest on [one review](https://www.eesel.ai/blog/instinct-ai-review). **Unverified against the primary text.** Say that in any public claim.
+
+## E. Why shared calendars and planners die (evidence status)
+I found **no peer-reviewed study** in this pass. What exists is vendor marketing: for example a vendor survey of 93 mothers where only 11% used a shared app and the rest relied on WhatsApp notes-to-self (42%), fridge notes (39%) or nothing (20%) ([RemindHer](https://remindher.app/how-to-start-shared-family-calendar/), self-reported, tiny sample, **weak**). Widely repeated figures such as 71% of mental load falling on mothers could not be traced to a primary source here. A literature pass is running in parallel; treat the above as anecdotal until it reports. The strongest evidence for the design is Vibhor's own account.
+
+## F. Glimmer feasibility check
+- Confirmed from the [Glimmer page](https://dev.meta.ai/docs/muse-glimmer): 30B dense, text and image in, Apache 2.0, 128K context, 100+ languages, "built for local agentic workflows", runs on vLLM, SGLang, llama.cpp, Ollama.
+- Confirmed from the deploy notes already in project memory: tool calling works on llama.cpp, images are accepted, reasoning cannot be turned off (so replies are slow), a 24 GB GPU holds the Q4_K_M model with about 19 GiB at 131K context.
+- **Not known:** handwriting and whiteboard OCR accuracy, whether llama.cpp enforces a JSON schema for Glimmer, speed per photo. The Glimmer page publishes no benchmark numbers. The whiteboard spike below is the only way to find out.
+
+## G. Architecture (local-first, hybrid by consent)
+```
+ Telegram bot / local web page  <-- photo, forward, voice note, taps
+            |
+   Gateway process (Python or Node) on his machine
+     |-- Policy engine (CODE, not model): nudge budget, quiet hours,
+     |     bad-day state, snooze decay, confirm-before-write
+     |-- Tools: read_week, upsert_item, add_grocery, schedule_nudge,
+     |     set_bad_day, propose_replan, ask_user
+     |-- SQLite: week, items, groceries, nudge log, consent rules
+     |-- Model client (OpenAI-compatible)
+     |      default: local Glimmer via llama.cpp (port 8080)
+     |      escalate: Spark API only after he approves the exact payload,
+     |                every call logged (the cookbook "asks first" pattern)
+     '-- Voice: Muse Voice Transcribe (API) or local Whisper (non-Meta)
+```
+The model proposes; code decides whether to speak. Whiteboard flow: photo, then Glimmer reads it into a structured week, then the diff against last week is shown back as a short confirm card ("I read Thu dinner as broccoli paratha, right?"). Low-confidence cells are asked about, not guessed.
+
+**Privacy claim to make:** model, memory and nudge policy are local; the chat relay (Telegram) and calendar sync are the only external hops; any Meta API call is opt-in per call and logged. Telegram is not a private channel, so do not call the system "private end to end."
+
+## H. Open question the demo must answer: "live product"
+The judging guide says the demo video is the main artifact alongside code and a live product. A purely local app has no URL. Plan: a **hosted demo mode with synthetic data** (Vercel or Modal) plus a one-command local install, and ask Meta in office hours (Discord, 10 to 11 AM ET, weekdays) whether a local-only product satisfies "live product." **Unverified** what the official rules require.
+
+## I. Day-by-day plan to the Oct 31 freeze
+Product code starts Oct 27 (building-period rule). Tier 0 must be submittable by Oct 29.
+
+| Date | Goal | Exit test |
+| --- | --- | --- |
+| Oct 26 (today, throwaway spikes) | Photograph the real whiteboard 5 ways. Send to Spark 1.3 and to Glimmer (local if he has the GPU, otherwise a hosted Glimmer as a stand-in). Compare cell-level accuracy for meals, chores, workouts, groceries. Time one call. | Pass: at least 85% of cells right on Spark, at least 70% on Glimmer, with wrong cells flagged low-confidence. If Spark fails, drop the idea. |
+| Oct 27 | Create the public build repo. SQLite schema. Telegram bot skeleton. Whiteboard photo to week via Spark. Confirm card. Attend Agents 101. | Photo in, correct week out, edits saved. |
+| Oct 28 | Grocery list from the week and from voice notes. Policy engine (nudge budget, quiet hours). First nudge ("take a photo of the board"). Attend Agents 102 (verifiable agents) and add abstain-and-ask. | A day with at most 2 nudges, all logged. |
+| Oct 29 | **Tier 0 submitted**: hosted demo with synthetic data, repo, README, rough video. | Submission accepted. |
+| Oct 30 | Tier 1: Glimmer as default model, egress log, bad-day exit with re-plan, conflict flags (travel vs dinner). Attend Fireworks session. | Bad-day replay works on the synthetic week. |
+| Oct 31 | Hardening, spend cap, privacy page, demo data. Tier 2 only if Tier 1 is solid. **Feature freeze at end of day.** | Full dry run of the demo script. |
+| Nov 1 to 3 | Script, record, edit, submit. | |
+
+## J. Updated honest read
+- The single biggest risk is not the model, it is **capture**: with no clean WhatsApp, iMessage or Alexa path, the product depends on him remembering to photograph and forward things, which is the exact failure he described. The gentle nudge to photograph the board is therefore the core mechanic, not a nicety. If that loop does not feel good in a week of real use, the product has not solved his problem.
+- The strongest reason to build it is personal fit and the local-first, open-weights angle. The strongest reason not to is a thin demo payoff. Both stand from pass 1.
+- The recommendation from section 8 is unchanged: cooking guide leads for the rubric, this one if long-term use outweighs the score.
