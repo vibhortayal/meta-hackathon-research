@@ -4,9 +4,19 @@ Decided 2026-10-26: build the skill-transfer coach, demoed on a simple cooking-t
 
 ## What it does
 
+Core experience (updated Oct 26): a **live expert agent** that guides you while you do the skill, hands-free, using the phone camera and headphones.
+
 1. **Learn:** the expert films a short technique once (for example folding an omelette, dicing an onion, or shaping a dumpling) while narrating.
-2. **Procedure:** the agent turns that into numbered steps, each with a plain-language check ("pan is hot enough when...", "fold is even") and the timestamp that shows it.
-3. **Coach and verify:** a novice films their attempt. The agent says pass, fail or not sure for each step, shows the evidence frame behind every verdict, and explains the fix. When it cannot tell, it says so instead of guessing.
+2. **Procedure:** the agent turns that into numbered steps, each with a plain-language check ("pan is hot enough when...", "fold is even") and the timestamp that shows it. This is the expert's knowledge the live agent works from.
+3. **Live guide:** the novice props up the phone and wears headphones. The agent watches sampled camera frames, tells them what to do next, and speaks up when something looks wrong ("the heat is too high, lower it"). The novice can interrupt by voice with questions.
+4. **Verify:** at each step the agent says pass, fail or not sure, with the evidence frame behind the verdict. When it cannot tell, it says so instead of guessing.
+
+## How "live" works, and its limits
+
+- Meta's API takes video clips and images but has no streaming video session. So the live loop is: the browser grabs a frame every 1 to 2 seconds, sends the latest few frames plus the current step and recent history to Spark, and plays the reply through the headphones.
+- Voice in uses Muse Voice Transcribe realtime. Voice out uses the browser's speech synthesis, since Meta has no text-to-speech.
+- Expect 2 to 5 seconds of lag per reply. This is an estimate until the day-1 test measures it. The design works with that lag: the agent speaks at step changes and on clear mistakes, not constantly.
+- Fallback if live is too slow or unreliable: record the attempt and review it step by step after the fact (the original design). Build this review mode first because it is the safer entry, then add live on top.
 
 ## Guardrails for the rules
 
