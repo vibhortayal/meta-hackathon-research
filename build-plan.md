@@ -71,3 +71,10 @@ Rehearse with a timer, write the script before recording, and open with the user
 - **Submission edits:** confirm on the Cerebral Valley platform whether a submission can be updated after Tier 0.
 - **Spend:** set a hard spend cap in code. The Discord notes say a spend-limit notification does not stop billing.
 - **Credits:** $150 covers a lot of Spark use, but video and many verification calls add up. Cache and reuse expert-video results.
+
+## Source videos, languages and rights
+
+- **Languages:** Hindi and English. Day-1 test covers a Hindi clip, an English clip, and mixed Hindi-English speech (Hinglish). Check whether Hindi is in Voice Transcribe's language-bias list and how Spark handles the mixed case.
+- **Sources:** videos Vibhor films or family and friends film with consent, plus Creative Commons or creator-permitted videos for variety. Plenty exist on YouTube and Instagram, but the rules ban assets without rights and the public repo and demo video will be seen by judges. So the submitted demo uses only footage we own or have permission for.
+- **No downloader in the product.** Users upload files. Scraping YouTube or Instagram would break their terms and is a rights risk.
+- Test clips from public platforms are for private experiments only, never committed to the repo or shown in the demo.
