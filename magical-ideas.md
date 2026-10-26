@@ -70,6 +70,35 @@
 | **Self-driving mini-lab / robot planner** | Frontier science feel | Already in the notes (sim mode). Heaviest build, weakest tie to Vibhor's life. Skip unless he wants "Push the Frontier." |
 | **Live Hindi-English bridge for family calls** | Grandparents and kids understand each other | Voice Transcribe plus translation captions. Crowded: large vendors ship live translation (not checked). Weak differentiation. |
 
+## Moonshot added by Vibhor: the upgradable home robot ("grow-a-robot")
+
+**His idea:** a small wheeled, pet-like home robot that is modular and Lego-style, so people build comfort with robots and AI at home over time, the way they came around to Alexa and Google Home. Parts can be added, swapped or serviced (no landfill of plastic and electronics). The device keeps context about the home (layout, people, language, routines) so every upgrade feels continuous with what it already knows.
+
+**What the evidence says (honest, partly unchecked)**
+- *Cloud-dependent home robots can die and take the relationship with them.* Embodied shut down in December 2024 after an investor withdrew, and its $800 Moxie companion robot for children stopped working because it relied on cloud servers; commentators argue for local operation, modular and open design, and "ethical sunsetting." Sources: [The Register](https://www.theregister.com/2024/12/16/moxie_cloud_services_lessons/), [ACM paper on Moxie end-of-life](https://dl.acm.org/doi/10.1145/3772318.3790895), [OECD.AI incident](https://oecd.ai/en/incidents/2024-12-09-ab89). This strongly supports Vibhor's "no junk, own your context" principle. It is a real, documented failure, not a guess.
+- *Trust and privacy gate home-robot adoption, and familiarity helps.* A qualitative study of 24 adults aged 65+ in Slovenia ([PMC](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10850379/)) and a survey of nearly 5,000 people reported by [UCD](https://www.ucd.ie/newsandopinion/news/2025/november/05/mostwillingtoacceptcaregivingrobotsassolutiontolong-termcarechallenge) tie willingness to familiarity, with trust, safety and privacy central, and most people comfortable sharing health data with clinicians but under half with robotics companies. Neither tests a staged "earn trust gradually" design, so the specific claim that a ladder works is **unproven**.
+- *The Alexa analogy is only half supported.* Studies from 2018 to 2022 show people adopted smart speakers while privacy concern persisted, often resigned to it ([UMich summary](https://record.umich.edu/?p=46272)). That suggests people came around through convenience, not because concern faded. I found no 2025 adoption or trend data.
+- *Prior art not checked:* Matic, Misty, Vector/Anki, Enabot and robot-vacuum arms. I only searched the Moxie shutdown. Do not claim novelty until those are checked.
+
+**The insight worth keeping.** The product is not the plastic, it is the **home context that survives every body**. A local, portable "home brain" (layout, people, languages, routines, permissions) that today lives behind a phone, next year drives a cheap wheeled base, later an arm, and can be moved to a new body if one maker dies. That also answers the Moxie lesson. The hardware is a roadmap, the brain is the product.
+
+**Ship-by-Oct-31 version with phone and headphones only (no robot hardware)**
+| Stage | What it is | Buildable now? |
+| --- | --- | --- |
+| 0. Phone as the body | Walk the house with the phone camera and talk. Spark vision plus SAM 3.1 build a local room-and-object map; Voice Transcribe learns names, languages and routines; everything stays in a local store. This is the household agent's memory. | Yes, about 60% |
+| 1. Adds voice and nudges | The household agent: board photo, groceries, nudge budget, bad-day exit | Yes, same build |
+| 2. Adds wheels (simulated) | The same home map loaded into a 2D or physics sim; a virtual base navigates to "the kitchen" and "the pantry" from spoken commands. Clearly labelled simulation. | Maybe, about 30%, and it risks looking like vapor |
+| 3. Adds an arm or a camera mast (roadmap) | Shown as a slide: what the agent already knows tells you which upgrade is useful next | Yes as a slide |
+| Trust ladder | Each stage unlocks only with explicit consent, and the screen shows exactly what the new part can see and store | Yes, and it is the most original UI idea here |
+
+**Meta models:** Spark vision and video for the home map, SAM 3.1 for objects and rooms, Voice Transcribe for language and routine learning, Glimmer locally as the brain so the context stays home, Muse Image for the "your next upgrade" visual.
+
+**Rules:** robotics fits "Push the Frontier." No hardware is needed if the demo is honest about being a simulation for stage 2. Avoid claims of a working robot. A camera that maps the home is a privacy hazard, so it must be opt-in, local, and deletable.
+
+**Score (my judgement):** Impact 7, Meta 8, Demo 6, Depth 7, weighted about 7.0. Feasibility of the full vision: low (about 25%). Feasibility of stages 0 and 1 with a roadmap slide: medium to high.
+
+**Recommendation.** Do not pitch a robot you cannot show. Pitch **stage 0 as a real, working "home brain,"** with the household agent as its first capability and a 20-second roadmap at the end ("this is how it grows, and your home's memory moves with it"). That keeps the moonshot as the vision and the household agent as the guaranteed entry, and it turns "local-first" into a design principle backed by a real shutdown story instead of a slogan.
+
 ## Scorecard (my judgement)
 
 | Idea | Impact | Meta | Demo | Depth | Weighted | Feasibility | Bonus fit |
@@ -80,6 +109,7 @@
 | M2 Fridge to tonight | 5 | 8 | 8 | 6 | 6.7 | high | Open Weights (Glimmer sees images) |
 | M3 Court director | 6 | 7 | 7 | 7 | 6.7 | medium | Agentic |
 | M4 Scam gym | 6 | 7 | 6 | 5 | 6.1 | medium | Open Weights |
+| Grow-a-robot (software stage 0 plus roadmap) | 7 | 8 | 6 | 7 | 7.0 | stage 0 medium-high, full vision low | Open Weights, Agentic |
 | Household agent (S2 + M1 + M2 combined) | 6 | 8 | 7 | 8 | 7.1 | medium | Agentic, Open Weights, Creative |
 | Cooking guide (earlier work) | 6 to 8 | 9 | 9 | 7 | 7.4 to 8.3 | medium, untested | Agentic |
 
