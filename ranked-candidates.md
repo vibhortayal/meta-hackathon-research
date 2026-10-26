@@ -48,3 +48,22 @@ Open question for Vibhor: current laptop model and RAM. If it has 32 GB or more 
 4. **Two answers from Vibhor:** does he have a 24 GB GPU, and what does his tournament app do today?
 
 If both pass, choose by what he will still use in December. If only one passes, that one wins.
+
+## Rubric evaluation (Stage 1 and Stage 2) of the top three
+
+Stage 1 is pass/fail: fits a theme ("Build for Your World" or "Push the Frontier") and genuinely uses Meta models. Stage 2 is scored 0 to 10 with weights Impact 30, Meta tooling 25, Demo 25, Depth 20. All scores are my judgement. **Assumption-based** means the score rests on something untested.
+
+| Criterion | Household home brain | Cooking guide | Caregiver organizer |
+| --- | --- | --- | --- |
+| Stage 1 theme and real Meta use | Pass (Build for Your World; Spark vision, tools, Voice, hosted Glimmer) | Pass (same; video, SAM, Voice) | Pass (Spark vision, structured output, tools) |
+| Impact (30%) | 6. Universal pain and real evidence for "time", but reads as convenience and the category is funded. Raise it by quantifying minutes saved over a week of real use and showing a second household. | 6. Relatable, but a cooking demo can look small. Raise it with the tradespeople knowledge-capture story and the fade-out measure. | 8. Specific person, strong numbers (63M caregivers, 27 hours a week). Raise it with a real caregiver's case. |
+| Meta tooling (25%) | 8. Vision, tool calls, Voice Transcribe, structured output, hosted Glimmer, optional Muse Image. Raise it with Glimmer plus Spark escalation visible in the log. | 9. Video, SAM 3.1, Voice realtime, tool calls. | 7. Vision and structured output mainly. |
+| Demo (25%) | 7. Board photo, redrawn week, a quiet nudge and the bad-day exit tell a story, but the payoff is an absence of chaos. **Assumption-based:** needs the whiteboard read to be accurate and a consenting staged household. | 9. Live attempt, real expert voice, visible fade-out. **Assumption-based:** live latency (2 to 5 s) and mistake detection are untested. | 6. Document photos to schedule is clear but less vivid. |
+| Technical depth (20%) | 8. Persistent state, multi-source merge, conflict detection, code-enforced nudge policy, abstain-and-ask, egress log. **Assumption-based:** local-model tool calling is untested. | 7. Frame loop, step state machine, verification with abstain. | 6. Extraction pipeline; thinner agent loop. |
+| **Weighted total** | **7.2** | **7.7** | **6.9** |
+| What is still untested | Whiteboard handwriting accuracy; the capture habit; hosted Glimmer vs Spark quality | Live latency; mistake detection; Hindi clip quality | Document variety; medical-advice boundary |
+
+Reading: cooking wins on rubric if its day-1 test passes; household is close behind and clearly wins on personal fit and open-weights story; the caregiver organizer wins on Impact alone but loses on Demo. Stage 3 (live finals) will favor whichever tells the clearer human story in 3 minutes.
+
+## Household demo: the key moment
+Tuesday, 5:40 PM. His wife's flight lands late and the whiteboard says chicken needs thawing. The agent, which read the board photo and the forwarded flight email, quietly rewrites the evening and sends one nudge. Then he taps "bad day": the plan is dropped, nudges go silent, dinner is re-planned in seconds, and the **board image redraws itself** with tomorrow reshuffled and no guilt. The final shot is the log showing exactly what left his machine (nothing, or one approved crop). If staged with synthetic or consenting data, the peak is the redrawn board plus the silence.
