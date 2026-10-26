@@ -28,6 +28,19 @@
 **Floor under both:** Paper Games as a small, finishable fallback or an in-product delight.
 **Wildcard worth one conversation:** caregiver organizer, if he has first-hand access to caregivers.
 
+## Hardware update (Vibhor, Oct 26)
+No 24 GB GPU and none soon. A new Mac is possible next month, after the hackathon. No kitchen tablet, but he could get one; a phone is enough for the demo.
+
+What changes:
+- **For Oct 31, open-weights Glimmer runs hosted**, not on his machine: Fireworks, Together or OpenRouter (listed as hosts in the Glimmer docs), or Baseten and Modal credits for self-managed endpoints. Fireworks' $25 credit is only for shortlisted teams, so budget the $150 Meta credit and $100 Modal credit first.
+- **The privacy story must say so plainly:** "model weights are open and portable; for the hackathon they ran on a hosted endpoint; the same code runs on your own hardware." Do not use "never leaves my machine" in the video. The claim that holds is: open weights, no vendor lock-in, your memory in your own database, and a documented local path.
+- **Local path (documented, not demonstrated):** Glimmer Q4_K_M is 16.8 GB plus a 1.4 GB vision file, so it needs a Mac with roughly 32 GB unified memory or more to be comfortable. llama.cpp supports Apple Silicon in general, but I have **not verified** Glimmer speed or support on a Mac, nor MLX support. Say "designed for" and not "tested on" unless he tests it.
+- **Open-weights bonus still fits** because the prize is about building on Glimmer or Spark Open, not about where it runs. A hosted-Glimmer entry with a clear local path is valid; a demonstrated local run would be stronger.
+- **Kitchen tablet:** optional. The "board that answers back" demo can show the redrawn board on the phone.
+- **Spikes:** run the whiteboard read on Spark 1.3 and on hosted Glimmer (not local). The pass thresholds are unchanged.
+
+Open question for Vibhor: current laptop model and RAM. If it has 32 GB or more of unified memory (Apple Silicon), a local test of Glimmer might be possible before the deadline; otherwise it waits for the new Mac.
+
 ## What decides it (cheap spikes today and tomorrow, before product code on Oct 27)
 1. **Whiteboard read:** 5 photos of the real board to Spark 1.3 and to Glimmer. Pass at 85% of cells on Spark, 70% on Glimmer. Failing Spark kills option 1.
 2. **Cooking day-1 test** from `build-plan.md`. Failing kills option 2.
