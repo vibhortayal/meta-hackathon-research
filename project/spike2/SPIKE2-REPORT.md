@@ -4,7 +4,14 @@ Gate (set 2026-10-27): >=90% lines correct on 20 real paper receipts, mixed stor
 and lighting, before the build commits. Fallback if failed: PDF + e-receipts only.
 Line correct = product identity + amount paid both right.
 
-## Progress: 3 unique receipts, 4 photographs, 8/8 lines correct
+## Progress: 4 unique receipts, 5 photographs, 32/32 lines correct
+- Patel Brothers (Indian grocer, Sunrise FL) 2020-03-09, LONG receipt, 24 lines:
+  24/24, sum 70.04 = subtotal = total. The weighed item (0.09 lb @ 2.99/lb = 0.27)
+  merged into its line correctly; run-together codes (UDCOCONTSLICE7OZ,
+  MDHCHUTNEYPODINA) expanded; opaque codes (JALIJIRA PWD, MASL, MLTGRN) kept
+  literal; triple PAVBHAJI PAV and duplicate VIDHYA PANI PURI preserved as
+  separate lines. Cost $0.031, latency 32 s — latency grows with receipt length;
+  intake must be async in the product.
 - Safeway 2026-07-29, FLAT photo: 3/3 lines, item numbers exact, Green Giant
   expansion right, savings folded (0.99/3.00/3.00), balance 14.98 matched.
 - Safeway 2026-07-29, HAND photo (same receipt, thumb occludes left edge): 3/3
@@ -28,6 +35,9 @@ Line correct = product identity + amount paid both right.
 - Cost ~$0.015 per photo; latency ~11 s per photo (fine for intake, not in-store).
 
 ## Remaining for the gate
-17 more unique receipts. The set so far is SHORT receipts (1-4 lines); long
-receipts (20+ lines) are the untested hard case. Verdict so far: promising,
-not proven.
+16 more unique receipts (4 of 20). Covered: short + one long (24 lines), hand
+occlusion, darkness, an independent grocer, a card-slip format. Still missing:
+a Trader Joe's paper receipt (the demo store), a photo receipt WITH a return
+line, a big weekly supermarket receipt with tax + coupons + weighed produce.
+Verdict so far: strong on products/prices/totals; item numbers under occlusion
+remain the watched dimension.
