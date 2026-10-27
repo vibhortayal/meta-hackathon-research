@@ -93,3 +93,12 @@ Full articulation: VISION.md. Consequence: inventory-first data model; the list 
   SOURCE-AGNOSTIC and category-general from day one. Sources are adapters (Costco
   PDF today; photo receipts, order exports, email receipts later). Grocery is the
   first adapter and the deepest domain — never hardcoded into the engine.
+
+## Naming rounds (owner, 2026-10-27)
+- R1: Shopkeeper (owner: "crass" — DROPPED), Larder (needed explanation), Stocked, Provisions, Restock, Pantry.
+- R2: Steward, Bhandar (Hindi: storehouse), Cupboard.
+- Owner direction (14:04): ONE WORD, coined/ownable like Google or Meta; encodes
+  consumer purchase patterns / a purchase advisor; a PERSONALITY name is welcome.
+- R3 candidates: Plenish (coined: replenish+plenty), Saman (Hindi: goods/your stuff),
+  Sage (advisor + herb; big-company name conflict noted), Kharid (Hindi: purchase),
+  Remy (personality), Rota (recurring schedule). Status: OPEN, still thinking.
