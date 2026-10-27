@@ -8,6 +8,7 @@ This document uses ASD-STE100 style. Sentences are short. Each sentence has one 
 ## Changes in this revision
 
 Date: 2026-10-27.
+- Name decided (owner, 2026-10-27): the assistant is **Arya**. Body text keeps "the assistant" as the generic noun.
 
 - The stage order is new. Foundations come first. Two pre-build spikes come second. The decode API comes third.
 - Stage 0.5 is new. Stage 0.5 has the photo-receipt gate and the Costco history pull test. The build commits after Stage 0.5.

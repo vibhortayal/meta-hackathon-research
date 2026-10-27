@@ -183,3 +183,8 @@ Verdicts by Spark:
   list — the undertone is dark; played as a joke in demo it lands, but it is a
   taste call. Collisions: Arya.ai exists (different category). Status: front-
   runner beside Munshi; name still officially parked, owner has not decided.
+
+## NAME DECIDED — Arya (owner, 2026-10-27 15:12 EDT: "Keep it Arya")
+Naming is closed. The assistant is Arya. The kill-list undertone was on the
+table when he chose. Specs updated: name line added to both changelogs; body
+text keeps "the assistant" as the generic noun.

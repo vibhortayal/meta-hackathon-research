@@ -8,6 +8,7 @@ This document uses ASD-STE100 style. Sentences are short. Each sentence has one 
 ## Changes in this revision
 
 Date: 2026-10-27.
+- Name decided (owner, 2026-10-27): the assistant is **Arya**. Body text keeps "the assistant" as the generic noun.
 
 - The product is now an assistant with an inventory-first model. The old store-first product is now an add-on.
 - The core is now: receipts, decode, patterns, reconciliation, the self-writing list, and a prepared cart.
