@@ -1,0 +1,11 @@
+# Source note — Meta Model API
+- Canonical URL: https://dev.meta.ai/products/meta-model-api
+- Fetch date: 2026-10-27
+- Access: NOT directly readable — dev.meta.ai blocked by fetch domain policy. Facts from a docs-mirroring reference (OrcaRouter) plus developer guides quoting Meta's pricing/auth pages.
+- Sources used:
+  - https://www.orcarouter.ai/blog/muse-api
+  - https://shipwithmuse.live/blog/muse-developer-platform
+  - https://shipwithmuse.live/blog/muse-for-developers
+  - https://aiusagelimits.com/api-rate-limits-pricing/
+  - https://big-agi.com/docs/connect-meta
+- Key facts: base URL https://api.meta.ai/v1; Bearer auth, key in MODEL_API_KEY, key shown once, keys belong to a team and share team rate limits; surfaces = Responses, Chat Completions, Messages; OpenAI/Anthropic SDK drop-in compatible; NO first-party SDK; endpoints incl. /v1/responses, /v1/chat/completions, /v1/images/generations, /v1/images/edits, /v1/asr/transcribe, wss://api.meta.ai/v1/asr/realtime, /v1/files; models served: muse-spark-1.3/1.2/1.1 (+contributor 1.3/1.2), muse-wonder-1.0, muse-image-1.0, muse-voice-transcribe-1.0, sam-3.1; NOT served: Glimmer, Muse Spark Open, Wonder Full; full price table in PRODUCTS.md §6; limits 3,000 RPM/4M TPM standard, 150 RPM/3M TPM contributor (one source: 100 RPM), muse-image 150 RPM, background responses 600/min; billing usage-based w/ payment threshold + monthly remainder; card required before key creation; 404 model_not_found for inaccessible models; no orgs/projects, no key scopes, no documented free tier; US-only preview at launch.

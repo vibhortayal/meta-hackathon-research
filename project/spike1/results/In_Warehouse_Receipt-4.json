@@ -1,0 +1,40 @@
+{
+  "http_status": 200,
+  "file": "In_Warehouse_Receipt-4",
+  "usage": {
+    "completion_tokens": 2155,
+    "prompt_tokens": 593,
+    "total_tokens": 2748,
+    "completion_tokens_details": {
+      "reasoning_tokens": 2032
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "decoded": {
+    "store": "NEWARK #1660",
+    "date": "10/22/2026",
+    "lines": [
+      {
+        "item_no": "2051892",
+        "product": "Men's Multi",
+        "brand": "Kirkland Signature",
+        "detail": null,
+        "price": -14.99,
+        "qty": 1,
+        "is_return": true,
+        "confidence": 0.65,
+        "needs_user_check": true,
+        "alternatives": [
+          "Men's Multivitamin",
+          "Men's Multi-Vitamin"
+        ]
+      }
+    ],
+    "subtotal": -14.99,
+    "tax": -1.54,
+    "total": -16.53,
+    "items_sold": -1
+  }
+}

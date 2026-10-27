@@ -1,0 +1,12 @@
+# Source note — Muse Voice Transcribe
+- Canonical URL: https://dev.meta.ai/models/muse-voice-transcribe
+- Fetch date: 2026-10-27
+- Access: NOT directly readable — dev.meta.ai blocked by fetch domain policy. Facts reconstructed from indexed secondary sources reporting Meta's launch statements.
+- Sources used:
+  - https://slator.com/meta-launches-muse-voice-transcribe/
+  - https://www.techrepublic.com/article/news-meta-muse-voice-transcribe-real-time-speech/
+  - https://9to5mac.com/2026/09/01/meta-launches-muse-voice-transcribe-for-real-time-voice-dictation-on-mac/
+  - https://hiindia.com/meta-launches-muse-voice-transcribe-with-native-support-for-five-indian-languages/
+  - https://mungomash.com/ai/llama/versions/
+  - https://www.orcarouter.ai/blog/muse-api
+- Key facts: launched Sep 1 2026; model ID muse-voice-transcribe-1.0; streaming ASR + diarization (20+ speakers) + endpointing in one model; 80 ms audio chunks, RL-trained "adaptive delay"; trained on 70+ languages, 25 validated at launch; native code-switching; language/keyword/context biasing (guides, doesn't guarantee); handles >1 hr audio; endpoints wss://api.meta.ai/v1/asr/realtime and POST /v1/asr/transcribe; $0.18/audio hour ($3 per 1,000 min); returns speaker-turn timestamps only — no word timestamps, no confidence scores, no emotion/sound-event detection; powers dictation in Meta AI for Mac and Muse Code.

@@ -1,0 +1,12 @@
+# Source note — Muse Image
+- Canonical URL: https://dev.meta.ai/models/muse-image
+- Fetch date: 2026-10-27
+- Access: NOT directly readable — dev.meta.ai blocked by fetch domain policy. Facts reconstructed from indexed secondary sources quoting Meta's developer docs.
+- Sources used:
+  - https://www.orcarouter.ai/blog/muse-image
+  - https://fal.ai/muse-image
+  - https://muapi.ai/muse-image
+  - https://hermes-agent.nousresearch.com/docs/user-guide/features/image-generation
+  - https://mungomash.com/ai/llama/versions/
+  - https://marcbazemore.medium.com/metas-muse-image-thinks-before-it-draws-04c10bf9ad39 (consumer-launch analysis; its "no public API" claim predates the documented Aug 26 2026 API launch)
+- Key facts: model ID muse-image-1.0; announced Jul 7 2026 in Meta apps, joined Model API Aug 26 2026; endpoints POST /v1/images/generations, /v1/images/edits, multi-turn via /v1/responses; edit preserves untouched pixels, no mask needed; up to 10 reference images with role tags; params n 1–10, size = aspect ratio only, response_format b64_json/url, output_format webp/png/jpeg; tool_enablement (image search/web search/shell) + reasoning_strength high/low; agentic self-review + code/search tools; $0.01/image on Meta Model API; 150 RPM.

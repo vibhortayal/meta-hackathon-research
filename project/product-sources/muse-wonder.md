@@ -1,0 +1,14 @@
+# Source note — Muse Wonder
+- Canonical URL: https://dev.meta.ai/models/muse-wonder
+- Fetch date: 2026-10-27
+- Access: NOT directly readable — dev.meta.ai blocked by fetch domain policy. Facts reconstructed from indexed secondary sources.
+- Sources used:
+  - https://www.marktechpost.com/2026/10/13/meta-muse-wonder-muse-wonder-full-release/
+  - https://routerplex.com/blog/muse-wonder-api-pricing-setup
+  - https://apidog.com/blog/what-is-muse-wonder/
+  - https://techpilot.ai/tools/muse-wonder/
+  - https://www.curatedai.net/guides/meta-muse-wonder-explained.html
+  - https://letsdatascience.com/blog/metas-best-model-skips-api-coding-plan-trains-on-your-code
+  - https://www.aicompare.ninja/en/tool/meta-model-api
+  - https://www.linkedin.com/news/story/meta-rolls-out-paid-muse-wonder-ai-for-agent-apps-7677812/
+- Key facts: released Oct 12 2026; Wonder (muse-wonder-1.0) on Meta Model API at $4.00/$0.20/$20.00 per M, Standard only, no Contributor; Wonder Full (muse-wonder-full-1.0) NOT on API — Muse Code Power $50 / Maximum $200 only; 1,048,576-token context both; inputs text/image/video/documents (audio listed by one catalog, unconfirmed by another); Active Memory + Active Focus; rate limit 3,000 RPM/4M TPM; AA task cost ~$4.52 (token-hungry).

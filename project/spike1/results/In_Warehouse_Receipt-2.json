@@ -1,0 +1,37 @@
+{
+  "http_status": 200,
+  "file": "In_Warehouse_Receipt-2",
+  "usage": {
+    "completion_tokens": 4985,
+    "prompt_tokens": 577,
+    "total_tokens": 5562,
+    "completion_tokens_details": {
+      "reasoning_tokens": 4852
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "decoded": {
+    "store": "NEWARK #1660",
+    "date": "10/22/2026",
+    "lines": [
+      {
+        "item_no": "282",
+        "product": "Uber Eats",
+        "brand": null,
+        "detail": null,
+        "price": 159.98,
+        "qty": 2,
+        "is_return": false,
+        "confidence": 0.9,
+        "needs_user_check": false,
+        "alternatives": []
+      }
+    ],
+    "subtotal": 159.98,
+    "tax": 0.0,
+    "total": 159.98,
+    "items_sold": 2
+  }
+}

@@ -1,0 +1,11 @@
+# Source note — SAM 3.1
+- Canonical URL: https://dev.meta.ai/models/sam-3-1
+- Fetch date: 2026-10-27
+- Access: NOT directly readable — dev.meta.ai blocked by fetch domain policy. Deep facts from LearnOpenCV's SAM 3.1 write-up (which quotes Meta's docs, paper, and pricing pages) plus launch coverage.
+- Sources used:
+  - https://learnopencv.com/sam-3-whats-new/
+  - https://www.kucoin.com/news/flash/meta-launches-sam-3-1-api-for-image-and-video-segmentation
+  - https://mungomash.com/ai/llama/versions/
+  - https://www.orcarouter.ai/blog/muse-api
+  - https://www.koda.community/morning-briefing-koda-2026-09-22.html
+- Key facts: FAIR Segment Anything line (not Muse); SAM 3 (Nov 2025) = Promptable Concept Segmentation; SAM 3.1 (Mar 27 2026) adds Object Multiplex (16-object buckets, shared temporal memory, ~7× at 128 objects on H100 per Meta); API model ID sam-3.1 via POST /v1/responses, added Sep 18 2026; hosted limits: 15,000 frames/video, 16 tracked objects/frame, MP4/MOV (H.264/H.265/MPEG-4), text prompts only, one concept per request (commas not a separator); masks decoded with meta-sam-parser; pricing $2.50/1,000 images, $0.20/1,000 video frames; weights gated at HF facebook/sam3.1 (sam3.1_multiplex.pt) under SAM License; self-host needs Python 3.12+, PyTorch 2.7+, CUDA 12.6+; SAM 3 arch = 848M params; limitations: tracking drift, presence-score calibration, short noun-phrase prompts only.

@@ -1,0 +1,220 @@
+{
+  "http_status": 200,
+  "file": "In_Warehouse_Receipt-5",
+  "usage": {
+    "completion_tokens": 7122,
+    "prompt_tokens": 841,
+    "total_tokens": 7963,
+    "completion_tokens_details": {
+      "reasoning_tokens": 5914
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 241
+    }
+  },
+  "decoded": {
+    "store": "FREMONT #778",
+    "date": "10/09/2026",
+    "lines": [
+      {
+        "item_no": "2048095",
+        "product": "Broom + Dustpan",
+        "brand": null,
+        "detail": null,
+        "price": 9.49,
+        "qty": 1,
+        "is_return": false,
+        "confidence": 0.95,
+        "needs_user_check": false,
+        "alternatives": []
+      },
+      {
+        "item_no": "1048072",
+        "product": "Greek Yogurt",
+        "brand": null,
+        "detail": null,
+        "price": 7.49,
+        "qty": 1,
+        "is_return": false,
+        "confidence": 0.95,
+        "needs_user_check": false,
+        "alternatives": []
+      },
+      {
+        "item_no": "77053",
+        "product": "Grape Tomatoes",
+        "brand": null,
+        "detail": null,
+        "price": 6.99,
+        "qty": 1,
+        "is_return": false,
+        "confidence": 0.95,
+        "needs_user_check": false,
+        "alternatives": []
+      },
+      {
+        "item_no": "2051892",
+        "product": "Men's Multivitamin",
+        "brand": "Kirkland Signature",
+        "detail": null,
+        "price": 14.99,
+        "qty": 1,
+        "is_return": false,
+        "confidence": 0.85,
+        "needs_user_check": false,
+        "alternatives": []
+      },
+      {
+        "item_no": "6262016",
+        "product": "Bath Tissue",
+        "brand": "Kirkland Signature",
+        "detail": null,
+        "price": 20.99,
+        "qty": 1,
+        "is_return": false,
+        "confidence": 0.55,
+        "needs_user_check": true,
+        "alternatives": [
+          "Bath Towels",
+          "Bath Mat Set"
+        ]
+      },
+      {
+        "item_no": "96716",
+        "product": "Organic Spinach",
+        "brand": null,
+        "detail": "Organic",
+        "price": 3.99,
+        "qty": 1,
+        "is_return": false,
+        "confidence": 0.98,
+        "needs_user_check": false,
+        "alternatives": []
+      },
+      {
+        "item_no": "2662877",
+        "product": "Toilet Bowl Cleaner",
+        "brand": "Lysol",
+        "detail": "TBC",
+        "price": 11.49,
+        "qty": 1,
+        "is_return": false,
+        "confidence": 0.9,
+        "needs_user_check": false,
+        "alternatives": []
+      },
+      {
+        "item_no": "389885",
+        "product": "Instant Savings",
+        "brand": null,
+        "detail": "Discount for item 2662877 Lysol TBC",
+        "price": -4.0,
+        "qty": 1,
+        "is_return": false,
+        "confidence": 0.95,
+        "needs_user_check": false,
+        "alternatives": []
+      },
+      {
+        "item_no": "791185",
+        "product": "Organic Blackberries",
+        "brand": null,
+        "detail": "Organic",
+        "price": 9.99,
+        "qty": 1,
+        "is_return": false,
+        "confidence": 0.96,
+        "needs_user_check": false,
+        "alternatives": []
+      },
+      {
+        "item_no": "31255",
+        "product": "Cauliflower",
+        "brand": null,
+        "detail": null,
+        "price": 7.49,
+        "qty": 1,
+        "is_return": false,
+        "confidence": 0.98,
+        "needs_user_check": false,
+        "alternatives": []
+      },
+      {
+        "item_no": "8789",
+        "product": "Pineapple",
+        "brand": null,
+        "detail": null,
+        "price": 3.99,
+        "qty": 1,
+        "is_return": false,
+        "confidence": 0.98,
+        "needs_user_check": false,
+        "alternatives": []
+      },
+      {
+        "item_no": "1063232",
+        "product": "Egg Whites",
+        "brand": "Kirkland Signature",
+        "detail": null,
+        "price": 11.99,
+        "qty": 1,
+        "is_return": false,
+        "confidence": 0.9,
+        "needs_user_check": false,
+        "alternatives": []
+      },
+      {
+        "item_no": "1068080",
+        "product": "Pasture Raised Eggs",
+        "brand": null,
+        "detail": "Pasture Raised",
+        "price": 8.99,
+        "qty": 1,
+        "is_return": false,
+        "confidence": 0.88,
+        "needs_user_check": false,
+        "alternatives": []
+      },
+      {
+        "item_no": "4449587",
+        "product": "Air Purifier",
+        "brand": "Winix",
+        "detail": null,
+        "price": 129.99,
+        "qty": 1,
+        "is_return": false,
+        "confidence": 0.85,
+        "needs_user_check": false,
+        "alternatives": []
+      },
+      {
+        "item_no": "389878",
+        "product": "Instant Savings",
+        "brand": null,
+        "detail": "Discount for item 4449587 Winix Purifier",
+        "price": -30.0,
+        "qty": 1,
+        "is_return": false,
+        "confidence": 0.95,
+        "needs_user_check": false,
+        "alternatives": []
+      },
+      {
+        "item_no": "763114",
+        "product": "Organic Edamame",
+        "brand": null,
+        "detail": "Organic",
+        "price": 6.59,
+        "qty": 1,
+        "is_return": false,
+        "confidence": 0.97,
+        "needs_user_check": false,
+        "alternatives": []
+      }
+    ],
+    "subtotal": 220.46,
+    "tax": 15.68,
+    "total": 236.14,
+    "items_sold": 14
+  }
+}

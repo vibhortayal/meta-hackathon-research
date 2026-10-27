@@ -1,0 +1,13 @@
+# Source note — Muse Glimmer
+- Canonical URL: https://dev.meta.ai/models/muse-glimmer
+- Fetch date: 2026-10-27
+- Access: NOT directly readable — dev.meta.ai blocked by fetch domain policy. Facts from launch coverage and the Hugging Face model card as reported by secondary sources.
+- Sources used:
+  - https://www.datacamp.com/blog/muse-glimmer
+  - https://www.marktechpost.com/2026/08/10/meta-ai-releases-muse-glimmer/
+  - https://tech-insider.org/meta-muse-glimmer-open-weight-ai-model-2026/
+  - https://dev.to/roberts_jakuko_fbc04cb38/qwen38-27b-vs-muse-glimmer-30b-which-permissive-open-weight-model-fits-your-local-gpu-36h1
+  - https://madrobot.blog/2026/10/10/meta-muse-glimmer-how-to-run-locally-ollama-lm-studio-vs-qwen-gemma/
+  - https://stonepath.tech/blog/2026-09-11-muse-glimmer-30b-local.html
+  - https://thestackobserver.com/the-open-source-agent-stack-what-meta-nvidia-and-vllm-shipped-this-week-for-local-ai-agents/
+- Key facts: released Aug 10 2026; 30B dense (~29.6B incl. ~1.8B vision encoder) distilled from Muse Spark; Apache 2.0; HF download meta-ai/muse-glimmer-30b; BF16/GGUF/ExecuTorch + DFlash drafter; text+image in, text out, no audio, video as frames; context 131,072; 100+ languages (not all evaluated); knowledge cutoff Jan 4 2026; ~60GB full precision, <20GB at 4-bit; runs on one 24GB GPU or Mac; runtimes vLLM/SGLang/llama.cpp/Ollama/LM Studio/MLX/Transformers; NOT on Meta Model API (no API ID); third-party hosting via Together/Fireworks; Meta-reported MCP-Atlas 75.5, SWE-Bench Pro 51.2; model-card guidance: add guardrails, human confirmation before irreversible actions, not for under-18s.

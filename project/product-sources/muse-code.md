@@ -1,0 +1,12 @@
+# Source note — Muse Code
+- Canonical URL: https://dev.meta.ai/lp/muse-code
+- Fetch date: 2026-10-27
+- Access: NOT directly readable — dev.meta.ai blocked by fetch domain policy. Facts from the product's public site mirror and developer coverage.
+- Sources used:
+  - https://musecodes.io/
+  - https://aiwiz.uk/blog/muse-code/
+  - https://techpilot.ai/tools/muse-wonder/
+  - https://shipwithmuse.live/blog/muse-spark-for-developers
+  - https://www.orcarouter.ai/blog/muse-api
+  - https://hokai.io/hub/agents/muse-code
+- Key facts: terminal coding agent by Meta Superintelligence Labs; beta Aug 2026 (Aug 5 per OrcaRouter), GA Aug 31 2026; install curl -fsSL https://dev.meta.ai/install.sh | bash, Windows irm https://dev.meta.ai/install.ps1 | iex; run `muse`; macOS/Linux/native Windows (PowerShell; no voice or inter-session messaging on Windows); no desktop/IDE app; default model muse-spark-1.3 (launched on 1.2), /models or --model to switch; Wonder + Wonder Full since Oct 12 2026; features: subagents in git worktrees, background agents, replayable event logs, inter-session messaging, Workflows, SDK (dev preview), /plan /grilling /taste skills, voice mode, sandbox + approvals default; plans Everyday $5 (10–50 prompts/5h), High $15 (5×), Power $50 (20×, Wonder Full), Maximum $200 (80×, Wonder Full); or pay-as-you-go Model API key (lookup META_API_KEY → stored key → browser session); GOTCHA: subscriptions default to Contributor mode and since v1.4.6 it routes by family to Contributor models — turn off in /settings or Meta may train on your code; no free tier.

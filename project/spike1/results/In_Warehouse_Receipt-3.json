@@ -1,0 +1,154 @@
+{
+  "http_status": 200,
+  "file": "In_Warehouse_Receipt-3",
+  "usage": {
+    "completion_tokens": 9901,
+    "prompt_tokens": 750,
+    "total_tokens": 10651,
+    "completion_tokens_details": {
+      "reasoning_tokens": 9093
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "decoded": {
+    "store": "NEWARK #1660",
+    "date": "10/22/2026",
+    "lines": [
+      {
+        "item_no": "1474912",
+        "product": "Dark Chocolate Chips",
+        "brand": null,
+        "detail": null,
+        "price": 12.99,
+        "qty": 1,
+        "is_return": false,
+        "confidence": 0.9,
+        "needs_user_check": false,
+        "alternatives": []
+      },
+      {
+        "item_no": "1323118",
+        "product": "Parchment Paper",
+        "brand": "Kirkland Signature",
+        "detail": null,
+        "price": 14.99,
+        "qty": 1,
+        "is_return": false,
+        "confidence": 0.95,
+        "needs_user_check": false,
+        "alternatives": []
+      },
+      {
+        "item_no": "892632",
+        "product": "Organic Sourdough Bread",
+        "brand": null,
+        "detail": null,
+        "price": 8.99,
+        "qty": 1,
+        "is_return": false,
+        "confidence": 0.85,
+        "needs_user_check": false,
+        "alternatives": []
+      },
+      {
+        "item_no": "1063232",
+        "product": "Egg Whites",
+        "brand": "Kirkland Signature",
+        "detail": null,
+        "price": 11.99,
+        "qty": 1,
+        "is_return": false,
+        "confidence": 0.9,
+        "needs_user_check": false,
+        "alternatives": []
+      },
+      {
+        "item_no": "1178969",
+        "product": "Almond Flour",
+        "brand": null,
+        "detail": null,
+        "price": 16.49,
+        "qty": 1,
+        "is_return": false,
+        "confidence": 0.95,
+        "needs_user_check": false,
+        "alternatives": []
+      },
+      {
+        "item_no": "1901576",
+        "product": "Blanket",
+        "brand": null,
+        "detail": "KG",
+        "price": 18.99,
+        "qty": 1,
+        "is_return": false,
+        "confidence": 0.7,
+        "needs_user_check": true,
+        "alternatives": [
+          "KG Blanket",
+          "King Blanket"
+        ]
+      },
+      {
+        "item_no": "397161",
+        "product": "Instant Savings on item 1901576",
+        "brand": null,
+        "detail": "KG Blanket discount",
+        "price": -6,
+        "qty": 1,
+        "is_return": true,
+        "confidence": 0.9,
+        "needs_user_check": false,
+        "alternatives": []
+      },
+      {
+        "item_no": "282",
+        "product": "Uber Eats Gift Card",
+        "brand": "Uber Eats",
+        "detail": "2 @ 79.99",
+        "price": 159.98,
+        "qty": 2,
+        "is_return": false,
+        "confidence": 0.6,
+        "needs_user_check": true,
+        "alternatives": [
+          "Uber Eats Gift Card",
+          "Uber Eats"
+        ]
+      },
+      {
+        "item_no": "1588847",
+        "product": "Spicy Strips",
+        "brand": null,
+        "detail": null,
+        "price": 14.99,
+        "qty": 1,
+        "is_return": false,
+        "confidence": 0.7,
+        "needs_user_check": true,
+        "alternatives": [
+          "Spicy Chicken Strips",
+          "Spicy Beef Strips"
+        ]
+      },
+      {
+        "item_no": "505987",
+        "product": "Paneer",
+        "brand": "Verka",
+        "detail": null,
+        "price": 10.59,
+        "qty": 1,
+        "is_return": false,
+        "confidence": 0.95,
+        "needs_user_check": false,
+        "alternatives": []
+      }
+    ],
+    "subtotal": 264.0,
+    "tax": 3.01,
+    "total": 267.01,
+    "items_sold": 10
+  }
+}

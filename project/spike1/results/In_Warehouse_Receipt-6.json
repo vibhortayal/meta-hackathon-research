@@ -1,0 +1,37 @@
+{
+  "http_status": 200,
+  "file": "In_Warehouse_Receipt-6",
+  "usage": {
+    "completion_tokens": 2387,
+    "prompt_tokens": 592,
+    "total_tokens": 2979,
+    "completion_tokens_details": {
+      "reasoning_tokens": 2279
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 497
+    }
+  },
+  "decoded": {
+    "store": "FREMONT #778",
+    "date": "10/09/2026",
+    "lines": [
+      {
+        "item_no": "1931436",
+        "product": "NFL Women's Pajamas",
+        "brand": null,
+        "detail": null,
+        "price": -26.99,
+        "qty": 1,
+        "is_return": true,
+        "confidence": 0.95,
+        "needs_user_check": false,
+        "alternatives": []
+      }
+    ],
+    "subtotal": -26.99,
+    "tax": -2.77,
+    "total": -29.76,
+    "items_sold": -1
+  }
+}

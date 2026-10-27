@@ -1,0 +1,14 @@
+# Source note — Muse Spark Open
+- Canonical URL: https://dev.meta.ai/models/muse-spark-open
+- Fetch date: 2026-10-27
+- Access: NOT directly readable — dev.meta.ai blocked by fetch domain policy. Facts from launch coverage, OpenRouter's model page, and license analyses.
+- Sources used:
+  - https://deccanfounders.com/2026/16/news/meta-muse-spark-open-816b-parameters-desktop-ai/
+  - https://miraflow.ai/blog/meta-muse-spark-open-explained-benchmarks-hardware-license-2026
+  - https://cellcog.ai/blog/muse-spark-open/
+  - https://openrouter.ai/meta/muse-spark-open
+  - https://modelindex.ai/models/meta/muse-spark-open
+  - https://www.eesel.ai/blog/meta-muse-spark-open-review
+  - https://thethreshold.media/blog/muse-spark-open-meta-open-weights-mac-studio-2026
+  - https://anchorterminal.com/tools/muse-spark-open
+- Key facts: released Oct 15 2026; 816B total / ~42B active MoE, 256 experts/layer, 8/token, 62 layers; ID meta/muse-spark-open; inputs text/image/video/PDF/audio, output text; context 1,048,576, max completion 131,072; tool calling + structured outputs; BF16 ~1.5–1.65TB, NVFP4 ~530GB checkpoints; license = Muse Model License (NOT Apache): commercial use + fine-tuning OK, attribution rule, >$20M revenue/12mo MaaS trigger (notify + separate agreement), military/critical-infrastructure bans, HF access gated by form; downloads via HF, SageMaker, Google Cloud Model Garden, Microsoft Foundry; hosted on Baseten, Fireworks, Groq (limited preview, 131K ctx), Modal, Nebius, OpenRouter, Together at uniform $1.25/$0.15/$4.25 per M; NOT on Meta Model API; self-host ~2TB VRAM BF16 / ~700GB NVFP4, or 2× 512GB M5 Ultra Mac Studios via MLX; frameworks vLLM/SGLang/TensorRT-LLM/MLX/llama.cpp; Meta-reported MCP-Atlas 89.2.

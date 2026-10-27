@@ -1,0 +1,65 @@
+                 NE SAN JOSE #1004
+                1709 AUTOMATION PKWY
+                  SAN JOSE, CA 95131
+
+
+
+
+               21100400702192609251221
+
+Member
+111926719361
+                           ORG
+E                  131                   6.99 N
+                           BRUSSELS
+E                  96716 ORG SPINACH 3.99 N
+E                  815544 KS BLUEBERRY 8.99 N
+E                  57554 BLUEBERRIES 8.99 N
+                           PASTURE
+E                  1068080             8.99 N
+                           EGGS
+E                  679131 KS ORG SYRUP 12.99 N
+E                  1160479 GOLDENBERRY 5.99 N
+                           ALMOND
+E                  1178969              13.59 N
+                           FLOUR
+                           TOMATO
+E                  21046                7.99 N
+                           MEDLE
+E                  1063232 KS EGG WHITE 11.99 N
+E                  9877788 KS ORG TOFU 5.89 N
+E                  1980655 A2 PANEER    12.39 N
+E                  763114 ORG EDAMAME 6.59 N
+                   509768 3MSCISSOR     9.99 Y
+                   392593 / 509768      3.00-
+                           SUBTOTAL     122.36
+                           TAX          0.70
+                   ****    TOTAL        123.06
+
+
+
+XXXXXXXXXXXXX1653                        CHIP
+                                              read
+APPROVED - PURCHASE
+AMOUNT: $123.06
+09/25/2026 12:21 1004 7 219 5
+COSTCO VISA                                   123.06
+CHANGE                                               0
+
+
+                    (A) A                     0.70
+                    TOTAL TAX                 0.70
+TOTAL NUMBER OF ITEMS SOLD = 14
+INSTANT SAVINGS                               $3.00
+09/25/2026 12:21 1004 7 219 5
+
+
+
+                      Thank You!
+                 Please Come Again
+
+       Whse: 1004    Trm: 7     Trn: 219   OPT: 5
+
+Items Sold: 14
+P7 09/25/2026 12:21
+

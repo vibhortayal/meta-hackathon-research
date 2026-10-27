@@ -1,0 +1,14 @@
+# Source note — Muse Spark series
+- Canonical URL: https://dev.meta.ai/models/muse-spark
+- Fetch date: 2026-10-27
+- Access: NOT directly readable — dev.meta.ai blocked by fetch domain policy. Facts reconstructed from indexed secondary sources quoting Meta's pages/docs.
+- Sources used:
+  - https://www.marktechpost.com/2026/07/09/meta-superintelligence-labs-releases-muse-spark-1-1/
+  - https://pondero.ai/news/2026-07-12-meta-muse-spark-1-1-launch-model-api/
+  - https://www.developersdigest.tech/blog/meta-muse-spark-1-1-developer-guide-2026
+  - https://shipwithmuse.live/blog/muse-for-developers
+  - https://shipwithmuse.live/blog/muse-developer-platform
+  - https://www.orcarouter.ai/blog/muse-api
+  - https://big-agi.com/docs/connect-meta
+  - https://aiusagelimits.com/api-rate-limits-pricing/
+- Key facts: IDs muse-spark-1.3/1.2/1.1 + contributor variants for 1.3/1.2; 1,048,576-token context; inputs text/image/video/documents, output text; reasoning_effort minimal–xhigh, reasoning tokens billed as output; Standard $1.25/$0.15/$4.25 per M, Contributor $0.10/$0.002/$0.20; web search $2.50/1k queries; rate limits 3,000 RPM/4M TPM Standard, 150 RPM/3M TPM Contributor (one source says 100 RPM); 1.1 launched Jul 9 2026, US-only preview; $20 new-account credit reported but not confirmed in Meta docs; non-standard SSE event quirk.

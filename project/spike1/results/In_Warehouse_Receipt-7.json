@@ -1,0 +1,214 @@
+{
+  "http_status": 200,
+  "file": "In_Warehouse_Receipt-7",
+  "usage": {
+    "completion_tokens": 10617,
+    "prompt_tokens": 844,
+    "total_tokens": 11461,
+    "completion_tokens_details": {
+      "reasoning_tokens": 9446
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "decoded": {
+    "store": "NE SAN JOSE #1004",
+    "date": "09/25/2026",
+    "lines": [
+      {
+        "item_no": "131",
+        "product": "Organic Brussels Sprouts",
+        "brand": null,
+        "detail": "ORG BRUSSELS",
+        "price": 6.99,
+        "qty": 1,
+        "is_return": false,
+        "confidence": 0.65,
+        "needs_user_check": true,
+        "alternatives": [
+          "Organic Brussels",
+          "Brussels Sprouts"
+        ]
+      },
+      {
+        "item_no": "96716",
+        "product": "Organic Spinach",
+        "brand": null,
+        "detail": null,
+        "price": 3.99,
+        "qty": 1,
+        "is_return": false,
+        "confidence": 0.95,
+        "needs_user_check": false,
+        "alternatives": []
+      },
+      {
+        "item_no": "815544",
+        "product": "Blueberries",
+        "brand": "Kirkland Signature",
+        "detail": "KS BLUEBERRY",
+        "price": 8.99,
+        "qty": 1,
+        "is_return": false,
+        "confidence": 0.75,
+        "needs_user_check": true,
+        "alternatives": [
+          "Kirkland Signature Organic Blueberries",
+          "Kirkland Signature Blueberry"
+        ]
+      },
+      {
+        "item_no": "57554",
+        "product": "Blueberries",
+        "brand": null,
+        "detail": null,
+        "price": 8.99,
+        "qty": 1,
+        "is_return": false,
+        "confidence": 0.7,
+        "needs_user_check": true,
+        "alternatives": [
+          "Organic Blueberries",
+          "Fresh Blueberries"
+        ]
+      },
+      {
+        "item_no": "1068080",
+        "product": "Pasture Raised Eggs",
+        "brand": null,
+        "detail": "PASTURE EGGS",
+        "price": 8.99,
+        "qty": 1,
+        "is_return": false,
+        "confidence": 0.85,
+        "needs_user_check": false,
+        "alternatives": []
+      },
+      {
+        "item_no": "679131",
+        "product": "Organic Syrup",
+        "brand": "Kirkland Signature",
+        "detail": null,
+        "price": 12.99,
+        "qty": 1,
+        "is_return": false,
+        "confidence": 0.9,
+        "needs_user_check": false,
+        "alternatives": []
+      },
+      {
+        "item_no": "1160479",
+        "product": "Goldenberries",
+        "brand": null,
+        "detail": null,
+        "price": 5.99,
+        "qty": 1,
+        "is_return": false,
+        "confidence": 0.85,
+        "needs_user_check": false,
+        "alternatives": []
+      },
+      {
+        "item_no": "1178969",
+        "product": "Almond Flour",
+        "brand": null,
+        "detail": "ALMOND FLOUR",
+        "price": 13.59,
+        "qty": 1,
+        "is_return": false,
+        "confidence": 0.95,
+        "needs_user_check": false,
+        "alternatives": []
+      },
+      {
+        "item_no": "21046",
+        "product": "Tomato Medley",
+        "brand": null,
+        "detail": "TOMATO MEDLE",
+        "price": 7.99,
+        "qty": 1,
+        "is_return": false,
+        "confidence": 0.82,
+        "needs_user_check": false,
+        "alternatives": []
+      },
+      {
+        "item_no": "1063232",
+        "product": "Egg Whites",
+        "brand": "Kirkland Signature",
+        "detail": null,
+        "price": 11.99,
+        "qty": 1,
+        "is_return": false,
+        "confidence": 0.9,
+        "needs_user_check": false,
+        "alternatives": []
+      },
+      {
+        "item_no": "9877788",
+        "product": "Organic Tofu",
+        "brand": "Kirkland Signature",
+        "detail": null,
+        "price": 5.89,
+        "qty": 1,
+        "is_return": false,
+        "confidence": 0.9,
+        "needs_user_check": false,
+        "alternatives": []
+      },
+      {
+        "item_no": "1980655",
+        "product": "Paneer",
+        "brand": "A2",
+        "detail": null,
+        "price": 12.39,
+        "qty": 1,
+        "is_return": false,
+        "confidence": 0.9,
+        "needs_user_check": false,
+        "alternatives": []
+      },
+      {
+        "item_no": "763114",
+        "product": "Organic Edamame",
+        "brand": null,
+        "detail": null,
+        "price": 6.59,
+        "qty": 1,
+        "is_return": false,
+        "confidence": 0.95,
+        "needs_user_check": false,
+        "alternatives": []
+      },
+      {
+        "item_no": "509768",
+        "product": "Scissors",
+        "brand": "3M",
+        "detail": "3M SCISSOR",
+        "price": 9.99,
+        "qty": 1,
+        "is_return": false,
+        "confidence": 0.85,
+        "needs_user_check": false,
+        "alternatives": []
+      },
+      {
+        "item_no": "392593",
+        "product": "Instant Savings on 3M Scissors",
+        "brand": null,
+        "detail": "Coupon / 509768",
+        "price": -3.0,
+        "qty": 1,
+        "is_return": false,
+        "confidence": 0.95,
+        "needs_user_check": false,
+        "alternatives": []
+      }
+    ],
+    "subtotal": 122.36,
+    "tax": 0.7,
+    "total": 123.06,
+    "items_sold": 14
+  }
+}

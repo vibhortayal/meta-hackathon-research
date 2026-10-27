@@ -1,0 +1,193 @@
+{
+  "http_status": 200,
+  "file": "In_Warehouse_Receipt",
+  "usage": {
+    "completion_tokens": 9289,
+    "prompt_tokens": 826,
+    "total_tokens": 10115,
+    "completion_tokens_details": {
+      "reasoning_tokens": 8268
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "decoded": {
+    "store": "PENTAGON CITY #233",
+    "date": "10/26/2026 18:03",
+    "lines": [
+      {
+        "item_no": "1462040",
+        "product": "Argentine Shrimp",
+        "brand": "Kirkland Signature",
+        "detail": null,
+        "price": 21.79,
+        "qty": 1,
+        "is_return": false,
+        "confidence": 0.85,
+        "needs_user_check": false,
+        "alternatives": []
+      },
+      {
+        "item_no": "910270",
+        "product": "Organic Green Beans",
+        "brand": null,
+        "detail": null,
+        "price": 7.99,
+        "qty": 1,
+        "is_return": false,
+        "confidence": 0.9,
+        "needs_user_check": false,
+        "alternatives": []
+      },
+      {
+        "item_no": "519638",
+        "product": "Organic Blueberries",
+        "brand": null,
+        "detail": null,
+        "price": 12.99,
+        "qty": 1,
+        "is_return": false,
+        "confidence": 0.95,
+        "needs_user_check": false,
+        "alternatives": []
+      },
+      {
+        "item_no": "9877788",
+        "product": "Organic Tofu",
+        "brand": "Kirkland Signature",
+        "detail": null,
+        "price": 5.89,
+        "qty": 1,
+        "is_return": false,
+        "confidence": 0.95,
+        "needs_user_check": false,
+        "alternatives": []
+      },
+      {
+        "item_no": "32911",
+        "product": "Vanilla",
+        "brand": "Kirkland Signature",
+        "detail": null,
+        "price": 9.59,
+        "qty": 1,
+        "is_return": false,
+        "confidence": 0.5,
+        "needs_user_check": true,
+        "alternatives": [
+          "Vanilla Extract",
+          "Vanilla Almond Milk"
+        ]
+      },
+      {
+        "item_no": "1178969",
+        "product": "Almond Flour",
+        "brand": null,
+        "detail": null,
+        "price": 16.99,
+        "qty": 1,
+        "is_return": false,
+        "confidence": 0.95,
+        "needs_user_check": false,
+        "alternatives": []
+      },
+      {
+        "item_no": "2067305",
+        "product": "Eggs",
+        "brand": null,
+        "detail": null,
+        "price": 10.29,
+        "qty": 1,
+        "is_return": false,
+        "confidence": 0.85,
+        "needs_user_check": false,
+        "alternatives": []
+      },
+      {
+        "item_no": "22967",
+        "product": "Organic Boneless Skinless Chicken Thighs",
+        "brand": null,
+        "detail": null,
+        "price": 29.17,
+        "qty": 1,
+        "is_return": false,
+        "confidence": 0.7,
+        "needs_user_check": true,
+        "alternatives": [
+          "Organic Chicken Thighs",
+          "Organic Boneless Thighs"
+        ]
+      },
+      {
+        "item_no": "1063232",
+        "product": "Egg Whites",
+        "brand": "Kirkland Signature",
+        "detail": null,
+        "price": 11.29,
+        "qty": 1,
+        "is_return": false,
+        "confidence": 0.9,
+        "needs_user_check": false,
+        "alternatives": []
+      },
+      {
+        "item_no": "1048072",
+        "product": "Greek Yogurt",
+        "brand": null,
+        "detail": null,
+        "price": 7.49,
+        "qty": 1,
+        "is_return": false,
+        "confidence": 0.9,
+        "needs_user_check": false,
+        "alternatives": []
+      },
+      {
+        "item_no": "121288",
+        "product": "Organic Bell Peppers",
+        "brand": null,
+        "detail": null,
+        "price": 6.49,
+        "qty": 1,
+        "is_return": false,
+        "confidence": 0.65,
+        "needs_user_check": true,
+        "alternatives": [
+          "Organic Portabella Mushrooms",
+          "Organic Mini Sweet Peppers"
+        ]
+      },
+      {
+        "item_no": "815544",
+        "product": "Blueberry Muffins",
+        "brand": "Kirkland Signature",
+        "detail": null,
+        "price": 8.99,
+        "qty": 1,
+        "is_return": false,
+        "confidence": 0.55,
+        "needs_user_check": true,
+        "alternatives": [
+          "Blueberry Bagels",
+          "Frozen Blueberries"
+        ]
+      },
+      {
+        "item_no": "96716",
+        "product": "Organic Spinach",
+        "brand": null,
+        "detail": null,
+        "price": 5.39,
+        "qty": 1,
+        "is_return": false,
+        "confidence": 0.95,
+        "needs_user_check": false,
+        "alternatives": []
+      }
+    ],
+    "subtotal": 154.35,
+    "tax": 1.54,
+    "total": 155.89,
+    "items_sold": 13
+  }
+}
