@@ -174,3 +174,12 @@ Verdicts by Spark:
 - Owner condition, now a spec rule: the gate test stays SEPARATE. Public receipts are
   fixtures only — never in his ledger, dictionary, or patterns. Gate store is
   discarded/archived after scoring.
+- R5 (owner candidate, 2026-10-27 15:11 EDT): ARYA — Game of Thrones reference;
+  "she makes lists" (Arya Stark's nightly list: she never forgets a name on it).
+  Spark assessment: strongest personality candidate so far. Plus: instant pop
+  recognition; the nightly-list ritual maps to the assistant reviewing the house
+  and updating the list; a real Sanskrit name (noble) — his culture + pop culture
+  in one word; callable ("Arya, are we low on eggs?"). Flag: her list is a kill
+  list — the undertone is dark; played as a joke in demo it lands, but it is a
+  taste call. Collisions: Arya.ai exists (different category). Status: front-
+  runner beside Munshi; name still officially parked, owner has not decided.
