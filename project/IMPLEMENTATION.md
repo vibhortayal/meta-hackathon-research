@@ -1,315 +1,496 @@
-# Grocery Navigator — Implementation Plan
+# The Assistant — Implementation Plan
 
-*How SPEC.md gets built with Muse Code, starting today (Oct 27). Deadline: **Nov 4, 2026, 9:00 PM ET**. Read SPEC.md first — every stage below is gated against its acceptance criteria (§9 there).*
+This plan builds SPEC.md. Read SPEC.md first.
+Each stage has a gate. The gate refers to SPEC.md Section 9.
+Deadline: November 4, 2026, 9:00 PM ET.
+This document uses ASD-STE100 style. Sentences are short. Each sentence has one idea.
 
-**Three structural decisions (owner steers, 2026-10-27):**
-1. **Staged build with explicit gates.** Nothing advances on vibes; each stage has measurable gate criteria and a verifier who didn't build it.
-2. **API first.** Backend services are built and *proven as APIs through a test harness* before any frontend exists. The receipt spike exercises the decode API from a CLI, not a UI.
-3. **Agent loops + token maxing.** The build runs as loops (builder ↔ verifier, eval loops on golden sets, parallel candidates), spending the abundant agent-labor token pool aggressively toward measured gates — never open-ended burn. Every loop has a written STOP condition.
+## Changes in this revision
 
----
+Date: 2026-10-27.
 
-## 1. Build methodology — loops, not passes
+- The stage order is new. Foundations come first. Two pre-build spikes come second. The decode API comes third.
+- Stage 0.5 is new. Stage 0.5 has the photo-receipt gate and the Costco history pull test. The build commits after Stage 0.5.
+- Reconciliation moves from the store stage to Stage 2. Reconciliation is core.
+- The prepared cart is in Stage 2. The cart is the closing beat of the core loop.
+- PWA-core is Stage 3. Eyes is Stage 4. The store add-on is Stage 5. Hardening and demo are Stage 6.
+- The decode output has an allocation field on each line. Stage 2 patterns exclude FOR-OTHERS lines.
+- The demo runbook has seven beats in a fixed order. Section 7 gives the beats.
+- Costs and loop rules stay from the prior revision. Amounts are re-allocated to the new stages.
+
+## 1. Method — loops, not passes
 
 ### 1.1 The three loop types
 
-**A. Builder ↔ verifier loop (every stage).** A builder agent (Muse Code session) implements the stage's services against the contracts in §3. An *independent* verifier agent then runs the stage's acceptance checks (SPEC §9) against the harness — it does not read the builder's reasoning, only the API behavior and the evidence. Failures return to the builder as a defect list (failing check, input, expected vs actual). Loop until the gate passes or the STOP condition fires. This is the Nightshift factory pattern: nobody grades their own work.
+Loop A. Builder and verifier.
+A builder agent writes the code for a stage. A verifier agent runs the gate checks. The verifier does not read the reasoning of the builder. The verifier reads API behavior and evidence only. A failure returns as a defect list: check, input, expected value, actual value. The loop runs until the gate passes or a stop condition fires.
 
-**B. Eval loop (prompt/model behavior).** Where a stage's quality lives in a prompt (receipt decode, relocalization, indexing, command parsing), the loop is automatic: run the current prompt against the golden set → score with the stage's scorer → revise prompt (one variable at a time) → re-run. Every attempt is logged (prompt hash, set version, score) so the report shows **attempts + score trajectory**, not just the final number. The gate metric is computed on Standard mode only (see §1.3).
+Loop B. Eval loop.
+A prompt carries the quality of decode, sighting detection, and command parsing. The loop runs the prompt against a golden set. A scorer gives a number. The builder changes one variable. The loop runs again. Each attempt is logged: prompt hash, set version, score, cost. The report shows the attempts and the score path. The report does not show the final number only.
+Gate scores count on Standard mode only. Section 1.3 gives the mode rules.
 
-**C. Parallel candidate generation (where quality is measurable).** For the two riskiest prompts (decode, relocalization) and the walkthrough-indexing approach, generate 3 candidate variants up front (e.g. indexing: whole-video single pass vs zone-chunked passes vs frame-sample + stills), score all on the golden set, build on the winner. Candidates that lose are kept in the repo with their scores — the trajectory is demo-day evidence of Technical Depth.
+Loop C. Parallel candidates.
+The riskiest prompts get three candidate variants. Candidates are scored on the golden set. The build uses the winner. Losers stay in the repo with scores.
+The two riskiest prompts are the receipt decode prompt and the photo sighting prompt.
+The store indexing approach gets candidates in Stage 5 only.
 
-**D. Dual-judge redundancy (riskiest calls only).** Two independent Spark calls (different prompt framings, no shared context) must agree for: (i) a receipt line auto-posting when its decode is dictionary-novel, (ii) a sighting being marked verified from a single photo. Disagreement → the item drops to the unverified/ask path. This is the epistemics rule implemented as architecture, and it directly defends the ≤2% silently-wrong gate metric.
+Rule D. Dual judge.
+Two independent Spark calls must agree on two call types: a dictionary-novel line that auto-posts, and a sighting from a single photo. A disagreement sends the item to the review queue. This rule defends the silently-wrong gate metric of SPEC.md.
 
-### 1.2 STOP conditions (every loop, no exceptions)
+### 1.2 Stop conditions
 
 | Trigger | Action |
 |---|---|
-| Gate passes | Stop immediately. Bank the win; extra polish is a new decision, not loop momentum. |
-| Max iterations reached (per-loop caps in §4; default 12 prompt iterations, 3 candidate rounds, 4 builder↔verifier rounds) | Stop; escalate to owner with the trajectory + best-so-far + the blocking evidence. |
-| Convergence: <1 point improvement on the gate metric across 3 consecutive iterations | Stop; the approach, not the effort, is the problem → escalate with a proposed approach change. |
-| API-dollar spend for the stage exceeds its §8 allocation by >50% | Stop; escalate before spending more. |
-| A loop discovers the spec is wrong (not just the code) | Stop; flag to owner; spec changes are his call. |
+| The gate passes | Stop at once. More polish is a new decision. |
+| The iteration cap is hit | Stop. Escalate to the owner with the score path and the best result. |
+| Improvement is under 1 point in 3 attempts | Stop. The approach is the problem. Escalate with a proposed new approach. |
+| Stage spend is over the allocation by more than 50 percent | Stop. Escalate before more spend. |
+| A loop shows an error in the specification | Stop. The owner decides specification changes. |
 
-Token maxing means: within those rails, spend freely — parallel candidates, full golden-set runs on every iteration, verifier re-runs from scratch. The weekly agent pool (500M + 5B reserve) is the labor budget and is not the constraint; **iterations and the $150 are.**
+Default caps: 12 prompt iterations, 3 candidate rounds, 4 builder and verifier rounds.
+Token use inside the caps is free. Parallel candidates and full golden-set runs are normal.
 
-### 1.3 The two budgets (never confuse them)
+### 1.3 The two budgets
 
-| Budget | Size | Spent on | Rule |
+| Budget | Size | Use | Rule |
 |---|---|---|---|
-| Agent labor tokens (Muse Code / agent loops) | 500M/week + 5B reserve — abundant | Building, verifying, eval-loop reasoning | Spend freely toward gates; capped by STOP conditions, not tokens |
-| Meta API dollars | **$150 credit** (10-day window) + $25 Fireworks (if granted) | The *product's own* model calls | Metered from the first call (§2.4); mode discipline below |
+| Agent labor tokens | 500 million per week plus a 5 billion reserve | Build, verify, eval reasoning | Spend freely inside the stop conditions |
+| Meta API dollars | 150 dollar credit, plus 25 dollar Fireworks credit if granted | The model calls of the product | Metered from the first call |
 
-**Mode discipline (pricing from PRODUCTS.md):**
-- **Contributor** (`muse-spark-1.3-contributor`, $0.10 in / $0.002 cached / $0.20 out) — dev-loop iterations, prompt exploration, candidate generation. **Synthetic and anonymized data only** (flag F1: Contributor may be trained on, and Meta's terms bar sending it personal data — the owner's real receipts never touch it).
-- **Standard** (`muse-spark-1.3`, $1.25 / $0.15 cached / $4.25) — gate measurements, rehearsals, demo, and *all* real user data. A score only counts if it was measured on Standard.
-- **Muse Code itself:** subscription seats default to Contributor mode — **turn Contributor OFF in `/settings` before any code is written** (PRODUCTS.md §9: defaults let Meta train on prompts/code/outputs, and v1.4.6+ routes by model family, so picking a Standard model name is not enough).
+Mode discipline:
 
-## 2. Foundations (Stage 0, today)
+- Contributor mode is for development loops with synthetic data only. A Contributor model can be trained on inputs. Meta terms bar personal data on Contributor mode.
+- Standard mode is for gate measurements, rehearsals, the demo, and all real user data.
+- The owner receipts never touch Contributor mode. Flag F1 gives the full rule.
+- Muse Code defaults to Contributor mode on subscription seats. Set Contributor to OFF in the settings before code work starts.
+
+## 2. Foundations
 
 ### 2.1 Repo layout
 
-```
-grocery-navigator/
-  api/            # services (API-first) — one module per SPEC component
-    decode/  dictionary/  ledger/  storemap/  relocalize/
-    route/   guided/      reconcile/ patterns/ grading/  voice/
-    meta_client.py        # the ONLY module that calls api.meta.ai / Fireworks
-    cost_ledger.py        # every call logged: model, mode, tokens, $
-  harness/        # CLI test harness — spikes + eval loops run here, no UI
-    spike_receipts.py  spike_relocalize.py  eval_runner.py  scorers/
-  prompts/        # versioned prompt files (hash-named copies per eval attempt)
-  golden/         # golden sets (see §6) — data + expected outputs + scorers
-  pwa/            # Stage 6 — does not exist until the APIs pass their gates
-  deploy/         # Oracle VM deployment: service unit, env template, pull-from-git script
-  docs/           # SPEC.md, IMPLEMENTATION.md copies + loop reports
-  loops/          # per-stage loop logs: attempts, trajectories, gate verdicts
+```text
+assistant/
+  api/            # services, API first, one module per SPEC component
+    decode/  dictionary/  ledger/  patterns/  list/
+    cart/    reconcile/   eyes/     storemap/  relocalize/
+    route/   guided/      voice/    grading/
+    meta_client.py        # the only module that calls the Meta API or Fireworks
+    cost_ledger.py        # one row per call: model, mode, tokens, cost
+  harness/        # CLI harness; spikes and eval loops run here, no UI
+    spike_photo.py  spike_receipts.py  spike_costco_pull.py
+    spike_relocalize.py  eval_runner.py  scorers/
+  prompts/        # versioned prompt files, one copy per eval attempt
+  golden/         # golden sets and expected outputs; Section 6
+  pwa/            # Stage 3; the folder does not exist before Stage 3
+  deploy/         # Oracle deployment: compose file, env template, pull script
+  docs/           # SPEC.md, IMPLEMENTATION.md, loop reports
+  loops/          # per-stage loop logs: attempts, score paths, gate verdicts
 ```
 
-Git/GitHub is the source of truth for everything above. Where code *runs* is split (§2.5).
+Git and GitHub are the source of truth.
 
 ### 2.2 The meta_client contract
 
-All Meta calls go through one module (this is what makes cost metering and mode discipline enforceable): base URL `https://api.meta.ai/v1`, `Authorization: Bearer $MODEL_API_KEY` (env var, never in code; the key lives in the Secure Vault and is injected at runtime). Endpoints wrapped:
+All Meta calls go through one module. The module enforces cost metering and mode discipline.
+Base URL: https://api.meta.ai/v1.
+Auth: Bearer token from an environment variable. The key stays in the Secure Vault. The key is never in code.
 
-| Job | Model ID | Endpoint | Mode |
-|---|---|---|---|
-| Reasoning / video / decode / relocalize / parse | `muse-spark-1.3` / `-contributor` | `POST /v1/responses` | per §1.3 |
-| File upload (videos, receipt PDFs) | — | `POST /v1/files` | — |
-| Shelf grounding | `sam-3.1` | `POST /v1/responses` (model=`sam-3.1`; masks decoded via `meta-sam-parser`) | n/a |
-| Voice (live) | `muse-voice-transcribe-1.0` | `wss://api.meta.ai/v1/asr/realtime` | n/a |
-| Voice (batch/file) | `muse-voice-transcribe-1.0` | `POST /v1/asr/transcribe` | n/a |
-| Dinner render | `muse-image-1.0` | `POST /v1/images/generations` | n/a |
-| Pre-filter | Glimmer (`meta-ai/muse-glimmer-30b` via Fireworks) | Fireworks chat endpoint | n/a (separate credit) |
+| Job | Model | Endpoint |
+|---|---|---|
+| Reasoning, decode, sightings, parse | muse-spark-1.3 or the Contributor variant | POST /v1/responses |
+| File upload | none | POST /v1/files |
+| Shelf grounding, add-on | sam-3.1 | POST /v1/responses; masks via meta-sam-parser |
+| Voice in, live | muse-voice-transcribe-1.0 | wss://api.meta.ai/v1/asr/realtime |
+| Voice in, batch | muse-voice-transcribe-1.0 | POST /v1/asr/transcribe |
+| Dinner render, optional | muse-image-1.0 | POST /v1/images/generations |
+| Pre-filter, add-on, flag only | Glimmer via Fireworks | Fireworks chat endpoint |
 
-Watch-outs baked into the client: Spark emits a non-standard SSE event that trips some OpenAI-compatible streaming clients (PRODUCTS.md §1) — parse defensively, prefer non-streaming for harness calls. SAM accepts **text prompts only, one concept per request**, ≤16 tracked objects/frame, ≤15,000 frames/request, MP4/MOV only (no WebM — phone recordings must be transcoded if captured as WebM). Rate ceilings are per-team (3,000 RPM Standard / 150 RPM Contributor) — eval loops throttle to the Contributor ceiling when in Contributor mode.
+Client rules:
+
+- Parse streaming output with care. Spark emits a non-standard stream event.
+- SAM accepts text prompts only. One concept per request. A maximum of 16 tracked objects per frame. A maximum of 15,000 frames per request. Video format is MP4 or MOV only.
+- Team rate ceilings: 3,000 requests per minute on Standard, 150 on Contributor. Eval loops on Contributor throttle to 100.
 
 ### 2.3 Prompt caching discipline
 
-System prompts, the item dictionary, and the store index are large, stable prefixes — structure every call as [stable prefix][variable tail] so cached-input pricing ($0.15/M Standard) hits. The store index is passed as cached context for relocalization/route calls, never re-serialized differently between calls (cache keys are exact-prefix).
+Each call has a stable prefix and a variable tail.
+Stable prefixes: the system prompt, the dictionary, the store index.
+The prefix text does not change between calls. Cache keys are exact prefixes.
+Cached input costs less. Section 7.1 of SPEC.md gives the prices.
 
 ### 2.4 Cost ledger
 
-`cost_ledger.py` appends one row per API call {ts, service, model, mode, in_tokens, cached_tokens, out_tokens, est_$} and renders a running total vs the §8 allocations. Stage gates include "spend within allocation." Demo day has its own line (§7).
+The cost ledger adds one row per API call: time, service, model, mode, input tokens, cached tokens, output tokens, estimated cost.
+The ledger renders a total against the Section 8 allocations.
+A stage gate includes spend inside the allocation.
 
-### 2.5 Hosting split (DECIDED with owner, 2026-10-27)
+### 2.5 Hosting split
 
-| | Hatch workspace (Spark's) | Oracle VM (owner's) |
+| Item | Hatch workspace | Oracle VM |
 |---|---|---|
-| What runs there | All code authoring, agent loops (§1), the harness, spikes, evals — **all development Meta API calls** | The deployed runtime: `api/` service + PWA, for phone testing and demo day |
-| Source of truth | git working copy | `git pull` from GitHub (via `deploy/`) — never hand-edited |
-| Meta API key | The Secure Vault credential — **usable only from Hatch** (surrogate exchange). Harnesses therefore call the Meta API from Hatch, by design. | **Owner provisions the Model API key into the Oracle environment himself, once** (see runbook §7 — the agent cannot read back or move the vault key; this step cannot be delegated) |
-| Why | Loops need the vault key + fast iteration; the key's constraint makes Hatch the only possible dev-call site | Durable, publicly reachable, HTTPS — which `getUserMedia` camera access requires |
+| Work | Code, agent loops, harness, spikes, evals, all development API calls | The deployed runtime: API service and PWA |
+| Source | Git working copy | Git pull from GitHub; no hand edits |
+| API key | The Secure Vault credential works from Hatch only | The owner puts the key into the Oracle environment by hand, one time |
+| Reason | Loops need the vault key and fast iteration | The runtime is durable, public, and has HTTPS for the camera API |
 
-**Fallback:** the same `api/` service also runs from the Hatch workspace for desk testing if Oracle hiccups (§7). The harness never depends on Oracle; the phone never depends on Hatch.
+The owner step has no delegate. The agent cannot read the vault key. The agent cannot move the vault key.
+Fallback: the same API service runs from Hatch for desk tests. The harness has no dependency on Oracle. The phone has no dependency on Hatch.
 
-### 2.6 Runtime stack — deliberately minimal, all on the Oracle VM, $0 new infra
+### 2.6 Runtime stack on the Oracle VM
 
-Owner's Always-Free constraint: no new cloud resources, nothing that can incur charges.
+New cloud resources: zero. New charges: zero.
 
-| Layer | Choice | Why |
+| Layer | Choice | Reason |
 |---|---|---|
-| Edge / TLS | **Caddy** on the VM | Automatic HTTPS; serves PWA statics and reverse-proxies the API under **one origin** — camera APIs (`getUserMedia`) require a secure context, and single-origin kills CORS friction |
-| API | **Python FastAPI** | The media pipeline is Python-native: Meta's `meta-sam-parser`, ffmpeg frame work, the harness language. One language end to end |
-| Background jobs | **DB-backed job queue** (a Postgres table + worker loop) | Walkthrough indexing is a long job; no Redis, no extra moving parts |
-| Data | **Postgres in Docker** on the VM | Sightings/index are relational + JSONB (schemas in §3 map directly); Docker keeps the VM clean and the deploy reproducible |
-| Media | **VM disk** | Walkthrough videos/photos are far too big for hosted free tiers; derived frames and indexes live in the DB, originals on disk |
-| Deploy | `git pull` + `docker compose up` on the VM | Matches §2.5: GitHub is the source of truth; the VM never hand-edits |
-| Insurance | **Nightly sync of media + DB dump back to Hatch** | If the VM dies demo week, the data and a Hatch-run service (§7 fallback) survive |
+| Edge and TLS | Caddy | Automatic HTTPS; PWA files and API proxy under one origin; the camera API needs a secure context |
+| API | Python FastAPI | The media tools are Python: meta-sam-parser and ffmpeg |
+| Background jobs | A Postgres table plus a worker loop | Indexing is a long job; no Redis, no extra parts |
+| Data | Postgres in Docker | Items, ledger, and index are relational data with JSON fields |
+| Media | VM disk | Videos and photos are large; derived data sits in the database |
+| Deploy | Git pull plus docker compose up | GitHub is the source of truth |
+| Insurance | Nightly sync of media and a database dump to Hatch | A dead VM in demo week loses no data |
 
-**Explicitly NOT used for the hackathon:** Vercel (split origin/CORS friction; functions can't run long indexing jobs — it is the scale-out path for the PWA later) and Supabase (single-user demo; VM Postgres replaces it — it becomes the platform-stage answer for auth/storage/multi-user, and it's the owner's known stack). Naming them here is deliberate: choosing *against* familiar tools for stated reasons is part of the engineering story.
+Vercel is not in the hackathon build. Reasons: split origin, short function times, a single-user demo.
+Supabase is not in the hackathon build. Reason: VM Postgres covers the demo. Supabase is the platform-stage answer for auth and multi-user data.
+The public hostname is an open choice of the owner: a subdomain on a domain of the owner, or a Cloudflare Tunnel name. The choice is due before Stage 3.
 
-**Open owner choice — public hostname:** a subdomain of a domain the owner controls pointed at the VM, *or* a Cloudflare Tunnel hostname. Needed before the PWA stage (Stage 6); flagged again in the runbook (§7). Caddy works with either; the tunnel avoids opening inbound ports.
+## 3. Contracts
 
-## 3. Contracts (JSON schemas — the API-first backbone)
+The harness tests these contracts before a UI exists.
+The repo carries the full JSON schema files. This section gives the field lists.
 
-These are the interfaces every stage builds against; the harness tests them before any UI exists. (Abbreviated field lists; the repo carries full JSON Schema files.)
+```text
+DecodedReceipt — output of the decode service (SPEC 6.1, 6.2, 6.3)
+{ receipt_id, source_type: grocery | restaurant | delivery,
+  merchant, purchased_at,
+  lines: [ { raw, sku, item_id (dictionary ID or null),
+             decoded_name, qty, unit_price, line_total,
+             line_type: item | discount | return,
+             discount_parent_sku (for a discount line),
+             allocation: HOUSEHOLD | FOR_OTHERS,
+             for_person (name or null),
+             confidence, status: auto | unverified,
+             judge_agree } ],
+  subtotal, tax, total, totals_reconcile: true | false, image_ref }
 
-```jsonc
-// DecodedReceipt — output of decode service (SPEC FR-1.2)
-{ "receipt_id": "uuid", "source_type": "grocery|restaurant|delivery",
-  "merchant": "Costco", "purchased_at": "ISO-8601",
-  "lines": [ { "raw": "KS ORG MLK 1GAL", "sku": "100123",
-               "item_id": "dict:milk-whole-1gal|null",
-               "decoded_name": "Kirkland Signature Organic Whole Milk 1gal",
-               "qty": 1, "unit_price": 4.29, "line_total": 4.29,
-               "confidence": 0.93, "status": "auto|unverified",
-               "judge_agree": true } ],
-  "subtotal": 0.0, "tax": 0.0, "total": 0.0,
-  "totals_reconcile": true, "image_ref": "file_id" }
+DictionaryEntry (SPEC 6.2)
+{ item_id, canonical_name, category, aliases: [],
+  spoken_names: [], typical_unit, sam_concept }
 
-// DictionaryEntry (SPEC FR-2.1)
-{ "item_id": "dict:milk-whole-1gal", "canonical_name": "Whole milk, 1 gal",
-  "category": "dairy", "aliases": ["KS ORG MLK", "organic milk"],
-  "spoken_names": ["milk"], "sam_concept": "milk gallon jug",
-  "typical_unit": "1 gal" }
+LedgerEntry (SPEC 6.2, 6.3)
+{ entry_id, receipt_id, item_id, store_id, date,
+  qty, price, event_type: purchase | return | correction,
+  allocation: HOUSEHOLD | FOR-OTHERS, supersedes (entry ID or null) }
 
-// Sighting & StoreIndex (SPEC FR-3.x)
-{ "sighting_id": "uuid", "store_id": "...", "zone_id": "frozen-back-wall",
-  "item_id": "dict:...", "evidence": "walkthrough_frame|aisle_photo|cart_photo|user_taught|receipt_only",
-  "captured_at": "ISO-8601", "base_confidence": 0.9,
-  "status": "live|disputed|retired", "source_ref": "file_id|trip_id" }
-// effective_confidence computed at read time: base * 0.5^(age_days/21), per FR-3.2
-{ "store_index": { "store_id": "...", "version": 7,
-    "zones": [ {"zone_id": "...", "label": "Frozen — back wall",
-                "landmarks": ["glass freezer doors", "red signage"], "order": 40} ],
-    "sightings": ["<Sighting>"], "coverage_pct": 62, "item_coverage_pct": 71 } }
+PatternSummary (SPEC 6.4) — computed by code, not by a model
+{ item_id, purchase_count, median_interval_days, last_bought,
+  typical_qty, total_spend, due: true | false,
+  history_state: pattern | not-enough-history }
+Input set: purchases minus returns minus FOR-OTHERS lines.
 
-// RoutePlan (SPEC FR-4.1)
-{ "route_id": "uuid", "store_id": "...", "index_version": 7,
-  "stops": [ {"item_id": "dict:...", "zone_id": "...",
-              "confidence": 0.81, "evidence_age_days": 3} ],
-  "unknowns": [ {"item_id": "dict:tahini", "ask": "If you find it, show me the aisle"} ] }
+ReconciliationResult (SPEC 6.6)
+{ trip_id,
+  matched:   [ { item_id, evidence: [list, receipt, cart], price } ],
+  unverified: [ { item_id, seen_in: [], reason } ],
+  surprises: [ { raw, reason } ] }
 
-// RelocalizationResult (SPEC FR-5.1)
-{ "zone_id": "frozen-back-wall|null", "confidence": 0.0,
-  "landmarks_seen": ["..."], "needs": "none|another_pan|landmark_photo" }
+SmartList (SPEC 6.5)
+{ list_id, items: [ { item_id, qty, due_reason, source: pattern | user | eyes-removed } ],
+  narration }
 
-// ReconciliationResult (SPEC FR-1/6.5 — list <-> receipt <-> cart)
-{ "trip_id": "uuid",
-  "matched":   [ {"item_id": "...", "evidence": ["list","receipt","cart"], "price": 0.0} ],
-  "unverified":[ {"item_id": "...", "seen_in": ["receipt"], "reason": "not visible in cart photo"} ],
-  "surprises": [ {"raw": "...", "reason": "on receipt, not on list, not in cart"} ] }
+PreparedCart (SPEC 6.5)
+{ cart_id, list_id, store,
+  items: [ { item_id, name, qty } ],
+  state: waiting | approved, approved_at }
+The cart sends no order. The cart makes no payment.
 
-// PatternSummary & SmartList (SPEC FR-9/10) — computed, not generated
-{ "item_id": "dict:...", "count": 6, "median_interval_days": 9,
-  "last_bought": "ISO", "typical_qty": 2, "due": true }
+EyesSighting (SPEC 6.7)
+{ sighting_id, item_id (or null), photo_ref, seen_at,
+  quantity_level: full | some | low | out | unknown,
+  confidence, user_state: unconfirmed | confirmed | corrected }
 
-// WalkthroughGrade (SPEC FR-12.1)
-{ "walkthrough_id": "...", "recency_days": 2, "clarity": 0.0,
-  "completeness_zones": 0.0, "completeness_items": 0.0, "overall": 0.0,
-  "wins_over_index_version": 6 }
+Store add-on contracts (SPEC 6.8)
+Sighting { sighting_id, store_id, zone_id, item_id, evidence,
+  captured_at, base_confidence, status: live | disputed | retired }
+Effective confidence = base x 0.5^(age in days / 21). The value is computed at read time.
+StoreIndex { store_id, version, zones: [], sightings: [], coverage_pct, item_coverage_pct }
+RoutePlan { route_id, store_id, index_version,
+  stops: [ { item_id, zone_id, confidence, evidence_age_days } ],
+  unknowns: [ { item_id, ask } ] }
+RelocalizationResult { zone_id (or null), confidence, landmarks_seen: [], needs }
+WalkthroughGrade { walkthrough_id, recency_days, clarity,
+  completeness_zones, completeness_items, overall }
 ```
 
----
+## 4. Stages
 
-## 4. Stages (each: build → loop → gate; no stage starts before the prior gate, except where noted)
+A stage starts after the prior gate passes. Stage 5 is an exception. Stage 5 has no gate effect on Stages 1 to 4.
 
-### Stage 0 — Foundations (D0, today)
-- **Build:** repo + layout (§2.1); `meta_client` with cost ledger; one smoke call per service (Spark text, SAM on a sample photo, ASR batch on a 10-second clip, Muse Image one render, Glimmer ping if the Fireworks credit exists); Muse Code Contributor mode **OFF** in `/settings` (§1.3); Oracle skeleton: Caddy + FastAPI + Postgres via docker compose, `/health` green over HTTPS.
-- **Owner steps (cannot be delegated):** (a) decide the public hostname (§2.6) — needed by Stage 6, earlier is better; (b) provision the Model API key into the Oracle env — needed by Stage 6 rehearsal (the vault key works only from Hatch; the agent cannot move it).
-- **Loops:** builder ↔ verifier, expect 1–2 rounds. No eval loop (nothing to score yet).
-- **Gate:** smoke calls green from the Hatch harness *and* from the Oracle service; cost ledger renders a total; `docker compose up` from a clean pull reproduces the stack.
-- **Est. API $:** ~1.
+### Stage 0 — Foundations (Day 0)
 
-### Stage 1 — Receipt decode API + SPIKE 1 (D0–1) — *the first spike, harness only, no UI*
-- **Build:** `decode/` (photo/PDF → `DecodedReceipt`), arithmetic self-check (FR-1.4), `dictionary/` v1 seeded from decodes + corrections, `ledger/` append-only posting with unverified queue; `harness/spike_receipts.py` drives everything from the CLI.
-- **Data:** the owner's 5–6 real Costco receipts (Standard mode only — F1) become the *gate set*; 12 synthetic Costco-format receipts (fabricated, incl. edge cases: refund lines, duplicates, blurry photo) are the *iteration set* for Contributor-mode loops.
-- **Loops:** (C) 3 decode-prompt candidates scored on the synthetic set → winner; (B) eval loop on the winner, ≤12 iterations, one variable at a time; (D) dual-judge on dictionary-novel auto-posts. Score trajectory logged per attempt.
-- **Gate (SPEC §9, Spike 1, measured on Standard against the real set):** ≥95% lines captured; ≥85% auto-posted and correct; ≤2% silently wrong; totals reconcile ≤$0.05 on ≥5/6 receipts; after a corrections pass, re-decode asks about 0 previously-corrected codes.
-- **Est. API $:** ~5 (≈2 Contributor iterations + ≈3 Standard gate runs).
+Build:
 
-### Stage 2 — Patterns, smart list, meal hook APIs (D1–2)
-- **Build:** `patterns/` — deterministic aggregations over the ledger (FR-9.1; SQL, not an LLM); `smart list` due-rule (FR-10.1) + Spark narration constrained to the computed due-set; `meal hook` suggestion from ledger-supported ingredients only (FR-11.1) + missing-items → list (FR-11.2); budget rollup endpoint (FR-2.4).
-- **Loops:** builder ↔ verifier (arithmetic checked 100% against hand-computed values on the golden ledger); small eval loop (≤6 iterations) on the meal prompt with the single metric *invented ingredients = 0*.
-- **Gate:** SPEC §9 rows for Patterns / Smart list / Meal hook.
-- **Est. API $:** ~2.
+- Repo and layout of Section 2.1.
+- The meta_client with the cost ledger.
+- One smoke call per service: Spark text, SAM on one photo, ASR batch on a 10 second clip, one Muse Image render, a Glimmer ping if the Fireworks credit exists.
+- Contributor mode OFF in the Muse settings.
+- Oracle skeleton: Caddy, FastAPI, and Postgres with docker compose. The health endpoint is green on HTTPS.
 
-### Stage 3 — Store map, walkthrough indexing + SPIKE 2 (D2–4; starts the day TJ's footage lands)
-- **Build:** ingest pipeline — video upload (`POST /v1/files`), DB-backed indexing job (§2.6), Spark video → zone skeleton + sightings (FR-3.4); `storemap/` versioned StoreIndex + coverage computation (FR-3.2/3.3); aisle-photo ingest (FR-3.5); `relocalize/` service (photo/pan frames + cached index prefix → `RelocalizationResult`).
-- **First action is a probe, not a build (F5):** index a 2-minute clip three ways and measure tokens/latency/$ per approach before committing — video tokenization is unpublished in our sources and is the budget's swing factor.
-- **Loops:** (C) 3 indexing candidates from the probe, scored on walkthrough #1 (zones found, sightings for the owner's regular TJ's items, $/video); (B) relocalization eval loop ≤10 iterations against the golden photo set (10 fresh in-store photos + 5 negatives that must *not* produce a confident zone).
-- **Gate (SPEC §9, Spike 2):** ≥8/10 fresh photos relocalized to the correct zone, ≤6 s p95, negatives handled honestly. **Fail → degraded scope (zone guide + item spotting), decided the same day** — Stages 4–7 proceed against the degraded contract, and the demo script is rewritten that evening, not on Nov 4.
-- **Est. API $:** ~20 (the swing stage; STOP rule at +50% per §1.2).
+Owner steps, no delegate: the hostname decision (due before Stage 3); the API key in the Oracle environment (due before Stage 3 rehearsal).
 
-### Stage 4 — Route, guided session, reconciliation APIs (D3–5)
-- **Build:** `route/` planner (computed ordering over the zone skeleton; Spark narrates exceptions only; unknowns explicit per FR-4.1); `guided/` session state machine (SPEC §6.5 states) as a service the PWA drives; correction endpoints implementing FR-3.2/8.x semantics; `reconcile/` — the three-way join (list ↔ receipt ↔ cart photo) reusing `decode/` for both photos, price + quantity as join keys, output `ReconciliationResult`.
-- **Loops:** builder ↔ verifier against **simulated trips** in the harness (scripted checkpoint/correction sequences — no store visit needed); reconciliation eval loop on 3 synthetic trips + the Stage 1 golden receipts paired with cart photos.
-- **Gate:** SPEC §9 rows for Route / Guided / Correction / Reconciliation; a simulated trip containing a "not here" and a teach event completes with zero dead ends and a correct recap.
-- **Est. API $:** ~3.
+Loops: Loop A, one to two rounds.
+Gate: smoke calls green from the Hatch harness and from the Oracle service. The cost ledger renders a total. A clean pull plus compose up rebuilds the stack.
+Estimated API cost: 1 dollar.
 
-### Stage 5 — Voice APIs (D4–5; may run parallel to Stage 4)
-- **Build:** ASR realtime WebSocket proxy in the API service (`muse-voice-transcribe-1.0`), dictionary loaded as keyword biasing; `voice/` command parser — Spark turns transcript → {intent, slots, interpretation confidence} (FR-7.2; ASR itself returns no confidence — F4); confirm-prompt policy (consequential or low-confidence only).
-- **Loops:** eval loop ≤8 iterations on the recorded command set (~40 commands in the owner's voice, clean + store-noise mixes); metric = intent accuracy + zero unconfirmed consequential actions.
-- **Gate:** ≥90% intent accuracy; 0 consequential actions on low-confidence parses without confirmation (SPEC §9).
-- **Est. API $:** ~1 (ASR is $0.18/audio-hour; the whole test set is minutes of audio — parse calls dominate).
+### Stage 0.5 — The two pre-build spikes (Day 0 to Day 1)
 
-### Stage 6 — PWA + UX (D5–7) — *starts only when Stages 1–5 APIs have passed their gates*
-- **Build:** the PWA (SPEC §8): installable, single-origin behind Caddy on Oracle, `getUserMedia` camera, Wake Lock in guided mode, offline cache of shell + active StoreIndex + list + RoutePlan, local queue for sightings/corrections/check-offs with sync (§7.4 of SPEC — corrections apply locally *immediately*). **The UI pass follows the impeccable skill playbook**, worked against SPEC §3's UX principles as a checklist, not a vibe: every principle becomes checkable items (e.g. "every in-store action = 1 tap on a ≥64px target," "zero text inputs anywhere in the trip flow," "coverage % visible on the store home," "current target readable at arm's length").
-- **Owner step (blocking):** Model API key provisioned into the Oracle env (§2.5) + hostname live (§2.6) — rehearsal #1 runs on the real deployment or it doesn't count.
-- **Loops:** builder ↔ verifier against the UX checklist (100% or it doesn't pass); then **in-store rehearsal #1** at the TJ's — full golden thread on the owner's phone over the Oracle deployment — whose defects feed one fix loop (≤4 rounds, then escalate).
-- **Gate:** UX checklist 100%; rehearsal trip completes end to end (route → guided → a correction → reconcile) on the deployed stack.
-- **Est. API $:** ~4 (rehearsal trips at ≈$0.25 each + defect-loop re-runs).
+Spike A. The photo-receipt gate.
 
-### Stage 7 — Platform proof, hardening, demo (D6 – Nov 4)
-- **Build:** `grading/` (second walkthrough ingested + graded vs the first, FR-12.1 — the platform proof scene); dinner-render scene (Muse Image, FR-11.3); delivery-receipt scene (one real delivery receipt through the same intake → ledger + rollup, FR-2.4); Glimmer pre-filter behind its flag (FR-13.1) — **first thing cut if the schedule squeezes**; demo script + shot list keyed to the golden thread.
-- **Loops:** full-thread dry runs ×3 (one against Hatch-run services as a desk test of the §7 fallback, two against Oracle); each dry run is a verifier pass against the demo script, defects loop back (≤3 rounds).
-- **Gate:** two consecutive green dry runs on the Oracle deployment; runbook (§7) rehearsed; submission package assembled for the owner's review.
-- **Est. API $:** ~8 (dry runs, video takes, re-takes).
+- Set: 20 real paper receipts from the owner. Stores are mixed. Light is mixed.
+- Method: the v1 decode prompt from Spike 1 runs on the photos. Scoring is by code plus a manual product check per line.
+- Pass mark: 90 percent or more of lines correct (SPEC.md Gate 0).
+- Failure path: PDF receipts and e-receipts only. Photo intake leaves the MVP. The decision is made on the same day.
 
-**Build order in one line:** Stage 0 foundations → **Stage 1 receipt spike** → Stage 2 patterns/list/meal → Stage 3 store map + relocalization spike → Stage 4 route/guided/reconcile → Stage 5 voice → Stage 6 PWA/UX + rehearsal → Stage 7 grading proof + hardening + demo.
+Spike B. The Costco history pull test.
 
-## 5. Dev-loop workflow (how a single day actually runs)
+- Question: the Costco account of the owner gives receipt history in a usable form, yes or no.
+- Method: a browser session with the saved login of the owner. Open Orders and Returns. Count the receipts. Read the date range. Download a sample set.
+- Risk: bot checks, a changed site, terms limits. The test result is a fact for the plan. The result is not a promise.
+- Plan B: uploads from the owner plus manual exports. The cold start uses the 7 receipts in hand today plus new uploads.
+- Output: a count, a date range, and a sample decode of pulled receipts, or a failure note with the exact blocker.
 
-1. Pick the stage's next unpassed gate check. The builder agent gets: the SPEC section, the §3 contract, the failing checks (or the golden set), and the STOP conditions — nothing else it doesn't need.
-2. Builder implements in a worktree/branch; commits are small and gate-scoped.
-3. Verifier agent (fresh context) runs the harness checks from a clean checkout and files defects as {check, input, expected, actual, evidence}. It never edits code.
-4. Prompt work runs through `eval_runner`: every attempt writes `loops/<stage>/<loop>-<n>.md` — prompt hash, set version, per-item scores, gate metric, $ spent, and the one variable changed. Trajectories are reported to the owner at stage gates, not narrated mid-loop.
-5. Merges happen only on verifier pass. The cost ledger is checked at every gate; a stage over its §8 allocation by >50% stops and escalates (§1.2).
-6. Nightly: Oracle media + DB sync back to Hatch (§2.6 insurance) — scripted from Stage 0, not remembered.
+Gate: Spike A passes, or the fallback is declared. Spike B has a result, pass or fail.
+Estimated API cost: 2 dollars.
 
-## 6. Test strategy & golden sets
+### Stage 1 — Receipt decode API (Day 1 to Day 2)
 
-Golden sets are versioned, scored by code (not by an agent's impression), and re-run in full after *any* prompt or contract change (regression rule).
+Build:
+
+- The decode service: PDF or photo input, DecodedReceipt output.
+- The arithmetic check of SPEC FR-1.5.
+- Discount folding of SPEC FR-1.8.
+- Return detection of SPEC FR-3.1 and FR-3.2.
+- The allocation field on each line. Default: HOUSEHOLD.
+- The dictionary v1, seeded from decodes and corrections.
+- The ledger: append-only posting, the review queue, the unverified list.
+- The review actions: confirm, correct, and "Not for us" (sets FOR-OTHERS, with an optional person name).
+- The harness driver: spike_receipts.py runs all functions from the CLI.
+
+Data:
+
+- Real set: the receipts of the owner. Standard mode only.
+- Iteration set: fabricated receipts in Costco format, with edge cases: return lines, duplicate receipts, discount lines, a gift-card line, a for-others candidate line, a blurry photo variant.
+
+Loops: Loop C with three decode prompt candidates on the iteration set. Loop B on the winner, 12 iterations maximum. Rule D on dictionary-novel auto-posts.
+Gate: SPEC.md Gate 1. Totals reconcile on the golden set. A re-decode after corrections asks about zero corrected codes.
+Estimated API cost: 5 dollars.
+
+### Stage 2 — Patterns, reconciliation, smart list, prepared cart (Day 2 to Day 3)
+
+Build:
+
+- Patterns: deterministic aggregation over the ledger (SPEC 6.4). The input set excludes returns and FOR-OTHERS lines. An item with one purchase gets the state "not-enough-history."
+- Reconciliation: the three-way join of list, receipt, and cart photo (SPEC 6.6). Price and quantity are the join keys.
+- Smart list: the due rule of SPEC FR-5.1, the typical quantity, model narration inside the due set only.
+- Prepared cart: the list becomes a cart in the sandbox (SPEC FR-5.5 and FR-5.6). The cart state is waiting or approved. The cart sends no order.
+- Budget rollup endpoint: spend by category and by period, with the bought-for-others subtotal as a separate view.
+- Optional scene, cut first under time pressure: the meal hook of SPEC 6.9.
+
+Loops: Loop A. Pattern values get a 100 percent hand check on the golden ledger. A small Loop B on the meal prompt has one metric: invented ingredients equal zero.
+Gate: SPEC.md Gate 2 rows for Returns, Allocation, Patterns, Smart list, Prepared cart, and Reconciliation.
+Estimated API cost: 3 dollars.
+
+### Stage 3 — PWA-core (Day 3 to Day 5)
+
+Build:
+
+- The PWA of SPEC Section 8: Home, Scan, Dashboard, Item detail.
+- Offline cache: app shell, active list, active index. A local queue for corrections and check-offs. Sync at reconnect.
+- The review queue in the Scan screen: confirm, correct, "Not for us," each with one tap.
+- The evidence display: confidence values visible, unverified items marked, unknown states shown as unknown.
+- The UX pass follows the impeccable skill playbook. Each rule of SPEC Section 8 becomes a check item.
+
+Owner steps, blocking: the API key in the Oracle environment; the hostname live. A rehearsal on a deployment without the key does not count.
+
+Loops: Loop A against the UX checklist. The checklist passes at 100 percent or the stage does not pass. One rehearsal trip on the phone of the owner feeds one fix loop, 4 rounds maximum.
+Gate: the UX checklist is complete. One trip runs end to end on the Oracle deployment: scan, review, patterns, list, cart approval.
+Estimated API cost: 4 dollars.
+
+### Stage 4 — Eyes (Day 5 to Day 6)
+
+Build:
+
+- Eyes intake in the Scan screen: refrigerator, pantry, freezer, or fruit photo.
+- Sighting detection: Spark reads one photo and returns sightings with confidence. Rule D applies to a sighting from a single photo.
+- The confirm and correct list for sightings, one tap per item.
+- The inventory correction: a confirmed sighting updates the estimate of the item and can remove the item from the list draft.
+- The evidence frame component: the photo with the item highlight, plus the sighting card with date and state.
+- Expiry v1: category priors, the put-away date photo prompt for high-risk items, the "this expired" report, the warning as a question (SPEC FR-7.9).
+
+Loops: Loop B on the sighting prompt against the golden photo set (Section 6), 10 iterations maximum. Loop A on the correction flow.
+Gate: SPEC.md Gate 2 row for Eyes. One demo photo with one obvious item produces the evidence frame and removes the item from the draft.
+Estimated API cost: 4 dollars.
+
+### Stage 5 — Enhancement: the store add-on (Day 4 to Day 7, parallel value)
+
+This stage has no gate effect on the core. A failure here changes the demo script only.
+
+Build:
+
+- Walkthrough ingest: video upload, a DB job, Spark video to zones and sightings.
+- A probe first: index a 2 minute clip with three methods. Measure tokens, time, and cost per method. Flag F5 gives the reason.
+- The store index with coverage values (SPEC FR-8.2 and FR-8.3).
+- Aisle-photo ingest.
+- Relocalization: a photo plus the cached index prefix gives a zone and a confidence.
+- Route planning over the zone order, with an explicit unknowns list.
+- The guided session states: to zone, checkpoint, at shelf, found, not here, teach, done.
+- SAM find on stills, one concept per request.
+- Voice: ASR realtime with dictionary biasing; a Spark parse to intent, slots, and parse confidence; a confirm prompt for a low-confidence parse (flag F4).
+- The correction protocol: "Not here" demotes at once; the repair answer names an alternate zone and one fix action; the end-of-trip recap lists found, not found, and taught.
+- Grading: a second walkthrough gets a grade table (SPEC FR-8.9).
+- Glimmer pre-filter behind a flag. The flag is the first cut under time pressure.
+
+Loops: Loop C on the indexing method from the probe. Loop B on relocalization, 10 iterations maximum, with negative photos in the set.
+Gate: SPEC.md Gate 3 (Spike 2). A failure gives the degraded add-on on the same day: zone guide and item spotting. The core and the demo beats of Section 7 do not change.
+Estimated API cost: 20 dollars. The stop rule at plus 50 percent applies.
+
+### Stage 6 — Hardening and demo (Day 6 to November 4)
+
+Build:
+
+- The demo script and the shot list, keyed to the seven beats of Section 7.
+- The privacy sentence in the script (SPEC Section 7.3).
+- Pre-computed artifacts from real data: the pattern history, the store index if the add-on passes, one dinner render if the meal scene stays.
+- The submission package for the review of the owner.
+
+Loops: three full dry runs. One dry run uses the Hatch fallback service. Two dry runs use the Oracle deployment. Each dry run is a verifier pass against the script. Defects loop back, 3 rounds maximum.
+Gate: two green dry runs in a row on the Oracle deployment. The runbook of Section 7 is rehearsed. The package is ready for the approval of the owner.
+Estimated API cost: 8 dollars.
+
+## 5. Daily workflow
+
+1. Pick the next unpassed gate check of the stage.
+2. The builder gets: the SPEC section, the contract, the failing checks or the golden set, and the stop conditions.
+3. The builder works in a branch. Commits are small and gate-scoped.
+4. The verifier runs the harness from a clean checkout. The verifier files defects: check, input, expected, actual, evidence. The verifier edits no code.
+5. Prompt work runs in the eval runner. Each attempt writes one file in the loops folder: prompt hash, set version, per-item scores, gate metric, cost, and the one changed variable.
+6. A merge needs a verifier pass. The cost ledger is read at each gate.
+7. The nightly sync to Hatch runs from a script. The sync is not a memory task.
+
+## 6. Test sets — golden sets
+
+Golden sets are versioned. A scorer is code. A scorer is not an impression of an agent.
+A prompt change or a contract change triggers a full re-run of the affected sets.
 
 | Set | Contents | Used by |
 |---|---|---|
-| `golden/receipts-real` | Owner's 5–6 real Costco receipts + hand-verified decodes. **Standard mode only; access-controlled** (F1) | Stage 1 gate |
-| `golden/receipts-synthetic` | 12 fabricated Costco-format receipts + expected decodes; edge cases: refund/negative lines, duplicate receipt, tax-exempt items, blurry-photo variant, a TJ's receipt for format range | Stage 1 iteration loops (Contributor-safe) |
-| `golden/relocalize` | 10 fresh TJ's photos (never in any walkthrough) with zone labels + 5 negatives (wrong store, parking lot, home kitchen) that must return low confidence / `needs`, never a guessed zone | Stage 3 gate |
-| `golden/shelf` | 10 shelf photos with hand-labeled target boxes | Stage 4/6 SAM IoU checks |
-| `golden/voice` | ~40 recorded commands (owner's voice), clean + store-noise mixes, with expected {intent, slots} | Stage 5 gate |
-| `golden/trips` | Scripted simulated trips (checkpoint sequences, a "not here," a teach, a skip) with expected state transitions + recap | Stage 4 gate |
-| `golden/ledger` | The Stage 1 output frozen as data; hand-computed pattern values | Stage 2 gate |
+| golden/photos-20 | 20 real paper receipts, mixed stores and light, with hand-checked lines | Stage 0.5 Spike A gate |
+| golden/receipts-real | The receipts of the owner as PDFs, with hand-verified decodes; Standard mode only | Stage 1 gate |
+| golden/receipts-synthetic | Fabricated receipts: return lines, a duplicate, discount lines, a gift-card line, a for-others candidate, a blurry photo | Stage 1 loops |
+| golden/ledger | The Stage 1 output as frozen data, with hand-computed pattern values | Stage 2 gate |
+| golden/trips | Scripted reconciliation trips: one clean trip, one mismatch, one return, one for-others line | Stage 2 gate |
+| golden/eyes | Fridge and pantry photos with hand-labeled visible items; each photo has one obvious item | Stage 4 gate |
+| golden/relocalize | 10 fresh store photos with zone labels, plus 5 negatives: wrong store, parking lot, home kitchen | Stage 5 gate |
+| golden/shelf | 10 shelf photos with hand-labeled target boxes | Stage 5 SAM check |
+| golden/voice | About 40 recorded commands, clean audio and store-noise mixes, with expected intent and slots | Stage 5 voice check |
 
-**In-store rehearsal checklist** (Stages 6–7, run at the actual TJ's): airplane-mode mid-trip (offline queue + local correction must hold); hotspot-only connectivity; bright-aisle glare readability; one-hand operation with a cart; teach-a-sighting in <10 s; "not here" → repair prompt flow; end-to-end trip timing; battery drain over a full trip; PWA install + Wake Lock behavior on the owner's actual phone.
+## 7. Demo runbook (November 4)
 
-## 7. Demo-day runbook (Nov 4) — outline
+### 7.1 The seven beats, in order
 
-**T-1 (Nov 3):** prompt/index freeze (only defect fixes after this); final dry run on Oracle; nightly sync to Hatch verified restorable; devices charged; demo video shot list printed; submission form fields pre-checked in the portal (Representative = owner; Indie track; team members named).
+| Beat | Action | Evidence on screen |
+|---|---|---|
+| 1. Scan | The user scans a real receipt | Decoded lines with confidence values |
+| 2. Learn | The model updates | Dictionary entries and pattern values change; the narration names the change |
+| 3. The list writes itself | The due set becomes a draft | The draft with due reasons and date ranges |
+| 4. Eyes | One fridge photo with one obvious item | The evidence frame: the highlight in the photo plus the sighting card; the item leaves the draft |
+| 5. A return | A return receipt enters intake | The ledger nets the return; the pattern of the item changes; the item leaves future drafts |
+| 6. A verified total | The arithmetic check runs | The line sum and the receipt subtotal match on screen |
+| 7. The prepared cart | The approved list becomes a cart | The cart in the waiting state; the user approves with one tap |
 
-**Owner-only steps (cannot be delegated — the agent cannot read back or move the vault key):**
-1. Model API key provisioned into the Oracle environment (once; ideally Stage 6, verified by the Oracle `/health` + one authenticated smoke call).
-2. Public hostname confirmed live (his §2.6 pick).
-3. Final submission: he reviews the complete package and gives the explicit go before anything is submitted (standing rule).
+The privacy sentence is spoken in beat 1 or in the intro: photos and receipts go to the Meta API for processing, in Standard mode, with no training on the data. Records stay on the server of the user.
 
-**Live vs pre-computed:**
+### 7.2 Day minus 1 (November 3)
 
-| Live in the demo | Pre-computed (real data, computed earlier — the honest kind) |
+- Prompt and index freeze. Defect fixes only after the freeze.
+- Final dry run on the Oracle deployment.
+- The nightly sync is tested with a restore.
+- Devices are charged. The shot list is printed.
+- Portal fields are checked: Representative is the owner, Indie track, team members named.
+
+### 7.3 Owner-only steps
+
+1. The API key in the Oracle environment. One time. Section 2.5 gives the reason.
+2. The public hostname confirmed live.
+3. The final submission. The owner reviews the complete package. The owner gives the explicit approval before submission.
+
+### 7.4 Live and pre-computed
+
+| Live in the demo | Pre-computed from real data |
 |---|---|
-| Guided trip: route, checkpoints, SAM finds, voice teach/correct | Store index — from walkthroughs filmed during the week (indexing is a background job by design, FR-3.4) |
-| That trip's real receipt + cart reconciliation | Pattern history — from the owner's real 5–6 receipts, decoded in Stage 1 (re-decodable live if the segment runs long) |
-| Smart list regeneration, meal suggestion, grading of walkthrough #2 | Dinner render may be pre-rendered if network is poor (it's $0.01 and 1 call — try live first) |
+| Receipt scan and decode; review queue | Pattern history from the receipts of the owner |
+| List draft generation; Eyes photo and evidence frame | Store index from walkthroughs of the week, if the add-on passes |
+| Return intake and netting; arithmetic check on screen | One dinner render, if the meal scene stays |
+| Prepared cart and approval | The grading table of the second walkthrough |
 
-**Fallbacks, in order:** (1) in-store network dies → SPEC §7.4 degradation (cached route, local corrections, manual check-off) — rehearsed, not improvised; (2) Oracle hiccups → the same `api/` service runs from the Hatch workspace for desk-side segments while the VM is restored from the nightly sync; (3) live guidance wobbles → the pre-shot demo video + stage artifacts (map, routed list, reconciliation table) carry the segment, per the SCOPE risk plan. **Submit before 9:00 PM ET** — target 6:00 PM, buffer is for the portal, not for building.
+### 7.5 Fallbacks, in order
 
-## 8. Cost rollup — Meta API dollars (the metered budget)
+1. Store network fails: cached data and manual check-off (SPEC Section 7.4).
+2. Oracle fails: the API service runs from Hatch for the desk segments. Data comes from the nightly sync.
+3. A live beat fails: pre-shot video of the same beat plus the stage artifacts carry the segment.
 
-Per-stage allocations (§4) against the **$150 credit**:
+Submission target: 6:00 PM ET. The deadline is 9:00 PM ET. The buffer is for the portal. The buffer is not for building.
 
-| Stage | Est. $ | Main driver |
+## 8. Cost rollup — Meta API dollars
+
+| Stage | Estimate | Main driver |
 |---|---|---|
 | 0 Foundations | 1 | Smoke calls |
-| 1 Receipt spike | 5 | Contributor iterations + Standard gate runs |
-| 2 Patterns/list/meal | 2 | Small text calls; meal-prompt loop |
-| 3 Store map + relocalization | 20 | Walkthrough indexing experiments (F5 swing factor) |
-| 4 Route/guided/reconcile | 3 | Simulated trips |
-| 5 Voice | 1 | Parse calls (ASR ≈ free at this scale) |
-| 6 PWA + rehearsals | 4 | ≈$0.25 per rehearsal trip + fix loops |
-| 7 Proof + demo | 8 | Dry runs, video takes |
-| **Subtotal** | **44** | |
-| Contingency (~30%) | ~13 | Re-indexing, extra takes |
-| **Expected total** | **≈ $57** | **Ceiling $150**, enforced by the §1.2 STOP rule |
+| 0.5 Pre-build spikes | 2 | 20 photo decodes plus pull samples |
+| 1 Decode API | 5 | Contributor iterations on synthetic data plus Standard gate runs |
+| 2 Patterns, reconcile, list, cart | 3 | Text calls; the meal prompt loop |
+| 3 PWA-core | 4 | Rehearsal trips and fix loops |
+| 4 Eyes | 4 | Photo sighting eval runs |
+| 5 Store add-on | 20 | Walkthrough indexing; flag F5 is the swing factor |
+| 6 Hardening and demo | 8 | Dry runs and video takes |
+| Subtotal | 47 | |
+| Contingency, about 30 percent | 14 | Re-indexing, extra takes |
+| Expected total | About 61 | Ceiling: 150, enforced by the stop rule of Section 1.2 |
 
-Per-trip run cost on Standard ≈ **$0.25** (SPEC §7.2 target ≤$0.35): ~6 relocalization checkpoints, ~10 SAM stills ($0.0025 each), ~5 min PTT audio ($0.015), one receipt decode (~$0.01–0.02), pattern/list calls (~$0.02) — indexing amortized separately. Glimmer spend, if any, rides the separate $25 Fireworks credit and is **not** counted against the $150 (F7). Agent-labor tokens are not in this table: they're the abundant pool (§1.3), spent per the loop caps in §4, reported as attempt counts + trajectories in `loops/`.
+Cost per trip on Standard rates: about 0.25 dollars. The target is 0.35 dollars or less.
+Glimmer spend rides the separate Fireworks credit. Glimmer spend does not count against the 150 dollars.
+Agent labor tokens are not in this table. Attempt counts and score paths sit in the loops folder.
 
-## 9. Design flags — what doesn't build as naively designed, and the smallest fix
+## 9. Design flags
 
-- **F1 — Contributor mode × personal data.** Contributor models may be trained on by Meta, and Meta's terms bar sending them confidential/personal data. The owner's real receipts are personal data. **Fix (already reflected above):** Contributor loops run *only* on synthetic/anonymized sets; real receipts are Standard-only, in dev, rehearsal, and demo. Same rule for Muse Code itself: Contributor OFF in `/settings` before coding (subscription default trains on code).
-- **F2 — SAM over full walkthrough video.** Hosted SAM caps at 15,000 frames/request and charges $0.20/1K frames *per concept, one concept per request*: a 10-min 30 fps walkthrough is 18,000 frames (over cap) and a single concept pass ≈ $3.60 — dozens of items would eat the credit and still not finish. **Fix (in SPEC FR-3.4):** Spark indexes the video; SAM runs only on stills and short clips where shelf grounding is needed ($0.0025/image).
-- **F3 — Spark latency in the aisle.** Spark is a reasoning model; a third-party measurement showed ~9 s for a trivial reply at default effort. The 6 s relocalization budget fails at default settings. **Fix:** in-store calls use low `reasoning_effort`, minimal prompts, cached index/dictionary prefixes; checkpoints are async and non-blocking (FR-5.3); degraded mode (zone guide + item spotting) is pre-decided if Spike 2 fails on latency.
-- **F4 — Voice Transcribe returns no confidence scores** (and turn-level timestamps only). Voice "ask when unsure" cannot key off the ASR. **Fix (in FR-7.2):** confidence lives in Spark's parse layer (intent + slots + interpretation confidence); no word-level highlighting is promised anywhere.
-- **F5 — Spark video tokenization is unpublished** in our sources, so walkthrough-indexing cost/latency is the budget's swing factor. **Fix:** Stage 3 opens with a 2-minute-clip probe across 3 indexing approaches, measured before committing; indexing chunks by zone; Stage 3 carries the largest allocation + the +50% STOP rule.
-- **F6 — PWA platform limits.** iOS requires HTTPS + a user-gesture context for camera, offers no background camera, and Wake Lock support varies. **Fix:** single-origin HTTPS via Caddy on Oracle (§2.6); guided mode is a foreground camera UI by design (nothing needs background capture); Wake Lock requested on trip start with the camera screen itself as the stay-awake fallback.
-- **F7 — Glimmer's Fireworks price and credit are unverified.** PRODUCTS.md confirms Glimmer is hosted on Fireworks but publishes no per-token price; the $25 Fireworks credit is select-participants-only and may not be granted. **Fix:** Glimmer is flag-isolated and every gate must pass with it off (FR-13.1); verify price at the console before enabling; dropping it costs an optimization and a showcase beat, never a gate.
-- **F8 — Two smaller unknowns, designed around:** Spark *audio* input is listed by one catalog and not others — the design never routes audio to Spark (ASR is the only audio path). Contributor rate limit is quoted as 150 RPM by one source, 100 by another — eval loops throttle to 100 RPM in Contributor mode to be safe.
+F1. Contributor mode and personal data.
+A Contributor model can be trained on inputs. Meta terms bar personal data on that mode.
+Fix: Contributor loops use synthetic data only. Real receipts are Standard-only in development, rehearsal, and demo. The same rule covers Muse Code: Contributor OFF in the settings before code work.
+
+F2. SAM on a full walkthrough video.
+Hosted SAM caps a request at 15,000 frames. The price is 0.20 dollars per 1,000 frames per concept, one concept per request. A 10 minute video at 30 frames per second has 18,000 frames. The video is over the cap. Many concepts cost more than the credit.
+Fix: Spark indexes the video. SAM runs on stills only, at 0.0025 dollars per image.
+
+F3. Spark latency.
+Spark is a reasoning model. A third-party measurement shows about 9 seconds for a short reply at default effort. The 6 second relocalization budget fails at default effort.
+Fix: low reasoning effort in the store, short prompts, cached prefixes, non-blocking calls. A failure of Spike 2 on latency gives the degraded add-on.
+
+F4. Voice Transcribe gives no confidence values.
+The service returns turn-level times only. Voice ask-when-unsure cannot use an ASR score.
+Fix: confidence sits in the Spark parse layer: intent, slots, and parse confidence. The product promises no word-level highlight.
+
+F5. Spark video token counts are not published.
+Indexing cost and time are unknown before measurement. This item is the budget swing factor.
+Fix: Stage 5 opens with a 2 minute clip probe and three methods, with measurements before a commitment. Indexing works in zone chunks. Stage 5 carries the largest allocation and the stop rule.
+
+F6. PWA platform limits.
+iOS needs HTTPS and a user gesture for the camera. iOS gives no background camera. Wake Lock support varies.
+Fix: one origin on HTTPS via Caddy. Guided mode is a foreground camera screen by design. Wake Lock is a request at trip start. The camera screen is the stay-awake fallback.
+
+F7. Glimmer price and credit are unverified.
+The Fireworks listing gives no per-token price in our sources. The 25 dollar credit is for selected participants.
+Fix: Glimmer is flag-isolated. All gates pass with the flag off. The price is verified at the console before the flag turns on. A drop of Glimmer costs one optimization and no gate.
+
+F8. Two small unknowns, with designs around them.
+Spark audio input appears in one catalog and not in others. The design sends no audio to Spark. ASR is the only audio path.
+The Contributor rate ceiling appears as 150 in one source and 100 in another. Eval loops throttle to 100 on Contributor mode.
