@@ -37,3 +37,13 @@
 - Returns are a first-class ledger event: intake detects refund lines/return receipts; returns reconcile against the original purchase; consumption patterns count KEPT items only (bought != kept); a returned item is a strong negative signal for future lists.
 - Product surface: returns queue with the receipt proof ready + policy windows (e.g., Costco electronics 90 days); refunds flow back into the spend ledger.
 - Hackathon scope: detection + pattern exclusion + honest ledger. Reminders/desk flow = roadmap.
+
+## v9 — CORE vs ENHANCEMENT reframe (owner, 2026-10-27 13:52 EDT)
+- CORE BUSINESS = receipts + cart double-check + patterns -> the list that writes itself.
+  The loop closes with NO store map: list writes itself -> shop anywhere -> receipt+cart
+  verified at checkout -> patterns sharpen. Works in any store, day one, on data in hand.
+- The grocery video/store layer is an ADD-ON: a helper for days you want it. When a map
+  exists, guidance turns on; when it doesn't, the core is untouched.
+- Framing: the receipt is the SENSOR, the self-writing list is the SURFACE (the product).
+- Consequence: Spike 2 (relocalization) leaves the critical path — it gates the
+  enhancement only. Nov 4 risk drops materially.

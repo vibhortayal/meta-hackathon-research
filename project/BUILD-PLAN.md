@@ -60,3 +60,9 @@ Hackathon: all on Oracle VM, $0 new infra. Caddy (auto-HTTPS, PWA statics, API p
 
 ## Returns (v8, owner 2026-10-27)
 Intake must detect returns/refunds and net them against purchases before patterns compute — bought != kept. Returned items are excluded from consumption cycles and flagged do-not-suggest. Ledger shows returns as their own event type with refund amounts reconciled into spend.
+
+## Core/enhancement split (v9, owner 2026-10-27)
+CORE (critical path): Stage 1 receipt decode -> Stage 2 patterns/smart list + receipt<->cart
+reconciliation (the double-check that keeps patterns verified). ENHANCEMENT (parallel-value,
+not gating): Stage 3 store map/Spike 2 -> Stage 4 guided mode. Pitch leads with the
+self-writing list; guidance is the "and at stores it knows, it walks with you" beat.
