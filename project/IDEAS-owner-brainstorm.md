@@ -60,3 +60,9 @@
   -> suggest smaller pack / lower qty.
 - Owner's own caveat (adopted as doctrine): not everything is visible — identify what's
   seen, ask for corrective action on the rest. Never guess inventory.
+
+## v11 — the horizon (owner, 2026-10-27 13:56 EDT)
+Not a grocery list manager: an ASSISTANT that manages your groceries — blending the
+physical world, software, and purchases into holistic visibility into your groceries,
+AS A STARTING POINT (groceries = beachhead domain for household/daily-life assistance).
+Full articulation: VISION.md. Consequence: inventory-first data model; the list is a view.
