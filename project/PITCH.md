@@ -1,6 +1,6 @@
 # Grocery Navigator — pitch (working title; decided 2026-10-27)
 
-**One-liner:** Google Maps never made it inside the grocery store. We build the map from shoppers' own videos — then guide you through it, list in hand.
+**One-liner:** Arya keeps a living model of your grocery world: every receipt read and verified, every return netted, every pattern learned — so the list writes itself. And in the store, she guides you shelf to shelf until the list is done. (Store layer origin line, still true as the add-on hook: Google Maps never made it inside the grocery store — we build the map from shoppers' own videos.)
 
 **Problem.** Target and Walmart shoppers get aisle directions because those retailers publish their data. Everyone else wanders: Trader Joe's, Costco, and independent stores publish nothing — Costco's sign-free maze is deliberate — so no app can guide you there. And the one record of what you actually buy, the receipt, gets thrown away, so every shopping list starts from zero.
 
