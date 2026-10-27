@@ -66,3 +66,8 @@ CORE (critical path): Stage 1 receipt decode -> Stage 2 patterns/smart list + re
 reconciliation (the double-check that keeps patterns verified). ENHANCEMENT (parallel-value,
 not gating): Stage 3 store map/Spike 2 -> Stage 4 guided mode. Pitch leads with the
 self-writing list; guidance is the "and at stores it knows, it walks with you" beat.
+
+## PWA split (owner 2026-10-27)
+PWA-core (scan, review queue, running-low home, dashboard, item/category patterns,
+smart list) ships right after Stage 2 APIs — it is the product's face. Guidance UI
+(camera overlay) stays with the enhancement track. Detail: PWA-CORE.md.
