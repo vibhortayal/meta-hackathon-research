@@ -155,3 +155,14 @@ Verdicts by Spark:
   line looks like an errand; it never auto-excludes. Reimbursement tracking = roadmap.
 - Model family: bought != kept (returns) != ours (for-others) — three distinct states.
 - Sent to the spec-rewrite agent mid-run for fold-in.
+
+## Spike B result — Costco history pull (2026-10-27, tested 14:15-14:25 EDT)
+- FAILED at sign-in. Costco runs a silent bot block on the automated browser:
+  the form returns unchanged, no error, no CAPTCHA, no code prompt. Reproduced
+  across two browser environments and multiple flows. Sign-in never succeeded;
+  receipt count/range/downloads remain UNVERIFIED.
+- Meaning: critique point 2 was right. The pull is a fragile dependency. Plan B
+  (owner uploads + manual exports) is the working path and already powers both
+  spikes. "Real data on day one" rests on plan B until a human sign-in works.
+- Open option: owner signs in manually in the live browser tab, hands control
+  back, and the enumeration/download test resumes.
