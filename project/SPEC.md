@@ -283,6 +283,13 @@ Targets in the store are 64 pixels or more. No text input is required in the sto
 ### Gate 0 — photo-receipt gate (before the build commits)
 
 Set: 20 real paper receipts. Stores are mixed. Light is mixed.
+Composition (owner amendment, 2026-10-27): 4 receipts from the owner and 16 public receipts.
+Data isolation is a hard rule. Public receipts are test fixtures only.
+A public receipt never enters the ledger of the owner.
+A public receipt never enters the dictionary of the owner.
+A public receipt never enters the patterns of the owner.
+Gate data lives in a separate store. The gate store is discarded or archived after scoring.
+The two subsets report separately. The pass mark applies to the combined set and to the owner subset.
 Pass mark: 90 percent or more of lines correct.
 A correct line has the right product, the right quantity, and the right price.
 The build commits only after this gate passes.

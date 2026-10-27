@@ -246,7 +246,8 @@ Estimated API cost: 1 dollar.
 
 Spike A. The photo-receipt gate.
 
-- Set: 20 real paper receipts from the owner. Stores are mixed. Light is mixed.
+- Set: 20 real paper receipts. Stores are mixed. Light is mixed. Composition: 4 from the owner, 16 public (owner amendment, 2026-10-27).
+- Isolation: public receipts are fixtures in a separate store (spike2/public-set). Labels are written before any decode runs. Public data never touches the dictionary, the ledger, or the patterns of the owner. The subsets report separately.
 - Method: the v1 decode prompt from Spike 1 runs on the photos. Scoring is by code plus a manual product check per line.
 - Pass mark: 90 percent or more of lines correct (SPEC.md Gate 0).
 - Failure path: PDF receipts and e-receipts only. Photo intake leaves the MVP. The decision is made on the same day.

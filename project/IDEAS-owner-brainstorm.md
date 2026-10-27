@@ -166,3 +166,11 @@ Verdicts by Spark:
   spikes. "Real data on day one" rests on plan B until a human sign-in works.
 - Owner decision (2026-10-27 14:31 EDT): PLAN B. No manual sign-in attempt.
   Uploads and exports carry the data. The pull test is closed.
+
+## v17 — Gate 0 amended + data isolation (owner, 2026-10-27 15:00 EDT)
+- Owner has no more paper receipts. Gate 0 set is now MIXED: his 4 + 16 public real
+  receipt photographs, hand-labeled before blind decode, subsets reported separately,
+  pass mark unchanged (>=90% lines, combined and owner subset).
+- Owner condition, now a spec rule: the gate test stays SEPARATE. Public receipts are
+  fixtures only — never in his ledger, dictionary, or patterns. Gate store is
+  discarded/archived after scoring.
