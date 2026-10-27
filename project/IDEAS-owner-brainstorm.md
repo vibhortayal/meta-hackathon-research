@@ -47,3 +47,16 @@
 - Framing: the receipt is the SENSOR, the self-writing list is the SURFACE (the product).
 - Consequence: Spike 2 (relocalization) leaves the critical path — it gates the
   enhancement only. Nov 4 risk drops materially.
+
+## v10 — "Eyes of the app" (owner, 2026-10-27 13:56 EDT)
+- Third sensor: fridge / pantry / freezer / fruit-table photos (or short video) = visual
+  inventory. App identifies visible items -> list updates automatically (have it -> off
+  the list; missing vs pattern -> on).
+- Expiry awareness: category shelf-life priors + per-item printed dates. App ASKS the user
+  to photograph best-before dates of specific high-risk items AT PUT-AWAY time (one item,
+  close-up, good light — the winnable OCR moment).
+- User corrections teach the household's real shelf life: "this expired" feedback adjusts
+  that item's burn model; app reminds next cycle before it happens again; chronic waste
+  -> suggest smaller pack / lower qty.
+- Owner's own caveat (adopted as doctrine): not everything is visible — identify what's
+  seen, ask for corrective action on the rest. Never guess inventory.

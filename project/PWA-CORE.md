@@ -8,7 +8,9 @@ the camera-overlay guidance UI stays with the enhancement track.
 1. **Home — Running low first.** Items predicted to run out soon (last purchase +
    typical interval + pack-size burn), each with an "around <date>" range, never fake
    precision. Below it: the current smart-list draft, one-tap confirm/edit/add.
-2. **Scan.** Camera-first intake: receipt photo/PDF, cart photo (the double-check).
+2. **Scan.** Camera-first intake: receipt photo/PDF, cart photo (the double-check),
+   and Eyes captures — fridge/pantry/freezer/fruit photos that correct the inventory
+   by sight (see EYES.md), plus put-away best-before date snaps when the app asks.
    Lands in the Review queue: unverified lines and receipt-vs-cart mismatches,
    one tap to confirm or fix — the trust moment, kept under 30 seconds per trip.
 3. **Dashboard.** Spend by category over time (categories emerge from the data —
