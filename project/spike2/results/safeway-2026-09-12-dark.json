@@ -1,0 +1,39 @@
+{
+  "http_status": 200,
+  "file": "safeway-2026-09-12-dark",
+  "usage": {
+    "completion_tokens": 1274,
+    "prompt_tokens": 2869,
+    "total_tokens": 4143,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1119
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "decoded": {
+    "store": "SAFEWAY",
+    "date": "09/12/26 20:59",
+    "lines": [
+      {
+        "item_no": "8501509815",
+        "product": "ICE CREAM",
+        "brand": "ALECS",
+        "detail": "PI",
+        "list_price": 8.99,
+        "price": 7.99,
+        "discount": 1.0,
+        "qty": 1,
+        "is_return": false,
+        "confidence": 0.9,
+        "needs_user_check": false,
+        "alternatives": []
+      }
+    ],
+    "subtotal": 7.99,
+    "tax": 0.0,
+    "total": 7.99,
+    "items_sold": 1
+  }
+}

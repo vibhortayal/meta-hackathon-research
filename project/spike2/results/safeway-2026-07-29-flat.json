@@ -1,0 +1,67 @@
+{
+  "http_status": 200,
+  "file": "safeway-2026-07-29-flat",
+  "usage": {
+    "completion_tokens": 2149,
+    "prompt_tokens": 2869,
+    "total_tokens": 5018,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1813
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "decoded": {
+    "store": "SAFEWAY",
+    "date": "07/29/26 17:17",
+    "lines": [
+      {
+        "item_no": "2000027338",
+        "product": "SWEET PEAS",
+        "brand": "Green Giant",
+        "detail": "VFS",
+        "list_price": 3.99,
+        "price": 3.0,
+        "discount": 0.99,
+        "qty": 1,
+        "is_return": false,
+        "confidence": 0.95,
+        "needs_user_check": false,
+        "alternatives": []
+      },
+      {
+        "item_no": "85001509649",
+        "product": "ICE CREAM",
+        "brand": "ALECS",
+        "detail": "BR",
+        "list_price": 8.99,
+        "price": 5.99,
+        "discount": 3.0,
+        "qty": 1,
+        "is_return": false,
+        "confidence": 0.95,
+        "needs_user_check": false,
+        "alternatives": []
+      },
+      {
+        "item_no": "85001509650",
+        "product": "ICE CREAM",
+        "brand": "ALECS",
+        "detail": "CH",
+        "list_price": 8.99,
+        "price": 5.99,
+        "discount": 3.0,
+        "qty": 1,
+        "is_return": false,
+        "confidence": 0.95,
+        "needs_user_check": false,
+        "alternatives": []
+      }
+    ],
+    "subtotal": 14.98,
+    "tax": 0.0,
+    "total": 14.98,
+    "items_sold": 3
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "http_status": 200,
+  "file": "apni-mandi-2024-07-03-hand",
+  "usage": {
+    "completion_tokens": 2055,
+    "prompt_tokens": 2869,
+    "total_tokens": 4924,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1748
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 369
+    }
+  },
+  "decoded": {
+    "store": "Apni Mandi Farmers Market",
+    "date": "2024-07-03",
+    "lines": [
+      {
+        "item_no": null,
+        "product": "Mint",
+        "brand": null,
+        "detail": "Ea",
+        "list_price": 0.69,
+        "price": 0.69,
+        "discount": 0,
+        "qty": 1,
+        "is_return": false,
+        "confidence": 0.95,
+        "needs_user_check": false,
+        "alternatives": []
+      },
+      {
+        "item_no": null,
+        "product": "Mint",
+        "brand": null,
+        "detail": "Ea",
+        "list_price": 0.69,
+        "price": 0.69,
+        "discount": 0,
+        "qty": 1,
+        "is_return": false,
+        "confidence": 0.95,
+        "needs_user_check": false,
+        "alternatives": []
+      },
+      {
+        "item_no": null,
+        "product": "JUMBO PEANUTS",
+        "brand": "DEEP",
+        "detail": "2LBS",
+        "list_price": 3.99,
+        "price": 3.99,
+        "discount": 0,
+        "qty": 1,
+        "is_return": false,
+        "confidence": 0.95,
+        "needs_user_check": false,
+        "alternatives": []
+      },
+      {
+        "item_no": null,
+        "product": "Sooji Gol Gappa",
+        "brand": "Mampster",
+        "detail": "290G",
+        "list_price": 9.99,
+        "price": 9.99,
+        "discount": 0,
+        "qty": 1,
+        "is_return": false,
+        "confidence": 0.9,
+        "needs_user_check": false,
+        "alternatives": []
+      }
+    ],
+    "subtotal": 15.36,
+    "tax": 0.0,
+    "total": 15.36,
+    "items_sold": 4
+  }
+}
