@@ -164,5 +164,5 @@ Verdicts by Spark:
 - Meaning: critique point 2 was right. The pull is a fragile dependency. Plan B
   (owner uploads + manual exports) is the working path and already powers both
   spikes. "Real data on day one" rests on plan B until a human sign-in works.
-- Open option: owner signs in manually in the live browser tab, hands control
-  back, and the enumeration/download test resumes.
+- Owner decision (2026-10-27 14:31 EDT): PLAN B. No manual sign-in attempt.
+  Uploads and exports carry the data. The pull test is closed.
