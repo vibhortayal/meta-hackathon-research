@@ -108,3 +108,16 @@ Full articulation: VISION.md. Consequence: inventory-first data model; the list 
   (household-manager archetype; Batman association = borrowed recognition), Tally
   (keeps count; finance-app conflict), Friday (man Friday; weekday collision),
   Scout (keeps watch over supplies). Spark lean: Munshi, then Alfred.
+
+## v14 — critique before docs + process (owner, 2026-10-27 14:10 EDT)
+- NAME: PARKED. Candidates stay logged; the docs call it "the assistant."
+- STYLE: owner requires ASD-STE100 for these product documents ("always").
+- CRITIQUE (Spark, requested by owner before any doc build):
+  1. Friction: receipts + cart photos + fridge photos each need user action; friction kills retention.
+  2. Spike 1 caveat: the golden set was clean digital PDFs. Photo receipts (crumpled, faded) are UNPROVEN and harder.
+  3. Predictions will often be wrong: guests, travel, eating out bend burn rates; wrong reminders teach users to ignore them.
+  4. Photos show part of the truth: occlusion and other rooms; users may read estimates as facts. One confident error costs more than ten correct answers earn.
+  5. Incumbents (Walmart/Amazon) hold the purchase data with zero scanning; our edge is cross-store + the physical home.
+  6. Privacy: home photos + full purchase history = sensitive set; demo data care under the hackathon IP clause.
+  7. Business model unproven for consumers; fine for judging, weak as a business today.
+  8. Scope vs 8 days: discipline is the only protection; critique adds ONE proof to the first goal: decode on photo receipts.
