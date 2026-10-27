@@ -47,3 +47,12 @@ Inventory-first data model: items and their lifecycle states are the core object
 list, dashboard, patterns, and reminders are derived views. Never-guess applies at
 every state transition — a state the sensors haven't established is "unknown,"
 shown as unknown, and the app asks rather than assumes.
+
+## The horizon: consumer behavior (v13)
+The subject underneath groceries is the owner's CONSUMER BEHAVIOR — everything he
+buys, online and offline, food and not. The same loop (intake -> decode -> dictionary
+-> patterns -> prediction) generalizes to Amazon orders, dining receipts, delivery,
+and eventually subscriptions and services: one model of what a household consumes
+and how. MVP stays locked to grocery + food by the owner's word; the vision keeps
+the expansion open, and the engine is built source-agnostic so opening it is adding
+adapters, not a rewrite.

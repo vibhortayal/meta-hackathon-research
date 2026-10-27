@@ -81,3 +81,15 @@ Full articulation: VISION.md. Consequence: inventory-first data model; the list 
   helper with a food focus. Brainstorm OPEN (owner: "let's keep thinking").
 - His 7 receipts already prove it: bath tissue, vitamins, air purifier, scissors,
   pajamas, broom sit beside the spinach — the pattern engine sees them today.
+
+## v13 — consumer behavior is the real subject (owner, 2026-10-27 14:02 EDT)
+- Owner's framing: "this is my consumer behavior technically." The long model is
+  EVERYTHING he buys — Amazon orders, dining, online and offline, every receipt —
+  one model of consumption: what, how often, how fast used, what it costs.
+- LOCKED for MVP: grocery + food (his word: "I'm OK with locking it to that for now").
+- KEPT OPEN in the vision: expansion to Amazon/online orders -> dining patterns ->
+  all receipts everywhere -> subscriptions/services.
+- Architectural rule it implies: intake, item dictionary, and pattern engine are
+  SOURCE-AGNOSTIC and category-general from day one. Sources are adapters (Costco
+  PDF today; photo receipts, order exports, email receipts later). Grocery is the
+  first adapter and the deepest domain — never hardcoded into the engine.
