@@ -121,3 +121,26 @@ Full articulation: VISION.md. Consequence: inventory-first data model; the list 
   6. Privacy: home photos + full purchase history = sensitive set; demo data care under the hackathon IP clause.
   7. Business model unproven for consumers; fine for judging, weak as a business today.
   8. Scope vs 8 days: discipline is the only protection; critique adds ONE proof to the first goal: decode on photo receipts.
+
+## v15 — outside critique adjudicated (owner pasted review, 2026-10-27 14:15 EDT)
+Verdicts by Spark:
+1. Photo-receipt GATE: ACCEPTED. Pass mark: >=90% lines correct on 20 real paper
+   receipts, mixed stores/lighting, before the build commits. Fallback if failed:
+   PDF + e-receipts only. The critique's claim "cannot run until the API key is
+   approved" is WRONG for us — key is in the vault, verified, spike 1 already ran.
+2. Costco pull = UNTESTED dependency: ACCEPTED. Browser test launched 14:17 EDT.
+   Plan B stands: owner-uploaded receipts + manual exports.
+3. Cadence reality check: ACCEPTED and partially answered from spike data —
+   7 receipts / 31 days: spinach x3, egg whites x3, five more items x2. Warehouse
+   cadence is WEEKS, not days; dashboard copy must use the true scale.
+4. "All categories equal" vs scope: SYNTHESIS — capture everything, ledger complete
+   (owner's rule stands); deep pattern features freeze to food + household
+   consumables for MVP; electronics/clothing = captured + spend-visible only.
+5. Fridge demo step: ACCEPTED. One obvious item + the EVIDENCE FRAME shown
+   (highlight + sighting card), not a silent list edit.
+6. Agentic action: ACCEPTED as the loop's closing beat — the list becomes a
+   PREPARED CART in a sandbox; the user approves with one tap; nothing buys itself.
+   (Paperwork Pilot pattern: agent prepares, human approves.)
+7. Privacy: ACCEPTED. Demo states it plainly: photos/receipts go to Meta's API for
+   processing (Standard mode, no training), records stay on the user's own server.
+8. Competitors unchecked: ACCEPTED. Teardown commissioned (COMPETITORS.md).
