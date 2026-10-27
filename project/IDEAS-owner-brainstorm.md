@@ -102,3 +102,9 @@ Full articulation: VISION.md. Consequence: inventory-first data model; the list 
 - R3 candidates: Plenish (coined: replenish+plenty), Saman (Hindi: goods/your stuff),
   Sage (advisor + herb; big-company name conflict noted), Kharid (Hindi: purchase),
   Remy (personality), Rota (recurring schedule). Status: OPEN, still thinking.
+- R4 (owner refines: "somebody who keeps track of your lists/items that you can call
+  anytime for help"): Munshi (Hindi/Urdu: the household's keeper of the books —
+  lists, accounts, purchases; the trusted man you called for anything), Alfred
+  (household-manager archetype; Batman association = borrowed recognition), Tally
+  (keeps count; finance-app conflict), Friday (man Friday; weekday collision),
+  Scout (keeps watch over supplies). Spark lean: Munshi, then Alfred.
