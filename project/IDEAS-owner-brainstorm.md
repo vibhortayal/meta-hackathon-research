@@ -144,3 +144,14 @@ Verdicts by Spark:
 7. Privacy: ACCEPTED. Demo states it plainly: photos/receipts go to Meta's API for
    processing (Standard mode, no training), records stay on the user's own server.
 8. Competitors unchecked: ACCEPTED. Teardown commissioned (COMPETITORS.md).
+
+## v16 — bought-for-others (owner, 2026-10-27 14:22 EDT)
+- Edge case (owner): some items on his trips are for friends, not his household.
+  Every line gets an allocation: HOUSEHOLD (default) or FOR-OTHERS (+ optional person).
+- For-others lines: stay in the ledger and spend truth (own subtotal view); NEVER feed
+  patterns, cadence, running-low, inventory, or the self-writing list (baby formula
+  for a friend must not create baby patterns in a childless household).
+- One tap in the review queue ("Not for us"); changeable later. The app may ASK when a
+  line looks like an errand; it never auto-excludes. Reimbursement tracking = roadmap.
+- Model family: bought != kept (returns) != ours (for-others) — three distinct states.
+- Sent to the spec-rewrite agent mid-run for fold-in.
