@@ -66,3 +66,18 @@ Not a grocery list manager: an ASSISTANT that manages your groceries — blendin
 physical world, software, and purchases into holistic visibility into your groceries,
 AS A STARTING POINT (groceries = beachhead domain for household/daily-life assistance).
 Full articulation: VISION.md. Consequence: inventory-first data model; the list is a view.
+
+## v12 — WHOLE-receipt model + naming rethink (owner, 2026-10-27 14:01 EDT)
+- CORRECTION to the STE summary line "gift cards do not count as food": everything on
+  the receipt counts. Clothes, gift cards, electronics, batteries — all are purchases,
+  all belong in the model, all can carry patterns. Owner's example: batteries every
+  ~2 months = a recurring pattern that must be visible and predicted like milk.
+- Model: categories are PEERS (food, household consumables, clothing, electronics,
+  gift cards, pharmacy). Food gets the DEEP treatment (fridge Eyes, expiry, guidance)
+  because it is perishable; every category gets cadence + running-low + lifecycle
+  behaviors of its own (electronics -> return/warranty windows; clothing -> sizes;
+  consumables -> restock timing).
+- Naming: "grocery manager" is too narrow. Direction: a general shopping assistant /
+  helper with a food focus. Brainstorm OPEN (owner: "let's keep thinking").
+- His 7 receipts already prove it: bath tissue, vitamins, air purifier, scissors,
+  pajamas, broom sit beside the spinach — the pattern engine sees them today.

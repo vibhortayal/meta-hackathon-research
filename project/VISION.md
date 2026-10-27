@@ -6,6 +6,14 @@ it is, what state it's in, what's coming, what's wasting, what it costs — by b
 the physical world (fridge, pantry, cart, store) with software (purchases, patterns,
 plans), so you always have holistic visibility into your groceries.
 
+## Scope of the model: the WHOLE receipt (v12)
+Every purchase counts — food, household consumables, clothing, electronics, gift
+cards. Categories are peers; patterns apply to anything bought more than once
+(batteries every ~2 months is a pattern, like milk every ~9 days). Food is the
+deep-focus domain (perishable, visible in the fridge, guided in the store); other
+categories get their own lifecycle behaviors (return/warranty windows for
+electronics, sizes for clothing, restock cadence for consumables).
+
 ## The model: every item has a lifecycle, the app can see all of it
 planned -> bought -> verified (cart) -> stored (fridge/pantry/freezer) -> seen (Eyes)
 -> used / expired / returned. The LIST is one view of this model. Patterns, budgets,
