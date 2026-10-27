@@ -7,6 +7,8 @@ Private research notes for the Meta AI Developer Hackathon (Indie track, solo). 
 ## Start here
 - [ranked-candidates.md](ranked-candidates.md): synthesis, ranking, rubric table for the top three, hardware update, spikes that decide.
 
+- [capability-to-idea-map.md](capability-to-idea-map.md): Meta capabilities (strengths and limits) mapped to ideas, scores, recommendation (Oct 27).
+
 ## Candidate write-ups
 - [household-agent-candidate.md](household-agent-candidate.md): household chief of staff (Instinct and competitors, reachability, local-first architecture, day-by-day plan).
 - [build-plan.md](build-plan.md): live expert guide (cooking) plan, tiers, schedule, day-1 test.
