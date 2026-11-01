@@ -137,3 +137,18 @@ Naming Costco: recommend YES in narration — it is factual personal
 backstory (nominative use), and specificity is what makes it
 believable. The standing no-Costco rule governs the in-app DEMO
 data (fictional stores), not the owner's true story. Owner's call.
+
+## WHY script — draft v1 (owner review, 2026-11-01)
+
+Target: 30 seconds, plain spoken language, no polish/drama.
+78 words ≈ 31s at a normal speaking pace.
+
+"Grocery shopping takes up more of my week than it should. My
+list is in one app, my wife's is in another, and the receipts
+end up in the trash. The store doesn't help — it's laid out to
+sell, not to save me time. And I had no idea what we actually
+buy, or what we pay for it. I didn't even keep my receipts. I
+had to download them from the Costco app just to find out."
+
+Hands off to the bridge beat: "So I fed them to Arya..." —
+almond flour + top staples live there.
