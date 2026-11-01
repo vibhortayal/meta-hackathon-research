@@ -464,3 +464,17 @@ the people who shop in it. A store won't tell you another
 store's price. Things change every day — items finish, items
 move — and only shoppers see it. If we shared what we see,
 every trip gets easier."
+
+## Advisor check (2026-11-01): have we answered "why built / trying to solve"?
+
+Problem: YES (Beat 1). Stakes: YES (food, family, money,
+time). Why community as the approach: YES (Beat 2 logic).
+MISSING: the capstone sentence — nowhere does the script say
+what he built and what it is for. The bridge ends on the
+Costco anecdote and the film would jump to footage; judges
+must assemble the intent themselves.
+
+CAPSTONE (proposed, after the bridge, ~12s): "So that's what
+I built. Arya learns from your receipts, and it holds what
+shoppers share, so you don't start from zero every week."
+Then the WHAT proves it, beat by beat.
