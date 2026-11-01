@@ -788,3 +788,16 @@ covers it. NOTE: owner called this a subtle hint to "the
 Alexander Wang yogurt" — Spark could not pin that reference
 (only the 2014 Wang fro-yo truck, black-and-white, "Eat Me").
 Kept as a plain yogurt moment pending his steer.
+
+## Beat 1 amendment v3.1 (owner, 2026-11-01)
+
+Owner cut the in-store friends passage. OLD: "In the store,
+we run into friends and neighbors, and we compare notes —
+our hauls, what we didn't find, what's good, which store is
+better for what. And then we go home, and it's gone."
+NEW: "We discuss stores, products and prices with our
+friends — what's good, what's cheaper, which store is better
+for what. And then we go home, and it's gone."
+Slightly shorter (~-3s): total now ~3:02. The remaining
+overage trim is now optional — the "You walk up and down"
+line, or leave for the timed read to judge.
