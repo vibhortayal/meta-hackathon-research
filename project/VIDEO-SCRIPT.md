@@ -333,3 +333,34 @@ store will fix this. A store won't tell you another store's
 price. Things change every day — items finish, items move.
 Only the people in the store know. If we shared what we see,
 every trip gets easier."
+
+## WHY — CURRENT LOCKED TEXT (v9, 2026-11-01)
+
+Owner picked segue Option B. Also added (owner catch): food
+waste and spend blindness — the personal cost of no memory.
+Both sit in Beat 1, right after "none of it connects."
+
+BEAT 1 — WHY GROCERY MANAGEMENT (~41s)
+"Groceries are a big part of life. It's the food we eat at
+home, what we feed our family, and we spend a lot on it every
+week. We all manage it in our own way — notes, texts, apps —
+and none of it connects. So food expires in the fridge, and
+money goes out every week and nobody knows on what. Every
+big store has its own app, only for that store. The small
+store near my house has nothing — no prices, no stock. And
+the store is made to sell you more, not to get you out
+faster. And we already help each other there — someone asks,
+someone answers. That help just goes nowhere."
+
+BEAT 2 — WHY COMMUNITY (~18s)
+"Why community? Because no store will fix this. A store
+won't tell you another store's price. Things change every
+day — items finish, items move. Only the people in the store
+know. If we shared what we see, every trip gets easier."
+
+BRIDGE (~9s)
+"I had the same problem. Not one receipt saved. I had to
+download them from the Costco app to see what I actually
+buy."
+
+WHY total ~1:08. WHAT gets ~1:50, close ~0:15-0:20.
