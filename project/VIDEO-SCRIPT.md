@@ -197,3 +197,28 @@ the store — what's finished, what moved, what's cheaper
 somewhere else. But that stays with them. I had the same
 problem. I didn't have one receipt saved. I had to download
 them from the Costco app to see what I actually buy."
+
+## WHY draft v4 (2026-11-01) — adds "why grocery" (Bring Your World)
+
+Owner: judges must understand the problem; the "Bring Your
+World" track means the domain stakes must be explicit — grocery
+is your world: home, family food, weekly money, your store,
+your neighbors. v3 never said why grocery matters. Insert at
+the top, plain spoken. Full script now ~170 words, ~1:05-1:10;
+trade: WHAT gets ~1:55, fine if the journey is sped up.
+
+"Groceries are a big part of life. It is the food we eat at
+home, what we feed our family. We spend a lot of money on it,
+every week. And one store has thousands of things in it —
+nobody can keep track of all that in their head. But the way
+we manage it is all over the place. My list is in my notes.
+My wife sends hers on WhatsApp. I throw the receipts away.
+Every big store has its own app, and it only works for that
+store. The small store near my house has nothing — you can't
+check a price, you can't check stock. And the store is made
+to sell you more, not to get you out faster. The people
+shopping there know the store — what's finished, what moved,
+what's cheaper somewhere else. But that stays with them. I
+had the same problem. I didn't have one receipt saved. I had
+to download them from the Costco app to see what I actually
+buy."
