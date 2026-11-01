@@ -718,10 +718,9 @@ nobody knows on what. The big stores have their own apps,
 one for each store. The small store near my house has
 nothing — no prices, no stock. And the store is made to sell
 you more, not to get you out faster. You walk up and down,
-and you still miss things. In the store, we run into friends
-and neighbors, and we compare notes — our hauls, what we
-didn't find, what's good, which store is better for what.
-And then we go home, and it's gone."
+and you still miss things. We discuss stores, products and prices with our
+friends — what's good, what's cheaper, which store is better
+for what. And then we go home, and it's gone."
 
 BEAT 2 (~0:16)
 "You learn a store over months of shopping there. Move
