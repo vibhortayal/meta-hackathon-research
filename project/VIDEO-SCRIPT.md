@@ -152,3 +152,29 @@ had to download them from the Costco app just to find out."
 
 Hands off to the bridge beat: "So I fed them to Arya..." —
 almond flour + top staples live there.
+
+## WHY timing decision + draft v2 (2026-11-01)
+
+Owner verdict on v1: doesn't land. Missing: the full fragmented
+experience, the store-data gap (per-chain apps; most stores show
+nothing), and humans-helping-humans (community).
+
+Spark recommendation, owner to confirm: WHY gets 45 seconds, in
+two beats — problem ~30s, turn ~15s (receipt + community). WHAT
+then runs ~0:45-2:40, close ~20s. Past 45s of WHY, the Demo
+score (25%) starves; under 30s, the Impact story (30%) has no
+room to land.
+
+WHY draft v2 (~45s, plain spoken):
+
+"Grocery shopping is scattered. My list is in my notes, my
+wife's list comes over text, the receipts go in the trash, and
+the budget lives in another app. Every big store has its own
+app, and it only covers that store. The store down the street
+shows nothing — no prices, no stock, no way to find anything.
+And the store is laid out to sell, not to save me time. The
+people around me know that store — what's out, what moved,
+what it costs. That knowledge walks out the door with them.
+I lived all of this. I didn't even keep my receipts — I had
+to download them from the Costco app to see what I was
+actually buying."
