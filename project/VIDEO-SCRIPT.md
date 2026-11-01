@@ -816,3 +816,27 @@ friends line lost its tail: "We discuss stores, products and
 prices with our friends. And then we go home, and it's gone."
 The capstone's "so you don't start from zero every week" now
 answers Beat 1's wish directly. Runtime ~2:48.
+
+## PROOF variant — Spark first pass (owner testing, 2026-11-01)
+
+Owner is testing a decode flip: Spark first pass, Wonder as
+backup (the reverse of the current live setup). NOT yet
+adopted. Spark's advisor position: for the flip IF Wonder is
+a confidence-gated second look on hard lines (design already
+exists: low-confidence -> review queue), because the bake-off
+failure mode was confident-but-wrong prices (Spark 92/98, 4
+price errors), which a failure-only fallback never catches.
+The flip also matches MODEL-POLICY (cheapest model per job;
+Wonder-primary was the exception) and the new spend caps
+($10/hr freeze, $20/mo ceiling). If adopted, PROOF becomes:
+
+"I fed it the 114 receipts. Muse Spark reads them first —
+it reads most receipts fine. When a line is hard to read,
+Muse Wonder takes a second look. We tested both models on
+real receipts — Wonder is the better reader, so it gets the
+hard ones. It found egg whites in 35 of those 114 trips.
+And the same almond flour, $13.59 at one Costco, $16.99 at
+another."
+
+If adopted, also update: META-PRODUCTS.md, SUBMISSION-DRAFT,
+the Nov 4 amendment note — script, app and docs must agree.
