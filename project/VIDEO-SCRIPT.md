@@ -377,3 +377,38 @@ DEMO TOWN's community layer — the same trick widened with all
 shoppers' receipts (stores/items he never bought). Script rule:
 personal beat says "my receipts showed me" (true); community
 beat promises the wider version (true to design + demo).
+
+## Beat 1 gap audit vs live features (2026-11-01)
+
+Checked against the LIVE app copy (landing cards + in-app
+Guide cards, assistant/web/src/i18n/en.json @ 016da64).
+Landing/guide feature set: per-store learning lists, household
+sync, store maps (by shoppers), store news, receipts/spend,
+cheaper-elsewhere, use-soon, Ask Arya, running-low prediction,
+Quest, hauls/friends.
+
+Covered in Beat 1/2: stakes, fragmentation, waste/expiry,
+spend blindness, app silos, no-data small stores, store
+design, community help, stock/price knowledge (Beat 2).
+
+MISSING pains (feature exists, its pain is unnamed):
+1. RUNNING OUT / LIST FROM MEMORY — guide "Never run out",
+   landing "milk is on the list before you run out". Arya's
+   CORE pain, currently unsold. Proposed line (merge into the
+   consequences sentence): "So food goes bad in the fridge,
+   things run out before you notice, and money goes out and
+   nobody knows on what."
+2. FINDING THINGS IN-STORE — guide maps card: "No more
+   doubling back for the eggs". Beat 1 has store design but
+   not the hunt. Proposed line after store design: "You walk
+   up and down, and you still miss things."
+3. HOUSEHOLD DUPLICATION — guide share card (sync, split up).
+   v7 generalized this away. Proposed: fold into the
+   fragmentation line — "...and none of it connects. Two
+   people buy the same milk, and nobody buys the eggs."
+4. (Small, bridge not Beat 1) RETURNS/RECALLS — receipts card:
+   "kept for returns and recall refunds". Optional half-line
+   in the bridge: "...not one receipt saved — nothing to
+   return with either."
+
+v10 Beat 1 with 1-3 lands ~47s. Pending owner's pick.
