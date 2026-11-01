@@ -511,3 +511,16 @@ tell you another store's price. Things change every day —
 items finish, items move — and only the people shopping
 there see it. If we shared what we see, every trip gets
 easier."
+
+## Beat 2 tightened hard (owner, 2026-11-01)
+
+Owner: Beat 2 too long; he likes the "if we could share what
+we see" ending. Cut the middle (store price silence + daily
+change now implied by the closing trio). ~17s, was ~26s.
+
+BEAT 2 (current): "You learn a store over months of shopping
+there. Move to a new city, or change stores, and you start
+from zero. If we could share what we see — where things are,
+what's good, what's cheaper — nobody starts from zero."
+
+WHY running total back to ~1:50.
