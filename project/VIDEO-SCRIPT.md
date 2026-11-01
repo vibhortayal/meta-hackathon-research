@@ -478,3 +478,20 @@ CAPSTONE (proposed, after the bridge, ~12s): "So that's what
 I built. Arya learns from your receipts, and it holds what
 shoppers share, so you don't start from zero every week."
 Then the WHAT proves it, beat by beat.
+
+## Bridge rework (owner, 2026-11-01)
+
+Owner: remove "Not one receipt saved". The bridge's job is
+to prove Arya was built during the hackathon: he needed data
+to test, didn't have enough receipts saved, so he downloaded
+them from his Costco app.
+
+BRIDGE v2 (~12s): "I built Arya during this hackathon. I
+needed data to test it, and I didn't have enough receipts
+saved. So I downloaded my receipts from the Costco app —
+114 of them, three years of my own shopping."
+
+Capstone trimmed to match (bridge now carries "I built", so
+the capstone no longer repeats it): "Arya learns from your
+receipts, and it holds what shoppers share, so you don't
+start from zero every week."
