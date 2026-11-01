@@ -255,3 +255,31 @@ I had to download them from the Costco app to see what I
 actually buy."
 
 Running total: WHY ~1:10 + bridge ~0:10. WHAT gets ~1:40.
+
+## WHY v6 — tightened (owner ask, 2026-11-01)
+
+Same beats, ~164 words total (~1:05 with bridge). Cuts: merged
+the stakes lines, dropped "all over the place" (the next three
+lines show it), shortened community logic. No point removed.
+
+BEAT 1 — WHY GROCERY MANAGEMENT (~33s)
+"Groceries are a big part of life. It's the food we eat at
+home, what we feed our family, and we spend a lot on it every
+week. My list is in my notes. My wife sends hers on WhatsApp.
+I throw the receipts away. Every big store has its own app,
+only for that store. The small store near my house has
+nothing — no prices, no stock. And the store is made to sell
+you more, not to get you out faster."
+
+BEAT 2 — WHY COMMUNITY (~24s)
+"Why community? Because no store will fix this. A store will
+never tell you another store's price. Stock changes every
+day — things finish, things move. Only the people shopping
+there know. And we already help each other. Somebody asks
+where something is, somebody answers. Today that help goes
+nowhere. If shoppers shared what they see, every trip gets
+easier."
+
+BRIDGE (~9s)
+"I had the same problem. Not one receipt saved. I had to
+download them from the Costco app to see what I actually buy."
