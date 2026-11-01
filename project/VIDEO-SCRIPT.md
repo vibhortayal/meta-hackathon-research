@@ -283,3 +283,22 @@ easier."
 BRIDGE (~9s)
 "I had the same problem. Not one receipt saved. I had to
 download them from the Costco app to see what I actually buy."
+
+## WHY v7 — fragmentation collapsed to one line (owner, 2026-11-01)
+
+The three example lines (my notes / wife's WhatsApp / receipts
+in the trash) become ONE universal line — judges see themselves,
+not just his household. Receipts now live only in the bridge.
+
+Beat 1 line: "We all manage it in our own way — notes, texts,
+apps — and none of it connects."
+Alt phrasing: "We all do it differently, and none of it talks
+to each other."
+
+BEAT 1 v7 (~31s): "Groceries are a big part of life. It's the
+food we eat at home, what we feed our family, and we spend a
+lot on it every week. We all manage it in our own way — notes,
+texts, apps — and none of it connects. Every big store has its
+own app, only for that store. The small store near my house has
+nothing — no prices, no stock. And the store is made to sell
+you more, not to get you out faster."
