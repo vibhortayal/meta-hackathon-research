@@ -719,8 +719,9 @@ one for each store. The small store near my house has
 nothing — no prices, no stock. And the store is made to sell
 you more, not to get you out faster. You walk up and down,
 and you still miss things. We discuss stores, products and prices with our
-friends — what's good, what's cheaper, which store is better
-for what. And then we go home, and it's gone."
+friends. And then we go home, and it's gone. If we could all
+share what we see — where things are, what's good, what's
+cheaper — nobody starts from zero."
 
 BRIDGE (~0:13)
 "I built Arya during this hackathon. To test it I needed
@@ -804,3 +805,14 @@ the capstone ("it holds what shoppers share"); starting from
 zero lives in the capstone ("so you don't start from zero
 every week"). Runtime now ~2:46 — under the 3:00 cap with
 ~14s headroom; the Beat 1 trim is no longer needed.
+
+## Beat 1 ending (owner, 2026-11-01)
+
+Owner moved Beat 2's closing line to end Beat 1 (with "all"
+added): "If we could all share what we see — where things
+are, what's good, what's cheaper — nobody starts from zero."
+To avoid repeating "what's good, what's cheaper" twice, the
+friends line lost its tail: "We discuss stores, products and
+prices with our friends. And then we go home, and it's gone."
+The capstone's "so you don't start from zero every week" now
+answers Beat 1's wish directly. Runtime ~2:48.
