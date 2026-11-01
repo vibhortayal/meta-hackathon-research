@@ -697,3 +697,75 @@ Meta Model API.)
 TIMING: v3 totals ~3:05 — ~5s over. Trim candidates if he
 wants it under: Beat 1 "You walk up and down, and you still
 miss things" (-4s).
+
+## ===== CURRENT FULL SCRIPT v3 (assembled 2026-11-01) =====
+
+WHY and WHAT together. On-screen model tags ride the footage
+(receipt photo -> Wonder; list/Ask -> Spark; voice -> Voice
+Transcribe; shelf camera -> SAM 3.1 + Spark; characters ->
+Muse Image; all via Meta Model API). Runtime estimate ~3:05
+at ~150wpm — ~5s over; pending trim + owner's timed read.
+
+BEAT 1 (~1:06)
+"Groceries are a big part of life. It's the food we eat at
+home, what we feed our family, and we spend a lot of money
+and a lot of time on it, every week. We all manage it in our
+own way — notes, texts, apps — and none of it connects. We
+make our lists from memory, or by walking around the house
+and checking the fridge. So food goes bad in the fridge,
+things run out before you notice, and money goes out and
+nobody knows on what. The big stores have their own apps,
+one for each store. The small store near my house has
+nothing — no prices, no stock. And the store is made to sell
+you more, not to get you out faster. You walk up and down,
+and you still miss things. In the store, we run into friends
+and neighbors, and we compare notes — our hauls, what we
+didn't find, what's good, which store is better for what.
+And then we go home, and it's gone."
+
+BEAT 2 (~0:16)
+"You learn a store over months of shopping there. Move
+cities, or change stores, and you start from zero. If we
+could share what we see — where things are, what's good,
+what's cheaper — nobody starts from zero."
+
+BRIDGE (~0:13)
+"I built Arya during this hackathon. To test it I needed
+receipts, and I didn't have enough saved. So I downloaded
+my receipts from the Costco app — 114 of them, three years
+of my own shopping."
+
+CAPSTONE (~0:08)
+"Arya learns from your receipts, and it holds what shoppers
+share, so you don't start from zero every week."
+
+PROOF (~0:22)
+"I fed it the 114 receipts. Muse Wonder reads the receipt
+photos. We tested the models on real receipts first — Wonder
+read them best, no price errors, and a wrong price is worse
+than a slow answer. It found egg whites in 35 of those 114
+trips. And the same almond flour, $13.59 at one Costco,
+$16.99 at another."
+
+ONE TRIP (~0:40)
+"Now a normal trip. The list is already made, from what we
+buy. I add to it by typing, by voice — Muse Voice Transcribe
+— or a photo of the list. Before I go, Arya warns me the
+hummus is out — three neighbors reported it. In the store,
+it walks me item to item. I point the camera at a shelf, SAM
+3.1 finds the item, Spark checks it — two models, never a
+guess. This shelf is empty, so I report it for the next
+shopper. A photo of the receipt ends the trip, and next
+week's list is already learning."
+
+AT HOME (~0:12)
+"At home, it keeps watching. The eggs are cheaper at the
+other store, and it tells me. The spinach will go bad soon,
+and it tells me to use it first."
+
+CLOSE (~0:12; Meta stack card on screen 3s)
+"The math is plain code — no model touches your money. The
+AI does the remembering. We do the shopping, and we help
+each other. This is Arya."
+End card: "Arya — the list that writes itself · Team
+Nightshift · Built on Meta Muse models"
