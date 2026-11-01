@@ -703,7 +703,7 @@ miss things" (-4s).
 WHY and WHAT together. On-screen model tags ride the footage
 (receipt photo -> Wonder; list/Ask -> Spark; voice -> Voice
 Transcribe; shelf camera -> SAM 3.1 + Spark; characters ->
-Muse Image; all via Meta Model API). Runtime estimate ~3:04
+Muse Image; all via Meta Model API). Runtime estimate ~3:28
 at ~150wpm (Beat 2 cut 2026-11-01) — under the cap.
 
 BEAT 1 (~1:06)
@@ -766,10 +766,16 @@ in everywhere. As I use it, as my friends use it, as you use
 it, it gets better — and I will keep fixing and adding,
 based on that feedback."
 
-CLOSE (~0:12; Meta stack card on screen 3s)
-"The math is plain code — no model touches your money. The
-AI does the remembering. We do the shopping, and we help
-each other. This is Arya."
+CLOSE — THE POTENTIAL (~0:36)
+"But the potential is unlimited. The eyes that read a shelf
+today run on Meta glasses tomorrow — in the store with you,
+hands free, in AR and VR. Ethical stores can partner with
+their shoppers. Open the APIs, and Arya reaches the smart
+fridge, the cooking gadgets, maybe the home robots of the
+future. I have started building the developer portal, so AI
+agents like Muse can partner with Arya. The AI does the
+remembering. We do the shopping, and we help each other.
+This is Arya."
 End card: "Arya — learns how we shop, helps us help each
 other · Team Nightshift · Built on Meta Muse models"
 
@@ -878,3 +884,18 @@ close. "Train" rendered as "learn" (Arya learns patterns in
 code; it does not train models). Runtime now ~3:04 — the
 Beat 1 "You walk up and down" line (-4s) brings it to ~3:00
 if he wants it inside the cap before the timed read.
+
+## Vision close (owner, 2026-11-01)
+
+Owner: the close is the potential — unlimited; Meta glasses
+/ display, AR/VR; partnerships with ethical retail stores;
+APIs open to IoT (smart fridge, cooking gadgets, future
+home robots); he has STARTED building the developer portal
+for APIs + integrations with AI agents like Muse partnering
+with Arya. Framed as future ("tomorrow", "can", "started
+building") per his built-only rule for the demo body.
+COST: total now ~3:28. Funding cuts proposed (NOT applied,
+awaiting his word): Beat 1 store passage -10s, LIMITS merge
+-5s, PROOF test explanation -6s, TRIP -4s, Beat 1 walking
+line -4s = ~-29s -> ~2:59. The math-in-code line came out
+with the old close; fold into PROOF if he wants it back.
