@@ -524,3 +524,49 @@ from zero. If we could share what we see — where things are,
 what's good, what's cheaper — nobody starts from zero."
 
 WHY running total back to ~1:50.
+
+## ===== CURRENT FULL SCRIPT (assembled 2026-11-01, owner-reviewed) =====
+
+BEAT 1 (~1:10)
+"Groceries are a big part of life. It's the food we eat at
+home, what we feed our family, and we spend a lot of money
+and a lot of time on it, every week. We all manage it in our
+own way — notes, texts, apps — and none of it connects. We
+make our lists from memory, or by walking around the house
+and checking the fridge. So food goes bad in the fridge,
+things run out before you notice, and money goes out and
+nobody knows on what. Every big store has its own app, only
+for that store. The small store near my house has nothing —
+no prices, no stock. And the store is made to sell you more,
+not to get you out faster. You walk up and down, and you
+still miss things. And we run into friends and neighbors in
+the store. We talk about our hauls, what we didn't find,
+what's good, which store is better for what. And then we go
+home, and it's gone."
+
+BEAT 2 (~0:17)
+"You learn a store over months of shopping there. Move to a
+new city, or change stores, and you start from zero. If we
+could share what we see — where things are, what's good,
+what's cheaper — nobody starts from zero."
+
+BRIDGE (~0:15)
+"I built Arya during this hackathon. I needed data to test
+it, and I didn't have enough receipts saved. So I downloaded
+my receipts from the Costco app — 114 of them, three years
+of my own shopping."
+
+CAPSTONE (~0:08)
+"Arya learns from your receipts, and it holds what shoppers
+share, so you don't start from zero every week."
+
+THE WHAT — outline only, ~1:10 available, NOT yet scripted:
+proof from the 114 receipts (egg whites 35/114; almond flour
+$13.59 vs $16.99) ~12s; one trip sped up (list ready, stock
+warning, hunt, empty-shelf report, receipt finish) ~40s;
+Meta stack card 3s; close + end card ~8s.
+
+Open micro-items: Beat 1 closing line shows option 1 ("and
+it's gone") — owner never explicitly confirmed vs options
+2/3. WHY total ~1:50 at ~150wpm (estimate; timed read still
+pending). Lock-vs-further-trim: owner's call.
