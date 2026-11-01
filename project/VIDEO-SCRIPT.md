@@ -412,3 +412,34 @@ MISSING pains (feature exists, its pain is unnamed):
    return with either."
 
 v10 Beat 1 with 1-3 lands ~47s. Pending owner's pick.
+
+## Beat 1 v10 — owner's line rewrites (2026-11-01)
+
+Owner killed two lines and rewrote them from real life:
+- "Two people buy the same milk..." -> OUT. Instead: list
+  building as it really happens — from memory, or scouting
+  the house and fridge before you go.
+- "we spend a lot" -> money AND time.
+- "We already help each other — someone asks, someone
+  answers" -> OUT. Real texture: you run into friends and
+  neighbors in the store and compare notes — hauls, what you
+  didn't find, what's good, which store for what. (This also
+  foreshadows Arya's actual community features: haul shares,
+  stock reports, price comparisons, store preferences.)
+
+BEAT 1 v10 (~1:05-1:10 as written; trims noted in chat)
+"Groceries are a big part of life. It's the food we eat at
+home, what we feed our family, and we spend a lot of money
+and a lot of time on it, every week. We all manage it in our
+own way — notes, texts, apps — and none of it connects. We
+make our lists from memory, or by walking around the house
+and checking the fridge. So food goes bad in the fridge,
+things run out before you notice, and money goes out and
+nobody knows on what. Every big store has its own app, only
+for that store. The small store near my house has nothing —
+no prices, no stock. And the store is made to sell you more,
+not to get you out faster. You walk up and down, and you
+still miss things. And we run into friends and neighbors in
+the store. We talk about our hauls, what we didn't find,
+what's good, which store is better for what. That talk just
+stays in the store."
