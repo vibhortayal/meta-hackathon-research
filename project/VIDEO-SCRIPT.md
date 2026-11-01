@@ -570,3 +570,70 @@ Open micro-items: Beat 1 closing line shows option 1 ("and
 it's gone") — owner never explicitly confirmed vs options
 2/3. WHY total ~1:50 at ~150wpm (estimate; timed read still
 pending). Lock-vs-further-trim: owner's call.
+
+## ===== CURRENT FULL SCRIPT v2 (2026-11-01, gap-fix + tighten pass) =====
+
+Supersedes the assembly above. Changes: WHAT written (was
+outline — the biggest gap); bridge tightened; small trims in
+Beat 1; "Move cities" tightened in Beat 2. Plain spoken
+throughout. Total ~2:55 at ~150wpm.
+
+BEAT 1 (~1:06)
+"Groceries are a big part of life. It's the food we eat at
+home, what we feed our family, and we spend a lot of money
+and a lot of time on it, every week. We all manage it in our
+own way — notes, texts, apps — and none of it connects. We
+make our lists from memory, or by walking around the house
+and checking the fridge. So food goes bad in the fridge,
+things run out before you notice, and money goes out and
+nobody knows on what. The big stores have their own apps,
+one for each store. The small store near my house has
+nothing — no prices, no stock. And the store is made to sell
+you more, not to get you out faster. You walk up and down,
+and you still miss things. In the store, we run into friends
+and neighbors, and we compare notes — our hauls, what we
+didn't find, what's good, which store is better for what.
+And then we go home, and it's gone."
+
+BEAT 2 (~0:16)
+"You learn a store over months of shopping there. Move
+cities, or change stores, and you start from zero. If we
+could share what we see — where things are, what's good,
+what's cheaper — nobody starts from zero."
+
+BRIDGE (~0:13)
+"I built Arya during this hackathon. To test it I needed
+receipts, and I didn't have enough saved. So I downloaded
+my receipts from the Costco app — 114 of them, three years
+of my own shopping."
+
+CAPSTONE (~0:08)
+"Arya learns from your receipts, and it holds what shoppers
+share, so you don't start from zero every week."
+
+THE WHAT — proof (~0:16)
+"I fed it the 114 receipts. It read every line. Egg whites,
+in 35 of those 114 trips — I had no idea. And the same
+almond flour was $13.59 at one Costco and $16.99 at another.
+I had paid both."
+
+THE WHAT — one trip (~0:32, over sped-up footage)
+"Now this is a normal trip. Before I go, Arya tells me the
+hummus is out at my store — three neighbors reported it. The
+list is already made, from what we buy. In the store, it
+walks me from item to item. This one is not here, so I
+report the empty shelf. That helps the next shopper. At the
+end, I take a photo of the receipt. The trip is done — and
+next week's list is already learning."
+
+THE WHAT — at home (~0:12, over Today footage)
+"At home, it keeps watching. The eggs are cheaper at the
+other store, and it tells me. The spinach will go bad soon,
+and it tells me to use it first."
+
+CLOSE (~0:12, Meta stack card on screen 3s)
+"All of this runs on Meta's models. The AI does the
+remembering. We do the shopping, and we help each other.
+This is Arya."
+End card: "Arya — the list that writes itself · Team
+Nightshift · Built on Meta Muse models"
