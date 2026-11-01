@@ -703,8 +703,8 @@ miss things" (-4s).
 WHY and WHAT together. On-screen model tags ride the footage
 (receipt photo -> Wonder; list/Ask -> Spark; voice -> Voice
 Transcribe; shelf camera -> SAM 3.1 + Spark; characters ->
-Muse Image; all via Meta Model API). Runtime estimate ~3:05
-at ~150wpm — ~5s over; pending trim + owner's timed read.
+Muse Image; all via Meta Model API). Runtime estimate ~2:46
+at ~150wpm (Beat 2 cut 2026-11-01) — under the cap.
 
 BEAT 1 (~1:06)
 "Groceries are a big part of life. It's the food we eat at
@@ -721,12 +721,6 @@ you more, not to get you out faster. You walk up and down,
 and you still miss things. We discuss stores, products and prices with our
 friends — what's good, what's cheaper, which store is better
 for what. And then we go home, and it's gone."
-
-BEAT 2 (~0:16)
-"You learn a store over months of shopping there. Move
-cities, or change stores, and you start from zero. If we
-could share what we see — where things are, what's good,
-what's cheaper — nobody starts from zero."
 
 BRIDGE (~0:13)
 "I built Arya during this hackathon. To test it I needed
@@ -800,3 +794,13 @@ for what. And then we go home, and it's gone."
 Slightly shorter (~-3s): total now ~3:02. The remaining
 overage trim is now optional — the "You walk up and down"
 line, or leave for the timed read to judge.
+
+## Beat 2 CUT (owner, 2026-11-01)
+
+Owner: Beat 2 ("You learn a store over months...") is not
+needed — removed from the assembled script. Its two ideas
+survive elsewhere: sharing lives in Beat 1's friends line +
+the capstone ("it holds what shoppers share"); starting from
+zero lives in the capstone ("so you don't start from zero
+every week"). Runtime now ~2:46 — under the 3:00 cap with
+~14s headroom; the Beat 1 trim is no longer needed.
