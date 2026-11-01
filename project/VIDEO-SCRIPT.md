@@ -703,7 +703,7 @@ miss things" (-4s).
 WHY and WHAT together. On-screen model tags ride the footage
 (receipt photo -> Wonder; list/Ask -> Spark; voice -> Voice
 Transcribe; shelf camera -> SAM 3.1 + Spark; characters ->
-Muse Image; all via Meta Model API). Runtime estimate ~2:46
+Muse Image; all via Meta Model API). Runtime estimate ~2:35
 at ~150wpm (Beat 2 cut 2026-11-01) — under the cap.
 
 BEAT 1 (~1:06)
@@ -719,7 +719,7 @@ one for each store. The small store near my house has
 nothing — no prices, no stock. And the store is made to sell
 you more, not to get you out faster. You walk up and down,
 and you still miss things. We discuss stores, products and prices with our
-friends. And then we go home, and it's gone. If we could all
+friends. If we could all
 share what we see — where things are, what's good, what's
 cheaper — nobody starts from zero."
 
@@ -730,8 +730,8 @@ my receipts from the Costco app — 114 of them, three years
 of my own shopping."
 
 CAPSTONE (~0:08)
-"Arya learns from your receipts, and it holds what shoppers
-share, so you don't start from zero every week."
+"Arya learns from my receipts, and it holds what I share,
+so I don't start from zero every week."
 
 PROOF (~0:22)
 "I fed it the 114 receipts. Muse Wonder reads the receipt
@@ -744,25 +744,24 @@ $16.99 at another."
 ONE TRIP (~0:40)
 "Now a normal trip. The list is already made, from what we
 buy. I add to it by typing, by voice — Muse Voice Transcribe
-— or a photo of the list. Before I go, Arya warns me the
-hummus is out — three neighbors reported it. In the store,
+— or a photo of the list. In the store,
 it walks me item to item. I point the camera at a shelf, SAM
 3.1 finds the item, Spark checks it — two models, never a
 guess. This shelf is empty, so I report it for the next
 shopper. A photo of the receipt ends the trip, and next
 week's list is already learning."
 
-AT HOME (~0:12)
-"At home, it keeps watching. The eggs are cheaper at the
-other store, and it tells me. The spinach will go bad soon,
-and it tells me to use it first."
+AT HOME (~0:11)
+"At home, it keeps watching. The spinach will go bad soon,
+and it tells me to use it first. I finish the yogurt, I tell
+Arya we're out, and it's on the list."
 
 CLOSE (~0:12; Meta stack card on screen 3s)
 "The math is plain code — no model touches your money. The
 AI does the remembering. We do the shopping, and we help
 each other. This is Arya."
-End card: "Arya — the list that writes itself · Team
-Nightshift · Built on Meta Muse models"
+End card: "Arya — learns how we shop, helps us help each
+other · Team Nightshift · Built on Meta Muse models"
 
 ## Yogurt beat (owner, 2026-11-01)
 
