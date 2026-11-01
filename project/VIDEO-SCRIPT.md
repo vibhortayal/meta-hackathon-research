@@ -364,3 +364,16 @@ download them from the Costco app to see what I actually
 buy."
 
 WHY total ~1:08. WHAT gets ~1:50, close ~0:15-0:20.
+
+## Price-comparison provenance (owner question, verified 2026-11-01)
+
+Owner asked: did the app point out cheaper items from his OWN
+data alone? Answer: the almond flour case — yes, 100% his own
+receipts (same SKU, his purchases only; no other household's
+data was ever in his account). Own-receipt comparison catches
+any item he bought at 2+ stores.
+The "cheaper elsewhere / 30 neighbors bought it" cards are the
+DEMO TOWN's community layer — the same trick widened with all
+shoppers' receipts (stores/items he never bought). Script rule:
+personal beat says "my receipts showed me" (true); community
+beat promises the wider version (true to design + demo).
