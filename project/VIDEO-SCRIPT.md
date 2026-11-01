@@ -495,3 +495,19 @@ Capstone trimmed to match (bridge now carries "I built", so
 the capstone no longer repeats it): "Arya learns from your
 receipts, and it holds what shoppers share, so you don't
 start from zero every week."
+
+## Beat 2 opener rework (owner, 2026-11-01)
+
+Owner killed "The only people who know a store are the people
+who shop in it." His version of the idea: you learn a store
+slowly, over time, by shopping there — and when you move
+cities or change stores, you relearn from zero.
+
+BEAT 2 (current, ~26s): "You learn a store over time. Month
+after month of shopping there — where things are, what's
+good, what it costs. Then you move to a new city, or you
+change stores, and you start from zero again. A store won't
+tell you another store's price. Things change every day —
+items finish, items move — and only the people shopping
+there see it. If we shared what we see, every trip gets
+easier."
