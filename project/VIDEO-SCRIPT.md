@@ -99,3 +99,41 @@ I built the thing that reads it."
 - Presenter: owner live on camera vs his digital twin.
 - Tone: Quest-playful vs earnest; the WHY above leans earnest,
   the WHAT can carry the play.
+
+## Owner's real data — the origin story (verified 2026-11-01)
+
+Owner's point: he did NOT have his receipts; he had thrown them
+away. He downloaded real receipts from the Costco app and tested
+Arya on those. Spark verified the numbers against the preserved
+snapshot of that corpus (114 receipts, 2023-10-25 to 2026-10-26,
+$13,486.72 total, 11 different Costcos — Fremont 36, Sunnyvale 34,
+Newark 23, others 21).
+
+Top staples by trips: Kirkland egg whites in 35 of 114 receipts
+($452), organic spinach 30, pasture eggs 25, Greek yogurt 18,
+berries 16-18. The app surfaced his habits back to him.
+
+ALMOND FLOUR — same SKU (1178969), same 3 lb bag, 7 purchases:
+$9.99 Cypress (2023-12) / $11.89 Fremont + Newark (2025) /
+$13.59 NE San Jose + Newark (2026-07, 2026-09) /
+$16.49 Newark (2026-10-22) / $16.99 Pentagon City (2026-10-26).
+A $9.99-$16.99 spread on an identical bag. Honesty nuance: the
+spread is part time (prices rose over 3 years), part place
+(same-month store variance is real: $16.49 vs $16.99 in one week).
+Script line should say "at one Costco... at another," not claim
+same-day arbitrage.
+
+Placement: this is the BRIDGE, right after the WHY (~0:15-0:40).
+It proves the receipt premise on real data before the WHAT starts.
+
+Proposed beat (~24s, 59 words):
+"I didn't have my receipts — I'd thrown them away, like everyone.
+So I downloaded 114 from the Costco app and fed them to Arya. It
+knew my habits cold: egg whites in 35 of 114 trips. And the same
+bag of almond flour — $13.59 at one Costco, $16.99 at another.
+I'd paid both, happily, for years."
+
+Naming Costco: recommend YES in narration — it is factual personal
+backstory (nominative use), and specificity is what makes it
+believable. The standing no-Costco rule governs the in-app DEMO
+data (fictional stores), not the owner's true story. Owner's call.
