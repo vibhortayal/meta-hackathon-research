@@ -302,3 +302,15 @@ texts, apps — and none of it connects. Every big store has its
 own app, only for that store. The small store near my house has
 nothing — no prices, no stock. And the store is made to sell
 you more, not to get you out faster."
+
+## Status 2026-11-01: Beat 1 LOCKED (v7). Beat 2 tightened (v8)
+
+BEAT 2 v8 (~22s, 55 words): "Why community? Because no store
+will fix this. A store won't tell you another store's price.
+Things change every day — items finish, items move. Only the
+people in the store know. And we already help each other —
+someone asks, someone answers. That help goes nowhere. If we
+shared what we see, every trip gets easier."
+
+Only remaining cut available: the "someone asks, someone
+answers" texture line (~2s) — kept for spoken life.
