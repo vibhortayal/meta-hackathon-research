@@ -222,3 +222,36 @@ what's cheaper somewhere else. But that stays with them. I
 had the same problem. I didn't have one receipt saved. I had
 to download them from the Costco app to see what I actually
 buy."
+
+## WHY v5 — beat structure (owner direction, 2026-11-01)
+
+Owner restructured the WHY into named beats. Two beats, then
+the personal bridge into the WHAT.
+
+BEAT 1 — WHY GROCERY MANAGEMENT (~40s)
+"Groceries are a big part of life. It is the food we eat at
+home, what we feed our family. We spend a lot of money on it,
+every week. But the way we manage it is all over the place.
+My list is in my notes. My wife sends hers on WhatsApp. I
+throw the receipts away. Every big store has its own app,
+and it only works for that store. The small store near my
+house has nothing — you can't check a price, you can't check
+stock. And the store is made to sell you more, not to get
+you out faster."
+
+BEAT 2 — WHY COMMUNITY (~30s)
+"So why community? Because no store is going to fix this.
+One store will never tell you the price in another store.
+And stock changes every day — something is finished,
+something moved. The only people who know are the people
+who shop there. We already help each other in the store.
+Somebody asks, where is this, and somebody answers. That
+help just goes nowhere today. If shoppers share what they
+see, everybody's trip gets easier."
+
+BRIDGE (personal, ~10s, into the WHAT)
+"I had the same problem. I didn't have one receipt saved.
+I had to download them from the Costco app to see what I
+actually buy."
+
+Running total: WHY ~1:10 + bridge ~0:10. WHAT gets ~1:40.
