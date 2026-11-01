@@ -769,3 +769,22 @@ AI does the remembering. We do the shopping, and we help
 each other. This is Arya."
 End card: "Arya — the list that writes itself · Team
 Nightshift · Built on Meta Muse models"
+
+## Yogurt beat (owner, 2026-11-01)
+
+Owner wants a yogurt reference: running out of yogurt and it
+going on the list. Grounded in his real data — Greek yogurt
+is in 18 of his 114 receipts — and a real feature (Guide,
+Running low card: say "we finished the yogurt" and Arya adds
+it to the right store's list). Goes in AT HOME:
+
+AT HOME v3 (~0:16): "At home, it keeps watching. The eggs
+are cheaper at the other store, and it tells me. The spinach
+will go bad soon, and it tells me to use it first. I finish
+the yogurt, I tell Arya we're out, and it's on the list."
+
+Adds ~4s; the pending Beat 1 trim ("You walk up and down...")
+covers it. NOTE: owner called this a subtle hint to "the
+Alexander Wang yogurt" — Spark could not pin that reference
+(only the 2014 Wang fro-yo truck, black-and-white, "Eat Me").
+Kept as a plain yogurt moment pending his steer.
