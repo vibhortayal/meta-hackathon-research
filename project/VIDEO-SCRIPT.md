@@ -637,3 +637,63 @@ remembering. We do the shopping, and we help each other.
 This is Arya."
 End card: "Arya — the list that writes itself · Team
 Nightshift · Built on Meta Muse models"
+
+## Script v3 — Meta models shown IN the walkthrough (owner, 2026-11-01)
+
+Owner direction: as we walk through the app, show where each
+Meta model is used, explain the model choices, and cover the
+other Meta products. Method: on-screen TAGS at each moment do
+most of the work; narration carries only the three choices
+worth saying out loud (Wonder for receipts, SAM+Spark double
+check, math in code). Full stack card stays at the close.
+
+MODEL MAP (moment -> product -> why chosen):
+- Receipt photo decode -> Muse Wonder (primary). Tested on
+  real receipts: 97/98 lines, 0 price errors vs Spark 92/98
+  with 4. A wrong price is worse than a slow answer. Spark is
+  the automatic fallback; low-confidence lines go to review.
+- Paper-list photos, order text, receipt PDFs, Ask Arya,
+  staple judge, shelf labels -> Muse Spark 1.3 Standard.
+  The workhorse: cheap and fast at volume.
+- Voice (list mic, Ask mic) -> Muse Voice Transcribe.
+- Shelf camera (Find it for me, Shelf Scan) -> SAM 3.1 boxes
+  candidates, Muse Spark verifies each crop. Two models, so
+  a highlight is never a guess.
+- Store mapping -> SAM 3.1 segments shelves + finds people to
+  blur; Spark labels; VGGT (Meta AI research, not on the
+  event list) builds geometry — supporting, not leading.
+- "Where am I?" localizer -> authored by Muse Wonder, runs
+  locally, no API call.
+- Celebration characters -> Muse Image (generated once,
+  shipped as assets).
+- All server calls -> Meta Model API (one client, daily
+  spend ceiling). Math (money, dates, patterns) = plain code.
+- NOT claimed: Muse Spark Open, Muse Glimmer (not run),
+  Muse Code (not used).
+
+PROOF v3 (~0:22): "I fed it the 114 receipts. Muse Wonder
+reads the receipt photos. We tested the models on real
+receipts first — Wonder read them best, no price errors, and
+a wrong price is worse than a slow answer. It found egg
+whites in 35 of those 114 trips. And the same almond flour,
+$13.59 at one Costco, $16.99 at another."
+
+ONE TRIP v3 (~0:40): "Now a normal trip. The list is already
+made, from what we buy. I add to it by typing, by voice —
+Muse Voice Transcribe — or a photo of the list. Before I go,
+Arya warns me the hummus is out — three neighbors reported
+it. In the store, it walks me item to item. I point the
+camera at a shelf, SAM 3.1 finds the item, Spark checks it —
+two models, never a guess. This shelf is empty, so I report
+it for the next shopper. A photo of the receipt ends the
+trip, and next week's list is already learning."
+
+CLOSE v3 (~0:12): "The math is plain code — no model touches
+your money. The AI does the remembering. We do the shopping,
+and we help each other. This is Arya." (Stack card on screen:
+Spark / Wonder / SAM 3.1 / Voice Transcribe / Muse Image /
+Meta Model API.)
+
+TIMING: v3 totals ~3:05 — ~5s over. Trim candidates if he
+wants it under: Beat 1 "You walk up and down, and you still
+miss things" (-4s).
