@@ -443,3 +443,11 @@ still miss things. And we run into friends and neighbors in
 the store. We talk about our hauls, what we didn't find,
 what's good, which store is better for what. That talk just
 stays in the store."
+
+## Beat 1 closing line — replacements (owner: "stays in the store" doesn't land)
+
+1. (recommended) "And then we go home, and it's gone."
+2. "That talk goes nowhere."
+3. "Nobody writes it down, so it only helps the two people
+   standing there."
+Pending owner pick.
