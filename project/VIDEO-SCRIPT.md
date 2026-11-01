@@ -703,7 +703,7 @@ miss things" (-4s).
 WHY and WHAT together. On-screen model tags ride the footage
 (receipt photo -> Wonder; list/Ask -> Spark; voice -> Voice
 Transcribe; shelf camera -> SAM 3.1 + Spark; characters ->
-Muse Image; all via Meta Model API). Runtime estimate ~2:35
+Muse Image; all via Meta Model API). Runtime estimate ~3:04
 at ~150wpm (Beat 2 cut 2026-11-01) — under the cap.
 
 BEAT 1 (~1:06)
@@ -755,6 +755,16 @@ AT HOME (~0:11)
 "At home, it keeps watching. The spinach will go bad soon,
 and it tells me to use it first. I finish the yogurt, I tell
 Arya we're out, and it's on the list."
+
+LIMITS (~0:29)
+"Honest limits: eight days is not enough for Arya to learn
+every store — the data just isn't there yet. And Arya
+depends on its community: a store nobody shops stays
+unknown. This is an incredibly hard problem. Every store is
+different, and everything in it moves. So I built feedback
+in everywhere. As I use it, as my friends use it, as you use
+it, it gets better — and I will keep fixing and adding,
+based on that feedback."
 
 CLOSE (~0:12; Meta stack card on screen 3s)
 "The math is plain code — no model touches your money. The
@@ -855,3 +865,16 @@ the Nov 4 amendment note — script, app and docs must agree.
    Owner wants learns / helps / help others. End card now:
    "Arya — learns how we shop, helps us help each other."
 Runtime ~2:35.
+
+## Honest limitations beat (owner, 2026-11-01)
+
+Owner ordered a limitations section: not enough data to
+train Arya in 8 days; Arya is community dependent; he built
+many ways to give feedback; as he, his friends, and the
+viewer use it, it gets better and he will fix/add from
+feedback; admit the problem is incredibly hard. Placed
+between AT HOME and CLOSE so the film still ends on the
+close. "Train" rendered as "learn" (Arya learns patterns in
+code; it does not train models). Runtime now ~3:04 — the
+Beat 1 "You walk up and down" line (-4s) brings it to ~3:00
+if he wants it inside the cap before the timed read.
