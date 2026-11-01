@@ -314,3 +314,22 @@ shared what we see, every trip gets easier."
 
 Only remaining cut available: the "someone asks, someone
 answers" texture line (~2s) — kept for spoken life.
+
+## Segue fix (owner catch, 2026-11-01): Beat 1 never mentions people
+
+Beat 2's "Why community?" came from nowhere — Beat 1 ends on
+stores, Beat 2 opens on community. Two options, pending pick:
+
+OPTION A (one line appended to Beat 1, nothing else moves):
+Beat 1 ends "...not to get you out faster. Most days, the only
+help you get in a store is another shopper." Beat 2 unchanged.
+
+OPTION B (recommended — move the texture to Beat 1's end):
+Beat 1 ends: "...not to get you out faster. And we already
+help each other there — someone asks, someone answers. That
+help just goes nowhere."
+Beat 2 becomes pure logic (~18s): "Why community? Because no
+store will fix this. A store won't tell you another store's
+price. Things change every day — items finish, items move.
+Only the people in the store know. If we shared what we see,
+every trip gets easier."
