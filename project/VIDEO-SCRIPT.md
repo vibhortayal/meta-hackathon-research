@@ -840,3 +840,19 @@ another."
 
 If adopted, also update: META-PRODUCTS.md, SUBMISSION-DRAFT,
 the Nov 4 amendment note — script, app and docs must agree.
+
+## Owner edits batch (2026-11-01 ~09:30)
+
+1. Beat 1: "And then we go home, and it's gone." CUT.
+2. Capstone -> first person: "Arya learns from my receipts,
+   and it holds what I share, so I don't start from zero
+   every week."
+3. Trip: hummus neighbor-warning CUT — owner cannot show it
+   in the demo (his account has no other users reporting).
+   Demo town can show it; his footage cannot.
+4. At home: eggs-cheaper line CUT — same showability problem,
+   and the price insight is already proven by almond flour.
+5. Tagline: "the list that writes itself" does not land.
+   Owner wants learns / helps / help others. End card now:
+   "Arya — learns how we shop, helps us help each other."
+Runtime ~2:35.
