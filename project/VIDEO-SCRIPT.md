@@ -178,3 +178,22 @@ what it costs. That knowledge walks out the door with them.
 I lived all of this. I didn't even keep my receipts — I had
 to download them from the Costco app to see what I was
 actually buying."
+
+## WHY draft v3 (2026-11-01) — simple spoken, no polish
+
+Owner: v2 still sounded written ("I lived all of this"). v3 is
+plain talk, short sentences, no crafted lines. 122 words,
+~50s spoken; to hit 45s cut the budget line and the last
+community clause.
+
+"Grocery shopping is all over the place. My list is in my
+notes. My wife sends hers on WhatsApp. I throw the receipts
+away. The budget is in another app. Every big store has its
+own app, and it only works for that store. The small store
+near my house has nothing — you can't check a price, you
+can't check stock. And the store is made to sell you more,
+not to get you out faster. The people shopping there know
+the store — what's finished, what moved, what's cheaper
+somewhere else. But that stays with them. I had the same
+problem. I didn't have one receipt saved. I had to download
+them from the Costco app to see what I actually buy."
