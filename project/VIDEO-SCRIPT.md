@@ -451,3 +451,16 @@ stays in the store."
 3. "Nobody writes it down, so it only helps the two people
    standing there."
 Pending owner pick.
+
+## Beat 2 rework (owner clarification, 2026-11-01)
+
+Owner: "why community" was his direction TO Spark about what
+the script must cover — NOT a line to say out loud. Beat labels
+are internal scaffolding, never narration. Beat 2 now opens
+with its thesis as a plain statement.
+
+BEAT 2 (current, ~20s): "The only people who know a store are
+the people who shop in it. A store won't tell you another
+store's price. Things change every day — items finish, items
+move — and only shoppers see it. If we shared what we see,
+every trip gets easier."
